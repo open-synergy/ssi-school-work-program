@@ -38,7 +38,6 @@ class WorkProgram(models.Model):
         "mixin.transaction_done",
         "mixin.transaction_open",
         "mixin.transaction_confirm",
-        "mixin.status_check",
         "mixin.company_currency",
     ]
     _description = "Work Program"
@@ -54,8 +53,6 @@ class WorkProgram(models.Model):
     _automatically_insert_view_element = True
     _automatically_insert_open_policy_fields = False
     _automatically_insert_open_button = False
-
-    _status_check_create_page = True
 
     _statusbar_visible_label = "draft,confirm,open,done"
     _policy_field_order = [

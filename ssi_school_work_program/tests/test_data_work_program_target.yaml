@@ -178,3 +178,40 @@ scenarios:
           participant_type: "student"
           grade_id: "REC: grade_a.id"
           quantity: 15
+
+  - name: "Work Program Does Not Carry Status Check Fields"
+    steps:
+      - step: "No status check field is defined on work program"
+        action: "search"
+        model: "ir.model.fields"
+        domain:
+          - ["model", "=", "work_program"]
+          - ["name", "in", ["status_check_template_id", "status_check_ids"]]
+        save_as: "status_check_fields"
+        expect_count: 0
+
+  - name: "Work Program Is Created With A Target Line"
+    steps:
+      - step: "Create work program with one target line"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Inline Target"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          target_ids:
+            - - 0
+              - 0
+              - participant_type: "teacher"
+                quantity: 3
+        asserts:
+          target_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 1
