@@ -921,7 +921,7 @@ odoo.define("ssi_school_work_program.work_program_tour", function (require) {
             {
                 content: "The button is gone",
                 trigger:
-                    ".o_statusbar_buttons:not(:has(button[name='action_create_analytic_account']))",
+                    ".o_statusbar_buttons:not(:has(button[name='action_create_analytic_account']:visible))",
                 run: function () {
                     // Assertion only; do not trigger the default click action.
                 },

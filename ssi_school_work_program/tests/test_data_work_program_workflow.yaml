@@ -232,6 +232,7 @@ scenarios:
         model: "base.cancel_reason"
         save_as: "reason"
         values:
+          code: "WPCR01"
           name: "Plan dropped"
       - step: "Cancel through the wizard"
         action: "wizard"
