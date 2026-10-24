@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-ssi_school_work_program',
+        'odoo14-addon-ssi_school_work_program_operating_unit',
     ],
     classifiers=[
         'Programming Language :: Python',
