@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ssi_school_work_program](ssi_school_work_program/) | 14.0.1.1.1 |  | School Work Program
+[ssi_school_work_program](ssi_school_work_program/) | 14.0.1.1.3 |  | School Work Program
 [ssi_school_work_program_operating_unit](ssi_school_work_program_operating_unit/) | 14.0.1.0.1 |  | School Work Program + Operating Unit
 
 [//]: # (end addons)
