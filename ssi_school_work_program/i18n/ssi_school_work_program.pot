@@ -1,0 +1,2139 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_school_work_program
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Change work program occurrence status (%s)\n"
+"Database ID: %s\n"
+"Problem: The occurrence cannot be changed from status '%s'\n"
+"Solution: Check the status of the occurrence before running this action\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Generate work program occurrence\n"
+"Database ID: %s\n"
+"Problem: The work program has no frequency set\n"
+"Solution: Select a frequency set, then generate the occurrence again\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_objective.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program objective values\n"
+"Database ID: %s\n"
+"Problem: Baseline value and target value must not be negative\n"
+"Solution: Enter zero or a positive value\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program occurrence dates\n"
+"Database ID: %s\n"
+"Problem: Date End is earlier than Date Start\n"
+"Solution: Enter a Date End on or after the Date Start\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program occurrence dates\n"
+"Database ID: %s\n"
+"Problem: The occurrence dates are outside the work program period\n"
+"Solution: Choose dates between %s and %s\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program occurrence time\n"
+"Database ID: %s\n"
+"Problem: Time End must be later than Time Start\n"
+"Solution: Enter an end time later than the start time\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program period\n"
+"Database ID: %s\n"
+"Problem: Date End is earlier than Date Start\n"
+"Solution: Enter a Date End on or after the Date Start\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_rundown.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program rundown date\n"
+"Database ID: %s\n"
+"Problem: The date is outside the period of the occurrence\n"
+"Solution: Choose a date between %s and %s\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_rundown.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program rundown time\n"
+"Database ID: %s\n"
+"Problem: Time End must be later than Time Start\n"
+"Solution: Enter an end time later than the start time\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_target.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program target\n"
+"Database ID: %s\n"
+"Problem: Grade is required when the participant type is Student\n"
+"Solution: Select the grade of the targeted students\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_target.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program target\n"
+"Database ID: %s\n"
+"Problem: Participant type '%s' with grade '%s' is already targeted\n"
+"Solution: Edit the existing line instead of adding a duplicate\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_target.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program target quantity\n"
+"Database ID: %s\n"
+"Problem: Quantity must be greater than zero\n"
+"Solution: Enter the planned number of participants\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__name
+msgid "# Document"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__work_program_id
+msgid "# Work Program"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__academic_year_id
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Academic Year"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__academic_year_id
+msgid "Academic year this work program is planned for."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_needaction
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_needaction
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_needaction
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_needaction
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__active
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__active
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__active
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__active
+msgid "Active"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__active_approval_ids
+msgid "Active Approvals"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__active_approver_partner_ids
+msgid "Active Partners"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__active_approver_user_ids
+msgid "Active Users"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__name
+msgid "Activity"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program__planning_cycle__additional
+msgid "Additional"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Additional Cycle"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_all_group
+msgid "All"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__allowed_policy_template_ids
+msgid "Allowed Policy Templates"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_form
+msgid "Analytic"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__analytic_account_id
+msgid "Analytic Account"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__analytic_group_id
+msgid "Analytic Group"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__analytic_group_id
+msgid ""
+"Analytic account group assigned to the analytic account that is created for "
+"the work programs of this type. Leave empty to create the analytic account "
+"without a group."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__analytic_account_id
+msgid ""
+"Analytic account of the program, used by other features to attach their "
+"records to it. It is created from the button or automatically when the "
+"program is opened."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__approval_template_id
+msgid "Approval Configuration"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__approval_template_id
+msgid "Approval Template"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__approval_ids
+msgid "Approvals"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__approve_ok
+msgid ""
+"Approve policy\n"
+"\n"
+"* If active user can see and execute 'Approve' button"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__approved
+msgid "Approved"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Background"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__background_context
+msgid "Background: Context"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__background_need
+msgid "Background: Need"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__baseline_value
+msgid "Baseline Value"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__budget_ceiling
+msgid "Budget Ceiling"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__approve_ok
+msgid "Can Approve"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__cancel_ok
+msgid "Can Cancel"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__confirm_ok
+msgid "Can Confirm"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__create_analytic_account_ok
+msgid "Can Create Analytic Account"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__done_ok
+msgid "Can Finished"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__generate_occurrence_ok
+msgid "Can Generate Occurrence"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__manual_number_ok
+msgid "Can Input Manual Document Number"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__reject_ok
+msgid "Can Reject"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__restart_ok
+msgid "Can Restart"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__restart_approval_ok
+msgid "Can Restart Approval"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__open_ok
+msgid "Can Start"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__cancel_reason_id
+msgid "Cancel Reason"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__cancel_ok
+msgid ""
+"Cancel policy\n"
+"\n"
+"* If active user can see and execute 'Cancel' button"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Cancel this occurrence. Are you sure?"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__state__cancel
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Cancelled"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_category_menu
+msgid "Categories"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__category_id
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Category"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__category_id
+msgid "Category used to classify and group the work program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__planning_complete
+msgid ""
+"Checked when every planning section required by the type of the program is "
+"filled in. It is informative only and does not block the confirmation of the"
+" program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_committee_ok
+msgid ""
+"Checked when the committee section is filled in, i.e. there is at least one "
+"committee member line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_material_ok
+msgid ""
+"Checked when the material section is filled in, i.e. there is at least one "
+"material line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_need_ok
+msgid ""
+"Checked when the need section is filled in, i.e. there is at least one need "
+"line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_objective_ok
+msgid ""
+"Checked when the objective section is filled in, i.e. there is at least one "
+"objective line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_occurrence_ok
+msgid ""
+"Checked when the occurrence section is filled in, i.e. there is at least one"
+" occurrence that is not cancelled."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_resource_ok
+msgid ""
+"Checked when the resource section is filled in, i.e. there is at least one "
+"resource person line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_rundown_ok
+msgid ""
+"Checked when the rundown section is filled in, i.e. there is at least one "
+"occurrence that is not cancelled and every such occurrence has at least one "
+"rundown line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_target_ok
+msgid ""
+"Checked when the target section is filled in, i.e. there is at least one "
+"participant target line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__code
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__code
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__code
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__code
+msgid "Code"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__committee_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Committee"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_role_menu
+msgid "Committee Roles"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_committee_ok
+msgid "Committee Section Complete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__company_id
+#: model:res.groups,name:ssi_school_work_program.work_program_company_group
+msgid "Company"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__company_currency_id
+msgid "Company Currency"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__company_partner_id
+msgid "Company Partner"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_company_child_group
+msgid "Company and All Child Companies"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__company_id
+msgid ""
+"Company that own the document\n"
+"\n"
+"* Automatically filled with user's company.\n"
+"  Default company can be changed"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Completeness"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__confirm_ok
+msgid ""
+"Confirm policy\n"
+"\n"
+"* If active user can see and execute 'Confirm' button"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Create Analytic Account"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Create the analytic account of this program. Are you sure?"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__participant_criteria
+msgid "Criteria used to select the participants of the program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__date
+msgid "Date"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__date_end
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__date_end
+msgid "Date End"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__date_start
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__date_start
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Date Start"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__date
+msgid ""
+"Day of the rundown line. It starts equal to the start date of the occurrence"
+" and can be moved inside the occurrence period."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__description
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__description
+msgid "Description"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__target_description
+msgid "Description of the expected result of a qualitative indicator."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_school_academic_year__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__state__done
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Done"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__done_ok
+msgid ""
+"Done policy\n"
+"\n"
+"* If active user can see and execute 'Done' button"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__employee_id
+msgid "Employee"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__pic_id
+msgid "Employee responsible for this slot."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_committee__employee_id
+msgid "Employee who is a member of the committee."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__pic_id
+msgid "Employee who is responsible for the whole program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__committee_ids
+msgid "Employees who form the committee of the program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__time_end
+msgid "End time of day of the rundown line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__need_ids
+msgid "Equipment, venues and supplies the program needs."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__date_start
+msgid "First day of the occurrence."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__date_start
+msgid ""
+"First day of the period in which the program is carried out. It is also the "
+"date used by the document number sequence."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__activity_type_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__activity_type_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__activity_type_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__activity_type_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__description
+msgid "Free text clarifying who exactly is targeted by this line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__uom_name
+msgid "Free text unit of measure of the baseline and target values."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__frequency_set_id
+msgid "Frequency Set"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Generate Occurrence"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Generate the occurrence dates from the frequency set. Are you sure?"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__grade_id
+msgid "Grade"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__grade_id
+msgid ""
+"Grade of the targeted students. Required when the participant type is "
+"Student, optional otherwise."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_category_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_role_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_strategic_objective_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__target_ids
+msgid "Groups of intended participants and their planned numbers."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_school_academic_year__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__id
+msgid "ID"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__activity_exception_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__activity_exception_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__activity_exception_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__activity_exception_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_committee
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" committee members section is filled in."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_material
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" materials section is filled in."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_need
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" needs section is filled in."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_resource
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" non-committee resource persons section is filled in."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_objective
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" objectives and indicators section is filled in."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_occurrence
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" occurrence dates section is filled in."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_target
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" participant targets section is filled in."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_rundown
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" rundown (schedule of activities) section is filled in."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_unread
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_unread
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_unread
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_unread
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_has_error
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_has_error
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_has_error
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_has_error
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__indicator
+msgid "Indicator"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_is_follower
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_is_follower
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_is_follower
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_is_follower
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__kind
+msgid "Kind"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__participant_type
+msgid "Kind of participants this line targets."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_school_academic_year____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_school_academic_year__work_program_planning_deadline
+msgid ""
+"Last date on which work programs of this academic year are still planned in "
+"the regular cycle. Work programs created after this date are flagged as "
+"additional. Leave empty if the regular cycle has no deadline."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__date_end
+msgid ""
+"Last day of the occurrence. It starts equal to the start date and can be "
+"moved forward for an occurrence lasting several days."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__date_end
+msgid "Last day of the period in which the program is carried out."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__location
+msgid "Location"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_material__description
+msgid "Longer description of the material and how it is used."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__manual_number_ok
+msgid ""
+"Manual number assignment policy\n"
+"\n"
+"* If active user can edit document number"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__active
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__active
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__active
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__active
+msgid ""
+"Master data status\n"
+"\n"
+"* Inactive data can not be selected when creating new transaction\n"
+"* Transaction with inactive master data can still be viewed\n"
+"* Set master data as inactive if master data no longger needed,\n"
+"but master data already used on transaction"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__code
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__code
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__code
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__code
+msgid ""
+"Master data unique identifier.\n"
+"\n"
+"* Fill with '/' if You do not need unique identifier\n"
+"* Click 'Generate Code' button to automatically assign code.\n"
+"  Sequence template mush be set to perform this action\n"
+"  Only master data with '/' code will be assign automatic code"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__name
+msgid "Material"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_material_ok
+msgid "Material Section Complete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__material_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Materials"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__material_ids
+msgid "Materials prepared for the program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__budget_ceiling
+msgid ""
+"Maximum budget the program may use. The budget itself is managed on the "
+"analytic account of the program, not here."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__indicator
+msgid "Measure used to tell whether the objective has been achieved."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__measurement_type
+msgid "Measurement Type"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_has_error
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_has_error
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_has_error
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_has_error
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__verification
+msgid "Method or source used to verify the indicator."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__name
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_category_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_role_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_strategic_objective_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_search
+msgid "Name"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__name
+msgid "Need"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_need_ok
+msgid "Need Section Complete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__need_validation
+msgid "Need Validation"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__need_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Needs"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_summary
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_summary
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_summary
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_summary
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__next_approval_ids
+msgid "Next Approvals"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__note
+msgid "Note"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_needaction_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_needaction_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_needaction_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_needaction_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_has_error_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_has_error_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_has_error_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_has_error_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_unread_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_unread_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_unread_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_unread_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_objective__measurement_type__numeric
+msgid "Numeric"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__measurement_type
+msgid ""
+"Numeric indicators use the baseline and target values; qualitative "
+"indicators use the target description."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__name
+msgid "Objective"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_objective_ok
+msgid "Objective Section Complete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__objective_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Objectives"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__occurrence_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__occurrence_id
+msgid "Occurrence"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_occurrence_ok
+msgid "Occurrence Section Complete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_need__occurrence_id
+msgid ""
+"Occurrence of the same work program on which this need is used. Leave empty "
+"if it applies to the whole program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__occurrence_id
+msgid "Occurrence of the work program this rundown line belongs to."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__occurrence_ids
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_occurrence_menu
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Occurrences"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__time_end
+msgid "Optional end time of day of the occurrence."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__time_start
+msgid "Optional start time of day of the occurrence."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__other
+msgid "Other"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_objective__kind__outcome
+msgid "Outcome"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__kind
+msgid ""
+"Outcome is the change the program is meant to bring about; output is the "
+"direct product it delivers."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_objective__kind__output
+msgid "Output"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__parent
+msgid "Parent"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__participant_criteria
+msgid "Participant Criteria"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__target_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Participant Targets"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__participant_type
+msgid "Participant Type"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__resource_ids
+msgid "People taking part in the program who are not in the committee."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__pic_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__pic_id
+msgid "Person in Charge"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_resource__partner_id
+msgid "Person or organization providing the resource."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__state__planned
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Planned"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__state
+msgid ""
+"Planned = still to be carried out, Done = carried out, Cancelled = will not "
+"take place."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__occurrence_ids
+msgid "Planned implementation dates of the program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__quantity
+msgid "Planned number of participants for this line. Must be positive."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__objective_ids
+msgid "Planned objectives with their indicators, baseline and target."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_need__quantity
+msgid "Planned quantity of the need."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__planning_complete
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Planning Complete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__planning_cycle
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Planning Cycle"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Planning Incomplete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_form
+msgid "Planning Requirements"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__policy_template_id
+msgid "Policy Template"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__create_analytic_account_ok
+msgid ""
+"Policy that determines whether the Create Analytic Account button is "
+"visible."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__generate_occurrence_ok
+msgid ""
+"Policy that determines whether the Generate Occurrence button is visible."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_objective__measurement_type__qualitative
+msgid "Qualitative"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__quantity
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__frequency_set_id
+msgid ""
+"Recurrence rules used to generate the occurrence dates of the program "
+"between its start and end date."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program__planning_cycle__regular
+msgid "Regular"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Regular Cycle"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__planning_cycle
+msgid ""
+"Regular when the program is planned on or before the planning deadline of "
+"its academic year (or the year has no deadline); Additional otherwise. It is"
+" proposed automatically and can be changed while the program is in draft."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__reject_ok
+msgid ""
+"Reject policy\n"
+"\n"
+"* If active user can see and execute 'Reject' button"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__rejected
+msgid "Rejected"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_committee
+msgid "Require Committee"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_material
+msgid "Require Material"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_need
+msgid "Require Need"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_objective
+msgid "Require Objective"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_occurrence
+msgid "Require Occurrence"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_resource
+msgid "Require Resource"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_rundown
+msgid "Require Rundown"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_target
+msgid "Require Target"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_form
+msgid "Required Sections"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Reset to Planned"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__resource_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Resource Persons"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_resource_ok
+msgid "Resource Section Complete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__restart_approval_ok
+msgid ""
+"Restart approval policy\n"
+"\n"
+"* If active user can see and execute 'Restart Approval' button"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__restart_ok
+msgid ""
+"Restart policy\n"
+"\n"
+"* If active user can see and execute 'Restart' button"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__reviewer_id
+msgid "Reviewer"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__role_id
+msgid "Role"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__role_description
+msgid "Role Description"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_committee__role_id
+msgid "Role of the employee in the committee."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__rundown_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Rundown"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_rundown_ok
+msgid "Rundown Section Complete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__rundown_ids
+msgid "Schedule of activities that make up this occurrence."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__school_id
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "School"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_school_academic_year
+msgid "School Academic Year"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__school_id
+msgid "School that carries out this work program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__name
+msgid "Short label of the occurrence, for example the session name."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__title
+msgid "Short name of the activity planned by this work program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_need__name
+msgid "Short name of the equipment, venue or supply that is needed."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_material__name
+msgid "Short name of the material."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__staff
+msgid "Staff"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__open_ok
+msgid ""
+"Start policy\n"
+"\n"
+"* If active user can see and execute 'Start' button"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__time_start
+msgid "Start time of day of the rundown line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__state
+msgid "State"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__name
+msgid "Statement of what the program intends to achieve."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__state
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Status"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__status_check_ids
+msgid "Status Check"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__status_check_template_id
+msgid "Status Check Template"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__activity_state
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__activity_state
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__activity_state
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__activity_state
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__strategic_objective_id
+msgid "Strategic Objective"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_strategic_objective_menu
+msgid "Strategic Objectives"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__strategic_objective_id
+msgid "Strategic objective of the school this program contributes to."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__student
+msgid "Student"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__target_description
+msgid "Target Description"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_target_ok
+msgid "Target Section Complete"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__target_value
+msgid "Target Value"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__teacher
+msgid "Teacher"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__background_context
+msgid "The context and circumstances surrounding the program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__background_need
+msgid "The need or problem that makes this program necessary."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__time_end
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__time_end
+msgid "Time End"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__time_start
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__time_start
+msgid "Time Start"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__title
+msgid "Title"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__name
+msgid ""
+"Transaction/document number\n"
+"\n"
+"* Unique indentifer of transaction\n"
+"* Leave '/' to automatically generate number\n"
+"* Change '/' into any number/identifier to manually assign number.\n"
+"  Manual number assignment can be done in 'Draft' state\n"
+"  Only user with 'Can Manualy Assign Number' policy can manually assign number.\n"
+"* Transaction with number other than '/' can not be deleted."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__type_id
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Type"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__type_id
+msgid ""
+"Type of the work program. It decides which planning sections are mandatory "
+"and the analytic group of the analytic account."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_type_menu
+msgid "Types"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__uom_name
+msgid "Unit"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_unread
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_unread
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_unread
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_unread
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_user_group
+msgid "User"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__user_id
+msgid ""
+"User that responsible for document\n"
+"\n"
+"* Create user can be different with responsible user\n"
+"* Automatically filled with user that initiate document creation.\n"
+"  Default responsible can be changed."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__reviewer_id
+msgid ""
+"User that responsible to review document\n"
+"\n"
+"* Unless it configured to approve reviewer does not equal to approver"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__active_approver_user_ids
+msgid "Users that can approve/reject document"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_validator_group
+msgid "Validator"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__baseline_value
+msgid "Value of the indicator before the program starts."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__target_value
+msgid "Value of the indicator the program aims to reach."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__location
+msgid "Venue where the occurrence takes place."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__verification
+msgid "Verification"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_viewer_group
+msgid "Viewer"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__website_message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__website_message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__website_message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__website_message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__website_message_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__website_message_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__website_message_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__website_message_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__name
+msgid "What takes place during this slot."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_resource__role_description
+msgid "What this resource person does in the program."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program
+#: model:ir.module.category,name:ssi_school_work_program.work_program_data_ownership_module_category
+#: model:ir.module.category,name:ssi_school_work_program.work_program_workflow_module_category
+#: model:ir.ui.menu,name:ssi_school_work_program.menu_work_program_configuration
+#: model:ir.ui.menu,name:ssi_school_work_program.menu_work_program_root
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Work Program"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_category_action
+msgid "Work Program Categories"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_category
+#: model:res.groups,name:ssi_school_work_program.work_program_category_group
+msgid "Work Program Category"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_committee
+msgid "Work Program Committee"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_role
+msgid "Work Program Committee Role"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_material
+msgid "Work Program Material"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_need
+msgid "Work Program Need"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_objective
+msgid "Work Program Objective"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_occurrence
+msgid "Work Program Occurrence"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_occurrence_action
+msgid "Work Program Occurrences"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_school_academic_year__work_program_planning_deadline
+msgid "Work Program Planning Deadline"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_resource
+msgid "Work Program Resource"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_role_group
+msgid "Work Program Role"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_role_action
+msgid "Work Program Roles"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_rundown
+msgid "Work Program Rundown"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_strategic_objective
+#: model:res.groups,name:ssi_school_work_program.work_program_strategic_objective_group
+msgid "Work Program Strategic Objective"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_strategic_objective_action
+msgid "Work Program Strategic Objectives"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_target
+msgid "Work Program Target"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_type
+#: model:res.groups,name:ssi_school_work_program.work_program_type_group
+msgid "Work Program Type"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_type_action
+msgid "Work Program Types"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_action
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_menu
+msgid "Work Programs"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_committee__work_program_id
+msgid "Work program this committee member belongs to."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_material__work_program_id
+msgid "Work program this material belongs to."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_need__work_program_id
+msgid "Work program this need belongs to."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__work_program_id
+msgid "Work program this objective belongs to."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__work_program_id
+msgid "Work program this occurrence belongs to."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__work_program_id
+msgid "Work program this participant target belongs to."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_resource__work_program_id
+msgid "Work program this resource person belongs to."
+msgstr ""
