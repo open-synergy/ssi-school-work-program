@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="work_program_view_search" model="ir.ui.view">
+    <field name="name">work_program - search</field>
+    <field name="model">work_program</field>
+    <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//search" position="inside">
+                <field name="title" />
+                <field name="school_id" />
+                <field name="academic_year_id" />
+                <field name="type_id" />
+                <field name="category_id" />
+                <field name="pic_id" />
+                <filter
+                        name="filter_regular"
+                        string="Regular Cycle"
+                        domain="[('planning_cycle','=','regular')]"
+                    />
+                <filter
+                        name="filter_additional"
+                        string="Additional Cycle"
+                        domain="[('planning_cycle','=','additional')]"
+                    />
+                <filter
+                        name="filter_complete"
+                        string="Planning Complete"
+                        domain="[('planning_complete','=',True)]"
+                    />
+                <filter
+                        name="filter_incomplete"
+                        string="Planning Incomplete"
+                        domain="[('planning_complete','=',False)]"
+                    />
+                <group expand="0" string="Group By">
+                    <filter
+                            name="group_by_school_id"
+                            string="School"
+                            context="{'group_by': 'school_id'}"
+                        />
+                    <filter
+                            name="group_by_academic_year_id"
+                            string="Academic Year"
+                            context="{'group_by': 'academic_year_id'}"
+                        />
+                    <filter
+                            name="group_by_type_id"
+                            string="Type"
+                            context="{'group_by': 'type_id'}"
+                        />
+                    <filter
+                            name="group_by_category_id"
+                            string="Category"
+                            context="{'group_by': 'category_id'}"
+                        />
+                    <filter
+                            name="group_by_planning_cycle"
+                            string="Planning Cycle"
+                            context="{'group_by': 'planning_cycle'}"
+                        />
+                </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="work_program_view_tree" model="ir.ui.view">
+    <field name="name">work_program - tree</field>
+    <field name="model">work_program</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="title" />
+                <field name="school_id" />
+                <field name="academic_year_id" />
+                <field name="type_id" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="category_id" optional="hide" />
+                <field name="pic_id" optional="hide" />
+                <field name="planning_cycle" optional="hide" />
+                <field name="planning_complete" optional="hide" />
+                <field name="budget_ceiling" optional="hide" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="work_program_view_form" model="ir.ui.view">
+    <field name="name">work_program - form</field>
+    <field name="model">work_program</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//header" position="inside">
+                <button
+                        name="action_generate_occurrence"
+                        type="object"
+                        string="Generate Occurrence"
+                        confirm="Generate the occurrence dates from the frequency set. Are you sure?"
+                        attrs="{'invisible':[('generate_occurrence_ok','=',False)]}"
+                    />
+                <button
+                        name="action_create_analytic_account"
+                        type="object"
+                        string="Create Analytic Account"
+                        confirm="Create the analytic account of this program. Are you sure?"
+                        attrs="{'invisible':['|',('create_analytic_account_ok','=',False),('analytic_account_id','!=',False)]}"
+                    />
+            </xpath>
+            <xpath expr="//group[@name='header_left']" position="inside">
+                <field name="title" />
+                <field name="school_id" />
+                <field name="academic_year_id" />
+                <field name="type_id" />
+                <field name="category_id" />
+                <field name="strategic_objective_id" />
+                <field name="pic_id" />
+            </xpath>
+            <xpath expr="//group[@name='header_right']" position="inside">
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="planning_cycle" />
+                <field name="budget_ceiling" />
+                <field name="company_currency_id" invisible="1" />
+                <field name="frequency_set_id" />
+                <field name="analytic_account_id" />
+                <field name="planning_complete" />
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="background" string="Background">
+                    <group name="background_1" colspan="4" col="2">
+                        <field name="background_need" />
+                        <field name="background_context" />
+                        <field name="participant_criteria" />
+                    </group>
+                </page>
+                <page name="target" string="Participant Targets">
+                    <field name="target_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="participant_type" />
+                            <field name="grade_id" />
+                            <field name="description" />
+                            <field name="quantity" />
+                        </tree>
+                        <form>
+                            <group name="target_form" colspan="4" col="2">
+                                <field name="participant_type" />
+                                <field name="grade_id" />
+                                <field name="description" />
+                                <field name="quantity" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+                <page name="objective" string="Objectives">
+                    <field name="objective_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="kind" />
+                            <field name="name" />
+                            <field name="indicator" />
+                            <field name="measurement_type" />
+                            <field name="baseline_value" />
+                            <field name="target_value" />
+                            <field name="uom_name" />
+                        </tree>
+                        <form>
+                            <group name="objective_form" colspan="4" col="2">
+                                <field name="kind" />
+                                <field name="name" />
+                                <field name="indicator" />
+                                <field name="measurement_type" />
+                                <field name="baseline_value" />
+                                <field name="target_value" />
+                                <field name="uom_name" />
+                                <field name="target_description" />
+                                <field name="verification" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+                <page name="committee" string="Committee">
+                    <field name="committee_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="employee_id" />
+                            <field name="role_id" />
+                        </tree>
+                        <form>
+                            <group name="committee_form" colspan="4" col="2">
+                                <field name="employee_id" />
+                                <field name="role_id" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+                <page name="material" string="Materials">
+                    <field name="material_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="name" />
+                            <field name="description" />
+                        </tree>
+                        <form>
+                            <group name="material_form" colspan="4" col="2">
+                                <field name="name" />
+                                <field name="description" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+                <page name="resource" string="Resource Persons">
+                    <field name="resource_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="partner_id" />
+                            <field name="role_description" />
+                        </tree>
+                        <form>
+                            <group name="resource_form" colspan="4" col="2">
+                                <field name="partner_id" />
+                                <field name="role_description" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+                <page name="need" string="Needs">
+                    <field name="need_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="name" />
+                            <field name="quantity" />
+                            <field name="occurrence_id" />
+                        </tree>
+                        <form>
+                            <group name="need_form" colspan="4" col="2">
+                                <field name="name" />
+                                <field name="quantity" />
+                                <field
+                                        name="occurrence_id"
+                                        domain="[('work_program_id','=',parent.id)]"
+                                    />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+                <page name="occurrence" string="Occurrences">
+                    <field name="occurrence_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="name" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="time_start" widget="float_time" />
+                            <field name="time_end" widget="float_time" />
+                            <field name="location" />
+                            <field name="state" />
+                        </tree>
+                        <form>
+                            <group name="occurrence_form" colspan="4" col="2">
+                                <field name="name" />
+                                <field name="date_start" />
+                                <field name="date_end" />
+                                <field name="time_start" widget="float_time" />
+                                <field name="time_end" widget="float_time" />
+                                <field name="location" />
+                                <field name="state" />
+                            </group>
+                            <field name="rundown_ids" nolabel="1" colspan="4">
+                                <tree>
+                                    <field name="date" />
+                                    <field name="time_start" widget="float_time" />
+                                    <field name="time_end" widget="float_time" />
+                                    <field name="name" />
+                                    <field name="pic_id" />
+                                </tree>
+                                <form>
+                                    <group name="rundown_form" colspan="4" col="2">
+                                        <field name="date" />
+                                        <field name="time_start" widget="float_time" />
+                                        <field name="time_end" widget="float_time" />
+                                        <field name="name" />
+                                        <field name="pic_id" />
+                                    </group>
+                                </form>
+                            </field>
+                        </form>
+                    </field>
+                </page>
+                <page name="completeness" string="Completeness">
+                    <group name="completeness_1" colspan="4" col="2">
+                        <field name="section_occurrence_ok" />
+                        <field name="section_target_ok" />
+                        <field name="section_objective_ok" />
+                        <field name="section_committee_ok" />
+                        <field name="section_material_ok" />
+                        <field name="section_resource_ok" />
+                        <field name="section_need_ok" />
+                        <field name="section_rundown_ok" />
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//group[@name='policy_2']" position="inside">
+                <field name="generate_occurrence_ok" />
+                <field name="create_analytic_account_ok" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="work_program_action" model="ir.actions.act_window">
+    <field name="name">Work Programs</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">work_program</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="work_program_menu"
+        name="Work Programs"
+        parent="menu_work_program_root"
+        action="work_program_action"
+        groups="work_program_viewer_group"
+        sequence="10"
+    />
+</odoo>

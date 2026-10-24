@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="policy_template_work_program" model="policy.template">
+    <field name="name">Standard</field>
+    <field name="model_id" ref="model_work_program" />
+    <field
+            name="state_field_id"
+            search="[('model_id.model','=','work_program'),('name','=','state')]"
+        />
+    <field name="sequence" eval="100" />
+    <field name="python_code">result=True</field>
+</record>
+
+<!-- Confirm -->
+<record id="policy_template_work_program_confirm" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','confirm_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','=','draft')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('work_program_user_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Approve -->
+<record id="policy_template_work_program_approve" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','approve_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','=','confirm')]"
+        />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- Reject -->
+<record id="policy_template_work_program_reject" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','reject_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','=','confirm')]"
+        />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- Restart Approval -->
+<record
+        id="policy_template_work_program_restart_approval"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','restart_approval_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','=','confirm')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('work_program_validator_group')])]" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if not document.approval_template_id:
+    result = True</field>
+</record>
+
+<!-- Done -->
+<record id="policy_template_work_program_done" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','done_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','=','open')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('work_program_user_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Cancel -->
+<record id="policy_template_work_program_cancel" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','cancel_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','in',['draft', 'confirm', 'open'])]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('work_program_validator_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Restart -->
+<record id="policy_template_work_program_restart" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','restart_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','in',['cancel', 'reject'])]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('work_program_validator_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Manual Number -->
+<record id="policy_template_work_program_manual_number" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','manual_number_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','=','draft')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('work_program_validator_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Generate Occurrence -->
+<record
+        id="policy_template_work_program_generate_occurrence"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','generate_occurrence_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','in',['draft', 'open'])]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('work_program_user_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- Create Analytic Account -->
+<record
+        id="policy_template_work_program_create_analytic_account"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="policy_template_work_program" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','work_program'),('name','=','create_analytic_account_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','work_program'),('value','in',['draft', 'confirm', 'open'])]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('work_program_user_group')])]" />
+    <field name="restrict_additional" eval="1" />
+    <field
+            name="additional_python_code"
+        >result = not document.analytic_account_id</field>
+</record>
+</odoo>

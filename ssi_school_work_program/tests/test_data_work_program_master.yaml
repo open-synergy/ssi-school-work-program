@@ -1,0 +1,214 @@
+scenarios:
+  - name: "CRUD Type"
+    steps:
+      - step: "Create Type"
+        action: "create"
+        model: "work_program_type"
+        save_as: "record"
+        values:
+          code: "/"
+          name: "Tour Type Test"
+      - step: "Assert created"
+        action: "assert"
+        target: "record"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Tour Type Test"
+          active:
+            type: "value"
+            expected: true
+      - step: "Edit Type"
+        action: "write"
+        target: "record"
+        values:
+          name: "Tour Type Test Edited"
+      - step: "Assert edited"
+        action: "assert"
+        target: "record"
+        asserts:
+          name:
+            type: "value"
+            expected: "Tour Type Test Edited"
+      - step: "Delete Type"
+        action: "unlink"
+        target: "record"
+      - step: "Verify deleted"
+        action: "search"
+        model: "work_program_type"
+        domain: [["name", "=", "Tour Type Test Edited"]]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "CRUD Category"
+    steps:
+      - step: "Create Category"
+        action: "create"
+        model: "work_program_category"
+        save_as: "record"
+        values:
+          code: "/"
+          name: "Tour Category Test"
+      - step: "Assert created"
+        action: "assert"
+        target: "record"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Tour Category Test"
+          active:
+            type: "value"
+            expected: true
+      - step: "Edit Category"
+        action: "write"
+        target: "record"
+        values:
+          name: "Tour Category Test Edited"
+      - step: "Assert edited"
+        action: "assert"
+        target: "record"
+        asserts:
+          name:
+            type: "value"
+            expected: "Tour Category Test Edited"
+      - step: "Delete Category"
+        action: "unlink"
+        target: "record"
+      - step: "Verify deleted"
+        action: "search"
+        model: "work_program_category"
+        domain: [["name", "=", "Tour Category Test Edited"]]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "CRUD Strategic Objective"
+    steps:
+      - step: "Create Strategic Objective"
+        action: "create"
+        model: "work_program_strategic_objective"
+        save_as: "record"
+        values:
+          code: "/"
+          name: "Tour Strategic Objective Test"
+      - step: "Assert created"
+        action: "assert"
+        target: "record"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Tour Strategic Objective Test"
+          active:
+            type: "value"
+            expected: true
+      - step: "Edit Strategic Objective"
+        action: "write"
+        target: "record"
+        values:
+          name: "Tour Strategic Objective Test Edited"
+      - step: "Assert edited"
+        action: "assert"
+        target: "record"
+        asserts:
+          name:
+            type: "value"
+            expected: "Tour Strategic Objective Test Edited"
+      - step: "Delete Strategic Objective"
+        action: "unlink"
+        target: "record"
+      - step: "Verify deleted"
+        action: "search"
+        model: "work_program_strategic_objective"
+        domain: [["name", "=", "Tour Strategic Objective Test Edited"]]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "CRUD Role"
+    steps:
+      - step: "Create Role"
+        action: "create"
+        model: "work_program_role"
+        save_as: "record"
+        values:
+          code: "/"
+          name: "Tour Role Test"
+      - step: "Assert created"
+        action: "assert"
+        target: "record"
+        asserts:
+          id:
+            type: "value"
+            operator: "is_truthy"
+          name:
+            type: "value"
+            expected: "Tour Role Test"
+          active:
+            type: "value"
+            expected: true
+      - step: "Edit Role"
+        action: "write"
+        target: "record"
+        values:
+          name: "Tour Role Test Edited"
+      - step: "Assert edited"
+        action: "assert"
+        target: "record"
+        asserts:
+          name:
+            type: "value"
+            expected: "Tour Role Test Edited"
+      - step: "Delete Role"
+        action: "unlink"
+        target: "record"
+      - step: "Verify deleted"
+        action: "search"
+        model: "work_program_role"
+        domain: [["name", "=", "Tour Role Test Edited"]]
+        save_as: "result"
+        expect_count: 0
+
+  - name: "Type Requirement Flags Default To True"
+    steps:
+      - step: "Create type"
+        action: "create"
+        model: "work_program_type"
+        save_as: "record"
+        values:
+          code: "/"
+          name: "Type Flags Default"
+      - step: "Assert every require flag is on"
+        action: "assert"
+        target: "record"
+        asserts:
+          require_occurrence:
+            type: "value"
+            expected: true
+          require_target:
+            type: "value"
+            expected: true
+          require_objective:
+            type: "value"
+            expected: true
+          require_committee:
+            type: "value"
+            expected: true
+          require_material:
+            type: "value"
+            expected: true
+          require_resource:
+            type: "value"
+            expected: true
+          require_need:
+            type: "value"
+            expected: true
+          require_rundown:
+            type: "value"
+            expected: true

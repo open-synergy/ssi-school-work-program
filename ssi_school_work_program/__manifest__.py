@@ -1,0 +1,55 @@
+# Copyright 2026 OpenSynergy Indonesia
+# Copyright 2026 PT. Simetri Sinergi Indonesia
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+{
+    "name": "School Work Program",
+    "version": "14.0.1.0.0",
+    "website": "https://simetri-sinergi.id",
+    # pylint: disable=line-too-long
+    "author": "PT. Simetri Sinergi Indonesia, OpenSynergy Indonesia, Odoo Community Association (OCA)",  # noqa: B950
+    # pylint: enable=line-too-long
+    "license": "AGPL-3",
+    "installable": True,
+    "application": False,
+    "depends": [
+        "ssi_school",
+        "ssi_transaction_confirm_mixin",
+        "ssi_transaction_open_mixin",
+        "ssi_transaction_done_mixin",
+        "ssi_transaction_cancel_mixin",
+        "ssi_status_check_mixin",
+        "ssi_company_currency_mixin",
+        "ssi_master_data_mixin",
+        "ssi_frequency",
+        "ssi_decorator",
+        "analytic",
+        "web_tour",
+    ],
+    "data": [
+        "security/ir_module_category/work_program.xml",
+        "security/res_groups/work_program_type.xml",
+        "security/res_groups/work_program_category.xml",
+        "security/res_groups/work_program_strategic_objective.xml",
+        "security/res_groups/work_program_role.xml",
+        "security/res_groups/work_program.xml",
+        "security/ir_model_access/work_program_type.xml",
+        "security/ir_model_access/work_program_category.xml",
+        "security/ir_model_access/work_program_strategic_objective.xml",
+        "security/ir_model_access/work_program_role.xml",
+        "security/ir_model_access/work_program.xml",
+        "security/ir_rule/work_program.xml",
+        "ir_sequence/work_program.xml",
+        "sequence_template/work_program.xml",
+        "approval_template/work_program.xml",
+        "policy_template/work_program.xml",
+        "menu.xml",
+        "views/work_program_type.xml",
+        "views/work_program_category.xml",
+        "views/work_program_strategic_objective.xml",
+        "views/work_program_role.xml",
+        "views/school_academic_year.xml",
+        "views/work_program.xml",
+        "views/work_program_occurrence.xml",
+        "views/assets.xml",
+    ],
+}

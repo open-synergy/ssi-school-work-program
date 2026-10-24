@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="work_program_occurrence_view_search" model="ir.ui.view">
+    <field name="name">work_program_occurrence - search</field>
+    <field name="model">work_program_occurrence</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="name" />
+            <field name="work_program_id" />
+            <field name="location" />
+            <filter
+                    name="filter_planned"
+                    string="Planned"
+                    domain="[('state','=','planned')]"
+                />
+            <filter name="filter_done" string="Done" domain="[('state','=','done')]" />
+            <filter
+                    name="filter_cancel"
+                    string="Cancelled"
+                    domain="[('state','=','cancel')]"
+                />
+            <separator />
+            <filter name="filter_date_start" string="Date Start" date="date_start" />
+            <group expand="0" string="Group By">
+                <filter
+                        name="group_by_work_program_id"
+                        string="Work Program"
+                        context="{'group_by': 'work_program_id'}"
+                    />
+                <filter
+                        name="group_by_state"
+                        string="Status"
+                        context="{'group_by': 'state'}"
+                    />
+                <filter
+                        name="group_by_date_start"
+                        string="Date Start"
+                        context="{'group_by': 'date_start:month'}"
+                    />
+            </group>
+        </search>
+    </field>
+</record>
+
+<record id="work_program_occurrence_view_tree" model="ir.ui.view">
+    <field name="name">work_program_occurrence - tree</field>
+    <field name="model">work_program_occurrence</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name" />
+            <field name="work_program_id" />
+            <field name="date_start" />
+            <field name="date_end" />
+            <field name="time_start" widget="float_time" optional="hide" />
+            <field name="time_end" widget="float_time" optional="hide" />
+            <field name="location" optional="hide" />
+            <field name="state" />
+        </tree>
+    </field>
+</record>
+
+<record id="work_program_occurrence_view_form" model="ir.ui.view">
+    <field name="name">work_program_occurrence - form</field>
+    <field name="model">work_program_occurrence</field>
+    <field name="arch" type="xml">
+        <form>
+            <header>
+                <button
+                        name="action_done"
+                        type="object"
+                        string="Done"
+                        class="oe_highlight"
+                        states="planned"
+                    />
+                <button
+                        name="action_cancel"
+                        type="object"
+                        string="Cancel"
+                        confirm="Cancel this occurrence. Are you sure?"
+                        states="planned"
+                    />
+                <button
+                        name="action_reset"
+                        type="object"
+                        string="Reset to Planned"
+                        states="done,cancel"
+                    />
+                <field name="state" widget="statusbar" />
+            </header>
+            <sheet>
+                <group name="header" colspan="4" col="2">
+                    <group name="header_left" colspan="1" col="2">
+                        <field name="work_program_id" />
+                        <field name="name" />
+                        <field name="location" />
+                    </group>
+                    <group name="header_right" colspan="1" col="2">
+                        <field name="date_start" />
+                        <field name="date_end" />
+                        <field name="time_start" widget="float_time" />
+                        <field name="time_end" widget="float_time" />
+                    </group>
+                </group>
+                <notebook>
+                    <page name="rundown" string="Rundown">
+                        <field name="rundown_ids" nolabel="1" colspan="4">
+                            <tree>
+                                <field name="date" />
+                                <field name="time_start" widget="float_time" />
+                                <field name="time_end" widget="float_time" />
+                                <field name="name" />
+                                <field name="pic_id" />
+                            </tree>
+                            <form>
+                                <group name="rundown_form" colspan="4" col="2">
+                                    <field name="date" />
+                                    <field name="time_start" widget="float_time" />
+                                    <field name="time_end" widget="float_time" />
+                                    <field name="name" />
+                                    <field name="pic_id" />
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="work_program_occurrence_action" model="ir.actions.act_window">
+    <field name="name">Work Program Occurrences</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">work_program_occurrence</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="work_program_occurrence_menu"
+        name="Occurrences"
+        parent="menu_work_program_root"
+        action="work_program_occurrence_action"
+        groups="work_program_viewer_group"
+        sequence="20"
+    />
+</odoo>

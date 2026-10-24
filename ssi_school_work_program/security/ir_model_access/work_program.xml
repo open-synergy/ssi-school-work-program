@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="work_program_all_access" model="ir.model.access">
+    <field name="name">work_program - all</field>
+    <field name="model_id" ref="model_work_program" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_user_access" model="ir.model.access">
+    <field name="name">work_program - user</field>
+    <field name="model_id" ref="model_work_program" />
+    <field name="group_id" ref="work_program_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_target_all_access" model="ir.model.access">
+    <field name="name">work_program_target - all</field>
+    <field name="model_id" ref="model_work_program_target" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_target_user_access" model="ir.model.access">
+    <field name="name">work_program_target - user</field>
+    <field name="model_id" ref="model_work_program_target" />
+    <field name="group_id" ref="work_program_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_objective_all_access" model="ir.model.access">
+    <field name="name">work_program_objective - all</field>
+    <field name="model_id" ref="model_work_program_objective" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_objective_user_access" model="ir.model.access">
+    <field name="name">work_program_objective - user</field>
+    <field name="model_id" ref="model_work_program_objective" />
+    <field name="group_id" ref="work_program_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_committee_all_access" model="ir.model.access">
+    <field name="name">work_program_committee - all</field>
+    <field name="model_id" ref="model_work_program_committee" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_committee_user_access" model="ir.model.access">
+    <field name="name">work_program_committee - user</field>
+    <field name="model_id" ref="model_work_program_committee" />
+    <field name="group_id" ref="work_program_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_material_all_access" model="ir.model.access">
+    <field name="name">work_program_material - all</field>
+    <field name="model_id" ref="model_work_program_material" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_material_user_access" model="ir.model.access">
+    <field name="name">work_program_material - user</field>
+    <field name="model_id" ref="model_work_program_material" />
+    <field name="group_id" ref="work_program_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_resource_all_access" model="ir.model.access">
+    <field name="name">work_program_resource - all</field>
+    <field name="model_id" ref="model_work_program_resource" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_resource_user_access" model="ir.model.access">
+    <field name="name">work_program_resource - user</field>
+    <field name="model_id" ref="model_work_program_resource" />
+    <field name="group_id" ref="work_program_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_need_all_access" model="ir.model.access">
+    <field name="name">work_program_need - all</field>
+    <field name="model_id" ref="model_work_program_need" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_need_user_access" model="ir.model.access">
+    <field name="name">work_program_need - user</field>
+    <field name="model_id" ref="model_work_program_need" />
+    <field name="group_id" ref="work_program_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_occurrence_all_access" model="ir.model.access">
+    <field name="name">work_program_occurrence - all</field>
+    <field name="model_id" ref="model_work_program_occurrence" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_occurrence_user_access" model="ir.model.access">
+    <field name="name">work_program_occurrence - user</field>
+    <field name="model_id" ref="model_work_program_occurrence" />
+    <field name="group_id" ref="work_program_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_rundown_all_access" model="ir.model.access">
+    <field name="name">work_program_rundown - all</field>
+    <field name="model_id" ref="model_work_program_rundown" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_rundown_user_access" model="ir.model.access">
+    <field name="name">work_program_rundown - user</field>
+    <field name="model_id" ref="model_work_program_rundown" />
+    <field name="group_id" ref="work_program_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+</odoo>

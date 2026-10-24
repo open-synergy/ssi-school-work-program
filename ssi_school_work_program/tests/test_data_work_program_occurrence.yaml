@@ -1,0 +1,265 @@
+setup:
+  steps:
+    - step: "Setup - create grade type"
+      action: "create"
+      model: "school_grade_type"
+      save_as: "grade_type"
+      values:
+        code: "/"
+        name: "Grade Type WP"
+
+    - step: "Setup - create grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_a"
+      values:
+        code: "/"
+        name: "Grade A WP"
+        sequence: 10
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create second grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_b"
+      values:
+        code: "/"
+        name: "Grade B WP"
+        sequence: 20
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create school"
+      action: "create"
+      model: "school"
+      save_as: "school"
+      values:
+        code: "/"
+        name: "School WP"
+        grade_type_id: "REC: grade_type.id"
+
+    - step: "Setup - create academic year"
+      action: "create"
+      model: "school_academic_year"
+      save_as: "year"
+      values:
+        code: "/"
+        name: "Year WP"
+        date_start: "2026-01-01"
+        date_end: "2026-12-31"
+
+    - step: "Setup - create employee"
+      action: "create"
+      model: "hr.employee"
+      save_as: "employee"
+      values:
+        name: "Employee WP"
+
+    - step: "Setup - create work program type"
+      action: "create"
+      model: "work_program_type"
+      save_as: "wp_type"
+      values:
+        code: "/"
+        name: "Type WP"
+
+    - step: "Setup - create work program category"
+      action: "create"
+      model: "work_program_category"
+      save_as: "wp_category"
+      values:
+        code: "/"
+        name: "Category WP"
+
+scenarios:
+  - name: "Generate Occurrence From A Weekly Frequency Set Is Idempotent"
+    steps:
+      - step: "Create the Monday frequency"
+        action: "create"
+        model: "frequency"
+        save_as: "monday"
+        values:
+          code: "/"
+          name: "Every Monday WP"
+          interval: 1
+          interval_type: "weekly"
+          use_byweekday: true
+          mo: true
+      - step: "Create the frequency set"
+        action: "create"
+        model: "frequency_set"
+        save_as: "frequency_set"
+        values:
+          code: "/"
+          name: "Mondays WP"
+          fsm_frequency_ids:
+            - - 6
+              - 0
+              - - "REC: monday.id"
+      - step: "Create work program WP Generate"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Generate"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          frequency_set_id: "REC: frequency_set.id"
+      - step: "Add one occurrence by hand on a Monday of the range"
+        action: "create"
+        model: "work_program_occurrence"
+        save_as: "manual_occurrence"
+        values:
+          work_program_id: "REC: program.id"
+          name: "Manual Monday"
+          date_start: "2026-01-12"
+      - step: "Generate the occurrence"
+        action: "call"
+        target: "program"
+        method: "action_generate_occurrence"
+      - step: "One occurrence per Monday of the four weeks exists"
+        action: "search"
+        model: "work_program_occurrence"
+        domain:
+          - ["work_program_id", "=", "REC: program.id"]
+          - [
+              "date_start",
+              "in",
+              ["2026-01-05", "2026-01-12", "2026-01-19", "2026-01-26"],
+            ]
+        save_as: "mondays"
+        expect_count: 4
+      - step: "Nothing else was generated"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          occurrence_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 4
+      - step: "Generate again"
+        action: "call"
+        target: "program"
+        method: "action_generate_occurrence"
+      - step: "Still four occurrences"
+        action: "search"
+        model: "work_program_occurrence"
+        domain:
+          - ["work_program_id", "=", "REC: program.id"]
+        save_as: "all_occurrences"
+        expect_count: 4
+
+  - name: "Generate Occurrence Without Frequency Set Is Refused"
+    steps:
+      - step: "Create work program WP No Frequency"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP No Frequency"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Generate must be refused"
+        action: "call"
+        target: "program"
+        method: "action_generate_occurrence"
+        expect_error:
+          type: "UserError"
+          message_contains: "The work program has no frequency set"
+
+  - name: "Occurrence Done Cancel And Reset Change The State"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create work program WP Occurrence State"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Occurrence State"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Create occurrence"
+        action: "create"
+        model: "work_program_occurrence"
+        save_as: "occurrence"
+        values:
+          work_program_id: "REC: program.id"
+          name: "Session"
+          date_start: "2026-01-10"
+      - step: "Assert planned and counted by the occurrence section"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          section_occurrence_ok:
+            type: "value"
+            expected: true
+      - step: "Mark the occurrence as done"
+        action: "call"
+        target: "occurrence"
+        method: "action_done"
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+      - step: "A done occurrence cannot be cancelled directly"
+        action: "call"
+        target: "occurrence"
+        method: "action_cancel"
+        expect_error:
+          type: "UserError"
+          message_contains: "cannot be changed from status 'done'"
+      - step: "Reset to planned"
+        action: "call"
+        target: "occurrence"
+        method: "action_reset"
+        asserts:
+          state:
+            type: "value"
+            expected: "planned"
+      - step: "Cancel the occurrence"
+        action: "call"
+        target: "occurrence"
+        method: "action_cancel"
+        asserts:
+          state:
+            type: "value"
+            expected: "cancel"
+      - step: "A cancelled occurrence is not counted by the occurrence section"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          section_occurrence_ok:
+            type: "value"
+            expected: false
+      - step: "Reset the cancelled occurrence"
+        action: "call"
+        target: "occurrence"
+        method: "action_reset"
+        asserts:
+          state:
+            type: "value"
+            expected: "planned"
+      - step: "Resetting a planned occurrence is refused"
+        action: "call"
+        target: "occurrence"
+        method: "action_reset"
+        expect_error:
+          type: "UserError"
+          message_contains: "cannot be changed from status 'planned'"
