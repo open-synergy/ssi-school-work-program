@@ -33,6 +33,10 @@
                 type="text/javascript"
                 src="/ssi_school_work_program/static/tests/tours/work_program_occurrence_tour.js"
             />
+        <script
+                type="text/javascript"
+                src="/ssi_school_work_program/static/tests/tours/work_program_evaluation_tour.js"
+            />
     </xpath>
 </template>
 </odoo>

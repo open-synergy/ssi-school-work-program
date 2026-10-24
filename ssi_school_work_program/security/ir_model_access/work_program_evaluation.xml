@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="work_program_evaluation_all_access" model="ir.model.access">
+    <field name="name">work_program_evaluation - all</field>
+    <field name="model_id" ref="model_work_program_evaluation" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_evaluation_user_access" model="ir.model.access">
+    <field name="name">work_program_evaluation - user</field>
+    <field name="model_id" ref="model_work_program_evaluation" />
+    <field name="group_id" ref="work_program_evaluation_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_evaluation_participant_all_access" model="ir.model.access">
+    <field name="name">work_program_evaluation_participant - all</field>
+    <field name="model_id" ref="model_work_program_evaluation_participant" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_evaluation_participant_user_access" model="ir.model.access">
+    <field name="name">work_program_evaluation_participant - user</field>
+    <field name="model_id" ref="model_work_program_evaluation_participant" />
+    <field name="group_id" ref="work_program_evaluation_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_evaluation_objective_all_access" model="ir.model.access">
+    <field name="name">work_program_evaluation_objective - all</field>
+    <field name="model_id" ref="model_work_program_evaluation_objective" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_evaluation_objective_user_access" model="ir.model.access">
+    <field name="name">work_program_evaluation_objective - user</field>
+    <field name="model_id" ref="model_work_program_evaluation_objective" />
+    <field name="group_id" ref="work_program_evaluation_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+<record id="work_program_evaluation_occurrence_all_access" model="ir.model.access">
+    <field name="name">work_program_evaluation_occurrence - all</field>
+    <field name="model_id" ref="model_work_program_evaluation_occurrence" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="work_program_evaluation_occurrence_user_access" model="ir.model.access">
+    <field name="name">work_program_evaluation_occurrence - user</field>
+    <field name="model_id" ref="model_work_program_evaluation_occurrence" />
+    <field name="group_id" ref="work_program_evaluation_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+</odoo>

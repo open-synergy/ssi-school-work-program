@@ -132,6 +132,17 @@ class TestUiWorkProgram(HttpSavepointCase):
         restart.action_cancel()
         restart.invalidate_cache()
 
+        # 13-open-evaluation: program that already has one evaluation.
+        evaluated = cls._create_program("Tour WP Evaluated")
+        cls.env["work_program_evaluation"].create(
+            {
+                "work_program_id": evaluated.id,
+                "evaluation_type": "mid",
+                "date": "2026-02-01",
+                "user_id": cls.admin.id,
+            }
+        )
+
         # Approve tour fixture approves in the tour itself.
 
     def test_create(self):
@@ -245,5 +256,16 @@ class TestUiWorkProgram(HttpSavepointCase):
         self.start_tour(
             "/web",
             "ssi_school_work_program_work_program_create_analytic_account",
+            login="admin",
+        )
+
+    def test_open_evaluation(self):
+        """Run the open evaluation tour for ``work_program``.
+
+        IK: docs/work_program/13-open-evaluation.md
+        """
+        self.start_tour(
+            "/web",
+            "ssi_school_work_program_work_program_open_evaluation",
             login="admin",
         )

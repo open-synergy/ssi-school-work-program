@@ -296,6 +296,19 @@ class WorkProgram(models.Model):
         states={"draft": [("readonly", False)]},
         help="Planned implementation dates of the program.",
     )
+    evaluation_ids = fields.One2many(
+        string="Evaluations",
+        comodel_name="work_program_evaluation",
+        inverse_name="work_program_id",
+        help="Mid-term and final evaluations written for this work program.",
+    )
+    evaluation_count = fields.Integer(
+        string="Evaluation Count",
+        compute="_compute_evaluation_count",
+        store=False,
+        compute_sudo=True,
+        help="Number of evaluations written for this work program.",
+    )
     section_occurrence_ok = fields.Boolean(
         string="Occurrence Section Complete",
         compute="_compute_section_ok",
@@ -548,6 +561,13 @@ class WorkProgram(models.Model):
                     result = False
             record.planning_complete = result
 
+    @api.depends("evaluation_ids")
+    def _compute_evaluation_count(self):
+        """Count the evaluations written for the work program."""
+        for record in self:
+            result = len(record.evaluation_ids)
+            record.evaluation_count = result
+
     @api.constrains("date_start", "date_end")
     def _check_period(self):
         """Reject a work program that ends before it starts.
@@ -581,6 +601,20 @@ Solution: Enter a Date End on or after the Date Start
         if not self.date_start or not self.date_end:
             return True
         return self.date_end >= self.date_start
+
+    def action_open_evaluation(self):
+        """Open the evaluations of the work program.
+
+        :return: ``ir.actions.act_window`` dict listing the evaluations
+            of this program, whose new records default to this program.
+        """
+        self.ensure_one()
+        action = self.env.ref(
+            "ssi_school_work_program.work_program_evaluation_action"
+        ).read()[0]
+        action["domain"] = [("work_program_id", "=", self.id)]
+        action["context"] = {"default_work_program_id": self.id}
+        return action
 
     def action_generate_occurrence(self):
         """Generate the occurrence dates from the frequency set.
@@ -712,3 +746,34 @@ Solution: Select a frequency set, then generate the occurrence again
         """
         self.ensure_one()
         self._create_analytic_account()
+
+    @ssi_decorator.pre_done_check()
+    def _10_check_final_evaluation(self):
+        """Require an approved final evaluation before finishing.
+
+        Pre-done hook: when the type of the program has
+        ``require_final_evaluation`` checked, the program can only be
+        finished once one of its final evaluations is done.
+
+        :raises UserError: a final evaluation is required but none is
+            done.
+        """
+        self.ensure_one()
+        if not self.type_id.require_final_evaluation:
+            return
+        final_done = self.evaluation_ids.filtered(
+            lambda r: r.evaluation_type == "final" and r.state == "done"
+        )
+        if not final_done:
+            error_message = (
+                _(
+                    """
+Context: Finish work program
+Database ID: %s
+Problem: The type requires a final evaluation that is done, and there is none
+Solution: Create the final evaluation of this program and get it approved
+"""
+                )
+                % (self.id,)
+            )
+            raise UserError(error_message)

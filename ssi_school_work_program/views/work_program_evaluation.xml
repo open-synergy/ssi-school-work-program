@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="work_program_evaluation_view_search" model="ir.ui.view">
+    <field name="name">work_program_evaluation - search</field>
+    <field name="model">work_program_evaluation</field>
+    <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//search" position="inside">
+                <field name="work_program_id" />
+                <field name="school_id" />
+                <field name="academic_year_id" />
+                <filter
+                        name="filter_mid"
+                        string="Mid-term"
+                        domain="[('evaluation_type','=','mid')]"
+                    />
+                <filter
+                        name="filter_final"
+                        string="Final"
+                        domain="[('evaluation_type','=','final')]"
+                    />
+                <group expand="0" string="Group By">
+                    <filter
+                            name="group_by_work_program_id"
+                            string="Work Program"
+                            context="{'group_by': 'work_program_id'}"
+                        />
+                    <filter
+                            name="group_by_school_id"
+                            string="School"
+                            context="{'group_by': 'school_id'}"
+                        />
+                    <filter
+                            name="group_by_academic_year_id"
+                            string="Academic Year"
+                            context="{'group_by': 'academic_year_id'}"
+                        />
+                    <filter
+                            name="group_by_evaluation_type"
+                            string="Evaluation Type"
+                            context="{'group_by': 'evaluation_type'}"
+                        />
+                </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="work_program_evaluation_view_tree" model="ir.ui.view">
+    <field name="name">work_program_evaluation - tree</field>
+    <field name="model">work_program_evaluation</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="work_program_id" />
+                <field name="school_id" />
+                <field name="academic_year_id" />
+                <field name="evaluation_type" />
+                <field name="date" />
+                <field name="participant_achievement_percent" optional="hide" />
+                <field name="objective_achievement_percent" optional="hide" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="work_program_evaluation_view_form" model="ir.ui.view">
+    <field name="name">work_program_evaluation - form</field>
+    <field name="model">work_program_evaluation</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//header" position="inside">
+                <button
+                        name="action_load_lines"
+                        type="object"
+                        string="Load Lines"
+                        confirm="Load the lines of this evaluation from the work program. Are you sure?"
+                        attrs="{'invisible':[('load_lines_ok','=',False)]}"
+                    />
+            </xpath>
+            <xpath expr="//group[@name='header_left']" position="inside">
+                <field name="work_program_id" />
+                <field name="school_id" />
+                <field name="academic_year_id" />
+            </xpath>
+            <xpath expr="//group[@name='header_right']" position="inside">
+                <field name="evaluation_type" />
+                <field name="date" />
+                <field name="participant_achievement_percent" />
+                <field name="objective_achievement_percent" />
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="participant" string="Participants">
+                    <field name="participant_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="target_id" />
+                            <field name="participant_type" />
+                            <field name="grade_id" />
+                            <field name="planned_quantity" />
+                            <field name="actual_quantity" />
+                            <field name="achievement_percent" />
+                        </tree>
+                        <form>
+                            <group name="participant_form" colspan="4" col="2">
+                                <field
+                                        name="target_id"
+                                        domain="[('work_program_id','=',parent.work_program_id)]"
+                                    />
+                                <field name="participant_type" />
+                                <field name="grade_id" />
+                                <field name="planned_quantity" />
+                                <field name="actual_quantity" />
+                                <field name="achievement_percent" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+                <page name="objective" string="Objectives">
+                    <field name="objective_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="objective_id" />
+                            <field name="measurement_type" />
+                            <field name="target_value" />
+                            <field name="actual_value" />
+                            <field name="achievement_percent" />
+                        </tree>
+                        <form>
+                            <group name="objective_form" colspan="4" col="2">
+                                <field
+                                        name="objective_id"
+                                        domain="[('work_program_id','=',parent.work_program_id)]"
+                                    />
+                                <field name="measurement_type" />
+                                <field name="baseline_value" />
+                                <field name="target_value" />
+                                <field name="target_description" />
+                                <field name="actual_value" />
+                                <field name="actual_note" />
+                                <field name="achievement_percent" />
+                                <field
+                                        name="attachment_ids"
+                                        widget="many2many_binary"
+                                    />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+                <page name="occurrence" string="Occurrences">
+                    <field name="occurrence_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="occurrence_id" />
+                            <field name="date_start" />
+                            <field name="actual_participant" />
+                            <field name="date_actual" />
+                        </tree>
+                        <form>
+                            <group name="occurrence_form" colspan="4" col="2">
+                                <field
+                                        name="occurrence_id"
+                                        domain="[('work_program_id','=',parent.work_program_id)]"
+                                    />
+                                <field name="date_start" />
+                                <field name="actual_participant" />
+                                <field name="date_actual" />
+                                <field name="note" />
+                                <field
+                                        name="attachment_ids"
+                                        widget="many2many_binary"
+                                    />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+                <page name="conclusion" string="Conclusion">
+                    <group name="conclusion_1" colspan="4" col="2">
+                        <field name="evaluation_note" />
+                        <field name="lesson_learned" />
+                        <field name="recommendation" />
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//group[@name='policy_2']" position="inside">
+                <field name="load_lines_ok" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="work_program_evaluation_action" model="ir.actions.act_window">
+    <field name="name">Work Program Evaluations</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">work_program_evaluation</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="work_program_evaluation_menu"
+        name="Evaluations"
+        parent="menu_work_program_root"
+        action="work_program_evaluation_action"
+        groups="work_program_evaluation_viewer_group"
+        sequence="30"
+    />
+</odoo>

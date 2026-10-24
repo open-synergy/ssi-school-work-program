@@ -12,6 +12,10 @@
 - **Record:** Status is **On Progress**.
 - **Config:** An active `policy.template` for this model grants `done_ok` for state
   `open` to the actor's group (`Work Program — User`).
+- **Config:** When the **Work Program Type** has **Require Final Evaluation** checked,
+  the work program has a **Final** evaluation in status **Done** (see
+  `work_program_evaluation` `06-approve`); without it the **Done** button is rejected
+  with an error. A type without that flag does not need an evaluation.
 - **Access:** User is in group `Work Program — User`.
 
 ## Flow

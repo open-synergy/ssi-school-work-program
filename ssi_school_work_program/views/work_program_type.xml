@@ -60,6 +60,11 @@
                             <field name="require_rundown" />
                     </group>
                 </page>
+                <page name="evaluation" string="Evaluation">
+                    <group name="evaluation_group_1">
+                        <field name="require_final_evaluation" />
+                    </group>
+                </page>
                 <page name="analytic" string="Analytic">
                     <group name="analytic_group_1">
                         <field name="analytic_group_id" />
