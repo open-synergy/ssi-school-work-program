@@ -928,4 +928,72 @@ odoo.define("ssi_school_work_program.work_program_tour", function (require) {
             },
         ]
     );
+
+    // IK: docs/work_program/13-open-evaluation.md
+    tour.register(
+        "ssi_school_work_program_work_program_open_evaluation",
+        {
+            test: true,
+            url: "/web",
+        },
+        [
+            tour.stepUtils.showAppsMenuItem(),
+            {
+                content: "Open the School app",
+                trigger: '.o_app[data-menu-xmlid="ssi_school.menu_school_root"]',
+            },
+            {
+                content: "Open the Work Program menu",
+                trigger:
+                    '.o_menu_sections [data-menu-xmlid="ssi_school_work_program.menu_work_program_root"]',
+            },
+            {
+                content: "Open the Work Programs menu",
+                trigger:
+                    '.o_menu_sections [data-menu-xmlid="ssi_school_work_program.work_program_menu"]',
+            },
+            {
+                content: "Work Programs list is displayed",
+                trigger:
+                    ".o_control_panel .breadcrumb-item.active:contains(Work Programs)",
+                extra_trigger: ".o_list_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the program with an evaluation",
+                trigger: ".o_data_row:contains(Tour WP Evaluated) .o_data_cell:first",
+                extra_trigger: ".o_list_view",
+            },
+            {
+                content: "Form is open",
+                trigger: ".o_form_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Click the Evaluations smart button",
+                trigger: ".oe_button_box button[name='action_open_evaluation']",
+                extra_trigger: ".o_form_view",
+            },
+            {
+                content: "The evaluations list of the program is displayed",
+                trigger:
+                    ".o_control_panel .breadcrumb-item.active:contains(Work Program Evaluations)",
+                extra_trigger: ".o_list_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "The evaluation of the program is listed",
+                trigger: ".o_list_view .o_data_row",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+        ]
+    );
 });

@@ -12,8 +12,13 @@ targets, objectives and indicators, committee, materials, resource persons,
 needs, implementation dates and rundown. It is approved through the
 approval template, owns an analytic account that other features can attach
 to, and can generate its recurring implementation dates from a frequency
-set. The module records the plan only; the realization and the evaluation
-are recorded in separate documents.
+set. The work program records the plan only. What actually happened is
+recorded in a separate work program evaluation (mid-term and final): the
+actual number of participants per target, the achievement of each objective
+indicator with its evidence, a note per implementation date, and the
+conclusion. An evaluation is approved through its own approval template, and
+a work program type can require an approved final evaluation before a
+program of that type may be finished.
 
 Work Instruction
 ================
@@ -61,6 +66,7 @@ Work Program
 * `Restart Work Program <docs/work_program/10-restart.html>`_
 * `Generate Occurrence of Work Program <docs/work_program/11-generate-occurrence.html>`_
 * `Create Analytic Account of Work Program <docs/work_program/12-create-analytic-account.html>`_
+* `Open Evaluations of Work Program <docs/work_program/13-open-evaluation.html>`_
 
 Work Program Occurrence
 -----------------------
@@ -68,6 +74,20 @@ Work Program Occurrence
 * `Mark Work Program Occurrence as Done <docs/work_program_occurrence/01-done.html>`_
 * `Cancel Work Program Occurrence <docs/work_program_occurrence/02-cancel.html>`_
 * `Reset Work Program Occurrence to Planned <docs/work_program_occurrence/03-reset.html>`_
+
+Work Program Evaluation
+-----------------------
+
+* `Create Work Program Evaluation <docs/work_program_evaluation/01-create.html>`_
+* `Edit Work Program Evaluation <docs/work_program_evaluation/02-edit.html>`_
+* `Delete Work Program Evaluation <docs/work_program_evaluation/03-delete.html>`_
+* `Load Lines of Work Program Evaluation <docs/work_program_evaluation/04-load-lines.html>`_
+* `Confirm Work Program Evaluation <docs/work_program_evaluation/05-confirm.html>`_
+* `Approve Work Program Evaluation <docs/work_program_evaluation/06-approve.html>`_
+* `Reject Work Program Evaluation <docs/work_program_evaluation/07-reject.html>`_
+* `Restart Approval Process of Work Program Evaluation <docs/work_program_evaluation/08-restart-approval.html>`_
+* `Cancel Work Program Evaluation <docs/work_program_evaluation/09-cancel.html>`_
+* `Restart Work Program Evaluation <docs/work_program_evaluation/10-restart.html>`_
 
 Installation
 ============

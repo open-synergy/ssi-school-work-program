@@ -119,6 +119,21 @@
                         attrs="{'invisible':['|',('create_analytic_account_ok','=',False),('analytic_account_id','!=',False)]}"
                     />
             </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                        name="action_open_evaluation"
+                        type="object"
+                        string="Evaluations"
+                        class="oe_stat_button"
+                        icon="fa-check-square-o"
+                    >
+                    <field
+                            name="evaluation_count"
+                            widget="statinfo"
+                            string="Evaluations"
+                        />
+                </button>
+            </xpath>
             <xpath expr="//group[@name='header_left']" position="inside">
                 <field name="title" />
                 <field name="school_id" />

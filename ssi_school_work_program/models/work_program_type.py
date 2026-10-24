@@ -92,3 +92,12 @@ class WorkProgramType(models.Model):  # pylint: disable=too-few-public-methods
             "complete when its rundown (schedule of activities) section is filled in."
         ),
     )
+    require_final_evaluation = fields.Boolean(
+        string="Require Final Evaluation",
+        default=False,
+        help=(
+            "If checked, a work program of this type can only be finished "
+            "after one of its final evaluations has been approved and is "
+            "done."
+        ),
+    )

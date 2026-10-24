@@ -1,0 +1,730 @@
+setup:
+  steps:
+    - step: "Setup - create grade type"
+      action: "create"
+      model: "school_grade_type"
+      save_as: "grade_type"
+      values:
+        code: "/"
+        name: "Grade Type WPE"
+
+    - step: "Setup - create grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_a"
+      values:
+        code: "/"
+        name: "Grade A WPE"
+        sequence: 10
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create school"
+      action: "create"
+      model: "school"
+      save_as: "school"
+      values:
+        code: "/"
+        name: "School WPE"
+        grade_type_id: "REC: grade_type.id"
+
+    - step: "Setup - create academic year"
+      action: "create"
+      model: "school_academic_year"
+      save_as: "year"
+      values:
+        code: "/"
+        name: "Year WPE"
+        date_start: "2026-01-01"
+        date_end: "2026-12-31"
+
+    - step: "Setup - create employee"
+      action: "create"
+      model: "hr.employee"
+      save_as: "employee"
+      values:
+        name: "Employee WPE"
+
+    - step: "Setup - create work program type"
+      action: "create"
+      model: "work_program_type"
+      save_as: "wp_type"
+      values:
+        code: "/"
+        name: "Type WPE"
+
+    - step: "Setup - create work program category"
+      action: "create"
+      model: "work_program_category"
+      save_as: "wp_category"
+      values:
+        code: "/"
+        name: "Category WPE"
+
+    - step: "Setup - create the evaluated work program"
+      action: "create"
+      model: "work_program"
+      save_as: "program"
+      values:
+        title: "WPE Program"
+        school_id: "REC: school.id"
+        academic_year_id: "REC: year.id"
+        type_id: "REC: wp_type.id"
+        category_id: "REC: wp_category.id"
+        pic_id: "REC: employee.id"
+        date_start: "2026-01-01"
+        date_end: "2026-01-28"
+
+    - step: "Setup - student target of 40 participants"
+      action: "create"
+      model: "work_program_target"
+      save_as: "target_student"
+      values:
+        work_program_id: "REC: program.id"
+        participant_type: "student"
+        grade_id: "REC: grade_a.id"
+        quantity: 40
+
+    - step: "Setup - teacher target of 10 participants"
+      action: "create"
+      model: "work_program_target"
+      save_as: "target_teacher"
+      values:
+        work_program_id: "REC: program.id"
+        participant_type: "teacher"
+        quantity: 10
+
+    - step: "Setup - numeric objective with target 4"
+      action: "create"
+      model: "work_program_objective"
+      save_as: "objective_numeric"
+      values:
+        work_program_id: "REC: program.id"
+        name: "Numeric objective"
+        indicator: "Number of events"
+        measurement_type: "numeric"
+        target_value: 4
+
+    - step: "Setup - qualitative objective"
+      action: "create"
+      model: "work_program_objective"
+      save_as: "objective_qualitative"
+      values:
+        work_program_id: "REC: program.id"
+        name: "Qualitative objective"
+        indicator: "Attitude change"
+        measurement_type: "qualitative"
+        target_description: "Positive attitude"
+
+    - step: "Setup - first planned occurrence"
+      action: "create"
+      model: "work_program_occurrence"
+      save_as: "occurrence_1"
+      values:
+        work_program_id: "REC: program.id"
+        name: "Day 1"
+        date_start: "2026-01-05"
+
+    - step: "Setup - second planned occurrence"
+      action: "create"
+      model: "work_program_occurrence"
+      save_as: "occurrence_2"
+      values:
+        work_program_id: "REC: program.id"
+        name: "Day 2"
+        date_start: "2026-01-12"
+
+    - step: "Setup - cancelled occurrence"
+      action: "create"
+      model: "work_program_occurrence"
+      save_as: "occurrence_cancelled"
+      values:
+        work_program_id: "REC: program.id"
+        name: "Day 3 cancelled"
+        date_start: "2026-01-19"
+        state: "cancel"
+
+scenarios:
+  - name: "Load Lines Creates One Line Per Source And Is Idempotent"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create the final evaluation"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "evaluation"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+      - step: "Load the lines from the work program"
+        action: "call"
+        target: "evaluation"
+        method: "action_load_lines"
+      - step: "One line per target, objective and live occurrence"
+        action: "assert"
+        target: "evaluation"
+        refresh: true
+        asserts:
+          participant_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 2
+          objective_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 2
+          occurrence_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 2
+      - step: "Load the lines again"
+        action: "call"
+        target: "evaluation"
+        method: "action_load_lines"
+      - step: "The counts stay the same after the second load"
+        action: "assert"
+        target: "evaluation"
+        refresh: true
+        asserts:
+          participant_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 2
+          objective_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 2
+          occurrence_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 2
+
+  - name: "Achievement Is Computed Per Line And Averaged On The Header"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create the final evaluation"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "evaluation"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+      - step: "Report 30 of the 40 planned students"
+        action: "create"
+        model: "work_program_evaluation_participant"
+        save_as: "line_participant"
+        values:
+          evaluation_id: "REC: evaluation.id"
+          target_id: "REC: target_student.id"
+          actual_quantity: 30
+      - step: "Report 2 of the numeric target 4"
+        action: "create"
+        model: "work_program_evaluation_objective"
+        save_as: "line_numeric"
+        values:
+          evaluation_id: "REC: evaluation.id"
+          objective_id: "REC: objective_numeric.id"
+          actual_value: 2
+      - step: "Report the qualitative objective with an entered 100 percent"
+        action: "create"
+        model: "work_program_evaluation_objective"
+        save_as: "line_qualitative"
+        values:
+          evaluation_id: "REC: evaluation.id"
+          objective_id: "REC: objective_qualitative.id"
+          achievement_percent: 100.0
+      - step: "Participant line is 75 percent and numeric line 50 percent"
+        action: "assert"
+        target: "line_participant"
+        refresh: true
+        asserts:
+          planned_quantity:
+            type: "value"
+            expected: 40
+          achievement_percent:
+            type: "value"
+            expected: 75.0
+      - step: "Numeric objective line is 50 percent"
+        action: "assert"
+        target: "line_numeric"
+        refresh: true
+        asserts:
+          achievement_percent:
+            type: "value"
+            expected: 50.0
+      - step: "Change the actual value of the qualitative line"
+        action: "write"
+        target: "line_qualitative"
+        values:
+          actual_value: 5
+      - step: "Qualitative line keeps the entered 100 percent"
+        action: "assert"
+        target: "line_qualitative"
+        refresh: true
+        asserts:
+          achievement_percent:
+            type: "value"
+            expected: 100.0
+      - step: "Header averages are 75 percent for both sections"
+        action: "assert"
+        target: "evaluation"
+        refresh: true
+        asserts:
+          participant_achievement_percent:
+            type: "value"
+            expected: 75.0
+          objective_achievement_percent:
+            type: "value"
+            expected: 75.0
+
+  - name: "Evaluation Without Lines Has Zero Achievement"
+    steps:
+      - step: "Create the final evaluation"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "evaluation"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+      - step: "Both header averages are zero"
+        action: "assert"
+        target: "evaluation"
+        asserts:
+          participant_achievement_percent:
+            type: "value"
+            expected: 0.0
+          objective_achievement_percent:
+            type: "value"
+            expected: 0.0
+
+  - name: "Approval Workflow Goes From Confirm Straight To Done"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create the final evaluation"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "evaluation"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+      - step: "Assert draft and no number yet"
+        action: "assert"
+        target: "evaluation"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+          name:
+            type: "value"
+            expected: "/"
+      - step: "Confirm"
+        action: "call"
+        target: "evaluation"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Assert confirm before approve (forces cache refresh)"
+        action: "assert"
+        target: "evaluation"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve as the evaluation validator"
+        action: "call"
+        target: "evaluation"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+      - step: "Assert the document number is assigned when done"
+        action: "assert"
+        target: "evaluation"
+        refresh: true
+        asserts:
+          name:
+            type: "value"
+            operator: "contains"
+            expected: "WPE/"
+
+  - name: "Reject Then Restart Returns To Draft"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create the final evaluation"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "evaluation"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+      - step: "Confirm"
+        action: "call"
+        target: "evaluation"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Assert confirm before reject (forces cache refresh)"
+        action: "assert"
+        target: "evaluation"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Reject as the validator"
+        action: "call"
+        target: "evaluation"
+        method: "action_reject_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "reject"
+      - step: "Assert reject before restart (forces cache refresh)"
+        action: "assert"
+        target: "evaluation"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "reject"
+      - step: "Restart"
+        action: "call"
+        target: "evaluation"
+        method: "action_restart"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+
+  - name: "Cancel From Draft Through The Reason Wizard"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create the final evaluation"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "evaluation"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+      - step: "Create cancel reason"
+        action: "create"
+        model: "base.cancel_reason"
+        save_as: "reason"
+        values:
+          code: "WPECR01"
+          name: "Evaluation dropped"
+      - step: "Cancel through the wizard"
+        action: "wizard"
+        model: "base.select_cancel_reason"
+        target: "evaluation"
+        as_user: "base.user_admin"
+        values:
+          cancel_reason_id: "REC: reason"
+        method: "action_confirm"
+        asserts:
+          state:
+            type: "value"
+            expected: "cancel"
+
+  - name: "Mid-term And Final Evaluations Coexist And Are Counted"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create the mid-term evaluation"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "evaluation_mid"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "mid"
+          date: "2026-01-15"
+      - step: "Create the final evaluation"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "evaluation_final"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+      - step: "Both are stored and the smart button counts two"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          evaluation_count:
+            type: "value"
+            expected: 2
+          evaluation_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 2
+
+  - name: "Invalid Evaluations And Lines Are Rejected"
+    steps:
+      - step: "Create the first final evaluation"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "evaluation"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+      - step: "A second live final evaluation of the program is rejected"
+        action: "create"
+        model: "work_program_evaluation"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "already has a final evaluation"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "final"
+          date: "2026-02-02"
+      - step: "An evaluation dated before the program start is rejected"
+        action: "create"
+        model: "work_program_evaluation"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "earlier than the start date"
+        values:
+          work_program_id: "REC: program.id"
+          evaluation_type: "mid"
+          date: "2025-12-31"
+      - step: "A negative actual quantity is rejected"
+        action: "create"
+        model: "work_program_evaluation_participant"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Actual quantity must not be negative"
+        values:
+          evaluation_id: "REC: evaluation.id"
+          target_id: "REC: target_teacher.id"
+          actual_quantity: -1
+      - step: "A negative actual participant is rejected"
+        action: "create"
+        model: "work_program_evaluation_occurrence"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Actual participant must not be negative"
+        values:
+          evaluation_id: "REC: evaluation.id"
+          occurrence_id: "REC: occurrence_1.id"
+          actual_participant: -1
+      - step: "Report the student target once"
+        action: "create"
+        model: "work_program_evaluation_participant"
+        values:
+          evaluation_id: "REC: evaluation.id"
+          target_id: "REC: target_student.id"
+          actual_quantity: 10
+      - step: "Reporting the same target twice is rejected"
+        action: "create"
+        model: "work_program_evaluation_participant"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "already reported in this evaluation"
+        values:
+          evaluation_id: "REC: evaluation.id"
+          target_id: "REC: target_student.id"
+          actual_quantity: 5
+      - step: "Create another work program"
+        action: "create"
+        model: "work_program"
+        save_as: "other_program"
+        values:
+          title: "WPE Other Program"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Create a target of the other work program"
+        action: "create"
+        model: "work_program_target"
+        save_as: "other_target"
+        values:
+          work_program_id: "REC: other_program.id"
+          participant_type: "staff"
+          quantity: 5
+      - step: "A target of another work program is rejected"
+        action: "create"
+        model: "work_program_evaluation_participant"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "does not belong to the evaluated work program"
+        values:
+          evaluation_id: "REC: evaluation.id"
+          target_id: "REC: other_target.id"
+          actual_quantity: 1
+
+  - name: "Program Without The Requirement Is Finished Without Evaluation"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Confirm the program"
+        action: "call"
+        target: "program"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Assert confirm before approve (forces cache refresh)"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve the program so that it is on progress"
+        action: "call"
+        target: "program"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Finish the program without any evaluation"
+        action: "call"
+        target: "program"
+        method: "action_done"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+  - name: "Required Final Evaluation Blocks Done Until The Evaluation Is Done"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create a type that requires a final evaluation"
+        action: "create"
+        model: "work_program_type"
+        save_as: "strict_type"
+        values:
+          code: "/"
+          name: "Type WPE Strict"
+          require_final_evaluation: true
+      - step: "Create the program of that type"
+        action: "create"
+        model: "work_program"
+        save_as: "strict_program"
+        values:
+          title: "WPE Strict Program"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: strict_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Confirm the program"
+        action: "call"
+        target: "strict_program"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Assert confirm before approve (forces cache refresh)"
+        action: "assert"
+        target: "strict_program"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve the program so that it is on progress"
+        action: "call"
+        target: "strict_program"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Finishing without a final evaluation is rejected"
+        action: "call"
+        target: "strict_program"
+        method: "action_done"
+        as_user: "base.user_admin"
+        expect_error:
+          type: "UserError"
+          message_contains: "evaluation"
+      - step: "Create the final evaluation of the program"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "strict_evaluation"
+        values:
+          work_program_id: "REC: strict_program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+      - step: "Finishing with a final evaluation that is still draft is rejected"
+        action: "call"
+        target: "strict_program"
+        method: "action_done"
+        as_user: "base.user_admin"
+        expect_error:
+          type: "UserError"
+          message_contains: "evaluation"
+      - step: "Confirm the evaluation"
+        action: "call"
+        target: "strict_evaluation"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Assert evaluation confirm before approve (forces cache refresh)"
+        action: "assert"
+        target: "strict_evaluation"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve the evaluation so that it is done"
+        action: "call"
+        target: "strict_evaluation"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+      - step: "Assert the program is still on progress (forces cache refresh)"
+        action: "assert"
+        target: "strict_program"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Finish the program now that its final evaluation is done"
+        action: "call"
+        target: "strict_program"
+        method: "action_done"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "done"

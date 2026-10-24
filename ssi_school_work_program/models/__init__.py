@@ -17,4 +17,8 @@ from . import (  # noqa: F401
     work_program_need,
     work_program_occurrence,
     work_program_rundown,
+    work_program_evaluation,
+    work_program_evaluation_participant,
+    work_program_evaluation_objective,
+    work_program_evaluation_occurrence,
 )
