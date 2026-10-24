@@ -51,7 +51,9 @@ class TestUiWorkProgram(HttpSavepointCase):
         """Create the master data and the programs the tours act on.
 
         The create tour builds its program through the UI, so only the
-        master data it picks from exists for it. Every other tour gets a
+        master data it picks from exists for it: the school, year, type,
+        category, employee, and the grade, committee role and resource
+        partner of the detail lines. Every other tour gets a
         program already in the state its Pre-Condition requires, reached
         through the action methods rather than by writing ``state``.
         """
@@ -78,6 +80,16 @@ class TestUiWorkProgram(HttpSavepointCase):
             {"name": "Tour WP Category", "code": "/"}
         )
         cls.employee = cls.env["hr.employee"].create({"name": "Tour WP Employee"})
+        cls.env["school_grade"].create(
+            {
+                "name": "Tour WP Grade",
+                "code": "/",
+                "sequence": 10,
+                "type_id": grade_type.id,
+            }
+        )
+        cls.env["work_program_role"].create({"name": "Tour WP Role", "code": "/"})
+        cls.env["res.partner"].create({"name": "Tour WP Resource"})
         cls.reason = cls.env["base.cancel_reason"].create(
             {"name": "Tour WP Reason", "code": "TOURWPR", "global_use": True}
         )

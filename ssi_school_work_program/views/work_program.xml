@@ -165,14 +165,20 @@
                     <field name="target_ids" nolabel="1" colspan="4">
                         <tree>
                             <field name="participant_type" />
-                            <field name="grade_id" />
+                            <field
+                                    name="grade_id"
+                                    attrs="{'required': [('participant_type','=','student')], 'invisible': [('participant_type','!=','student')]}"
+                                />
                             <field name="description" />
                             <field name="quantity" />
                         </tree>
                         <form>
                             <group name="target_form" colspan="4" col="2">
                                 <field name="participant_type" />
-                                <field name="grade_id" />
+                                <field
+                                        name="grade_id"
+                                        attrs="{'required': [('participant_type','=','student')], 'invisible': [('participant_type','!=','student')]}"
+                                    />
                                 <field name="description" />
                                 <field name="quantity" />
                             </group>

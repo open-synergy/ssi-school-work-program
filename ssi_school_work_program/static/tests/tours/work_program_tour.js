@@ -125,6 +125,291 @@ odoo.define("ssi_school_work_program.work_program_tour", function (require) {
                 run: "text 01/30/2026",
             },
             {
+                content: "Open the Participant Targets tab",
+                trigger: ".o_notebook .nav-link:contains(Participant Targets)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Participant Targets",
+                trigger:
+                    ".o_field_widget[name='target_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Grade is required for a Student line",
+                trigger: ".o_field_many2one[name='grade_id'].o_required_modifier",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Select the Grade",
+                trigger: ".o_field_many2one[name='grade_id'] input",
+                run: "text Tour WP Grade",
+            },
+            {
+                content: "Pick Tour WP Grade from the dropdown",
+                trigger: ".ui-autocomplete .ui-menu-item a:contains(Tour WP Grade)",
+                in_modal: false,
+            },
+            {
+                content: "Fill in Quantity",
+                trigger: ".o_field_widget[name='quantity']",
+                run: "text 30",
+            },
+            {
+                content: "Save & Close the Participant Target line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Participant Target line is listed",
+                trigger: ".o_field_widget[name='target_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the Objectives tab",
+                trigger: ".o_notebook .nav-link:contains(Objectives)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Objectives",
+                trigger:
+                    ".o_field_widget[name='objective_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Objective dialog is open",
+                trigger: ".o_field_widget[name='indicator']",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Fill in Objective",
+                trigger: ".o_field_widget[name='name']",
+                run: "text Tour WP Objective",
+            },
+            {
+                content: "Fill in Indicator",
+                trigger: ".o_field_widget[name='indicator']",
+                run: "text Tour WP Indicator",
+            },
+            {
+                content: "Save & Close the Objective line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Objective line is listed",
+                trigger: ".o_field_widget[name='objective_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the Committee tab",
+                trigger: ".o_notebook .nav-link:contains(Committee)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Committee",
+                trigger:
+                    ".o_field_widget[name='committee_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Committee dialog is open",
+                trigger: ".o_field_many2one[name='role_id']",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Select the Employee",
+                trigger: ".o_field_many2one[name='employee_id'] input",
+                run: "text Tour WP Employee",
+            },
+            {
+                content: "Pick Tour WP Employee from the dropdown",
+                trigger: ".ui-autocomplete .ui-menu-item a:contains(Tour WP Employee)",
+                in_modal: false,
+            },
+            {
+                content: "Select the Role",
+                trigger: ".o_field_many2one[name='role_id'] input",
+                run: "text Tour WP Role",
+            },
+            {
+                content: "Pick Tour WP Role from the dropdown",
+                trigger: ".ui-autocomplete .ui-menu-item a:contains(Tour WP Role)",
+                in_modal: false,
+            },
+            {
+                content: "Save & Close the Committee line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Committee line is listed",
+                trigger: ".o_field_widget[name='committee_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the Materials tab",
+                trigger: ".o_notebook .nav-link:contains(Materials)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Materials",
+                trigger:
+                    ".o_field_widget[name='material_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Material dialog is open",
+                trigger: ".o_field_widget[name='description']",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Fill in Material",
+                trigger: ".o_field_widget[name='name']",
+                run: "text Tour WP Material",
+            },
+            {
+                content: "Save & Close the Material line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Material line is listed",
+                trigger: ".o_field_widget[name='material_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the Resource Persons tab",
+                trigger: ".o_notebook .nav-link:contains(Resource Persons)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Resource Persons",
+                trigger:
+                    ".o_field_widget[name='resource_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Resource person dialog is open",
+                trigger: ".o_field_widget[name='role_description']",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Select the Partner",
+                trigger: ".o_field_many2one[name='partner_id'] input",
+                run: "text Tour WP Resource",
+            },
+            {
+                content: "Pick Tour WP Resource from the dropdown",
+                trigger: ".ui-autocomplete .ui-menu-item a:contains(Tour WP Resource)",
+                in_modal: false,
+            },
+            {
+                content: "Save & Close the Resource Person line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Resource Person line is listed",
+                trigger: ".o_field_widget[name='resource_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the Needs tab",
+                trigger: ".o_notebook .nav-link:contains(Needs)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Needs",
+                trigger:
+                    ".o_field_widget[name='need_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Need dialog is open",
+                trigger: ".o_field_many2one[name='occurrence_id']",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Fill in Need",
+                trigger: ".o_field_widget[name='name']",
+                run: "text Tour WP Need",
+            },
+            {
+                content: "Save & Close the Need line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Need line is listed",
+                trigger: ".o_field_widget[name='need_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the Occurrences tab",
+                trigger: ".o_notebook .nav-link:contains(Occurrences)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Occurrences",
+                trigger:
+                    ".o_field_widget[name='occurrence_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Occurrence dialog is open",
+                trigger: ".o_field_widget[name='location']",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Fill in Name",
+                trigger: ".o_field_widget[name='name']",
+                run: "text Tour WP Occurrence",
+            },
+            {
+                content: "Fill in the occurrence Date Start",
+                trigger: ".o_field_widget[name='date_start'] input",
+                run: "text 01/10/2026",
+            },
+            {
+                content: "Save & Close the Occurrence line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Occurrence line is listed",
+                trigger: ".o_field_widget[name='occurrence_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
                 content: "Save the record",
                 trigger: ".o_form_button_save",
             },
