@@ -4,6 +4,7 @@
 
 from . import test_work_program_master
 from . import test_work_program
+from . import test_work_program_target
 from . import test_work_program_workflow
 from . import test_work_program_occurrence
 from . import test_work_program_evaluation

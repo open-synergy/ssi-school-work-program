@@ -69,6 +69,143 @@ odoo.define("ssi_school_work_program.work_program_evaluation_tour", function (re
                 run: "text 02/01/2026",
             },
             {
+                content: "Open the Participants tab",
+                trigger: ".o_notebook .nav-link:contains(Participants)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Participants",
+                trigger:
+                    ".o_field_widget[name='participant_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Participant dialog is open",
+                trigger: ".o_field_widget[name='actual_quantity']",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Select the Target",
+                trigger: ".o_field_many2one[name='target_id'] input",
+                run: "click",
+            },
+            {
+                content: "Pick work_program_target from the dropdown",
+                trigger:
+                    ".ui-autocomplete .ui-menu-item a:contains(work_program_target)",
+                in_modal: false,
+            },
+            {
+                content: "Fill in Actual Quantity",
+                trigger: ".o_field_widget[name='actual_quantity']",
+                run: "text 35",
+            },
+            {
+                content: "Save & Close the Participant line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Participant line is listed",
+                trigger: ".o_field_widget[name='participant_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the Objectives tab",
+                trigger: ".o_notebook .nav-link:contains(Objectives)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Objectives",
+                trigger:
+                    ".o_field_widget[name='objective_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Objective dialog is open",
+                trigger: ".o_field_widget[name='actual_value']",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Select the Objective",
+                trigger: ".o_field_many2one[name='objective_id'] input",
+                run: "click",
+            },
+            {
+                content: "Pick Tour WPE Objective from the dropdown",
+                trigger:
+                    ".ui-autocomplete .ui-menu-item a:contains(Tour WPE Objective)",
+                in_modal: false,
+            },
+            {
+                content: "Fill in Actual Value",
+                trigger: ".o_field_widget[name='actual_value']",
+                run: "text 4",
+            },
+            {
+                content: "Save & Close the Objective line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Objective line is listed",
+                trigger: ".o_field_widget[name='objective_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the Occurrences tab",
+                trigger: ".o_notebook .nav-link:contains(Occurrences)",
+                extra_trigger: "body:not(:has(.modal))",
+            },
+            {
+                content: "Add a line to Occurrences",
+                trigger:
+                    ".o_field_widget[name='occurrence_ids'] .o_field_x2many_list_row_add a",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Occurrence dialog is open",
+                trigger: ".o_field_widget[name='actual_participant']",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Select the Occurrence",
+                trigger: ".o_field_many2one[name='occurrence_id'] input",
+                run: "click",
+            },
+            {
+                content: "Pick Tour WPE Day from the dropdown",
+                trigger: ".ui-autocomplete .ui-menu-item a:contains(Tour WPE Day)",
+                in_modal: false,
+            },
+            {
+                content: "Fill in Actual Participant",
+                trigger: ".o_field_widget[name='actual_participant']",
+                run: "text 35",
+            },
+            {
+                content: "Save & Close the Occurrence line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Occurrence line is listed",
+                trigger: ".o_field_widget[name='occurrence_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
                 content: "Open the Conclusion tab",
                 trigger: ".o_notebook .nav-link:contains(Conclusion)",
                 extra_trigger: ".o_form_view.o_form_editable",

@@ -1,0 +1,180 @@
+setup:
+  steps:
+    - step: "Setup - create grade type"
+      action: "create"
+      model: "school_grade_type"
+      save_as: "grade_type"
+      values:
+        code: "/"
+        name: "Grade Type WP"
+
+    - step: "Setup - create grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_a"
+      values:
+        code: "/"
+        name: "Grade A WP"
+        sequence: 10
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create second grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_b"
+      values:
+        code: "/"
+        name: "Grade B WP"
+        sequence: 20
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create school"
+      action: "create"
+      model: "school"
+      save_as: "school"
+      values:
+        code: "/"
+        name: "School WP"
+        grade_type_id: "REC: grade_type.id"
+
+    - step: "Setup - create academic year"
+      action: "create"
+      model: "school_academic_year"
+      save_as: "year"
+      values:
+        code: "/"
+        name: "Year WP"
+        date_start: "2026-01-01"
+        date_end: "2026-12-31"
+
+    - step: "Setup - create employee"
+      action: "create"
+      model: "hr.employee"
+      save_as: "employee"
+      values:
+        name: "Employee WP"
+
+    - step: "Setup - create work program type"
+      action: "create"
+      model: "work_program_type"
+      save_as: "wp_type"
+      values:
+        code: "/"
+        name: "Type WP"
+
+    - step: "Setup - create work program category"
+      action: "create"
+      model: "work_program_category"
+      save_as: "wp_category"
+      values:
+        code: "/"
+        name: "Category WP"
+
+scenarios:
+  - name: "Changing Participant Type Away From Student Clears The Grade"
+    steps:
+      - step: "Create work program without target lines"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Target Onchange"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+
+      - step: "Switch a student line to teacher and expect an empty grade"
+        action: "form"
+        model: "work_program_target"
+        save_as: "target"
+        ops:
+          - set: {work_program_id: "REC: program"}
+          - set: {participant_type: "student"}
+          - set: {grade_id: "REC: grade_a"}
+          - set: {quantity: 5}
+          - set: {participant_type: "teacher"}
+          - assert:
+              grade_id:
+                type: "value"
+                operator: "is_falsy"
+
+  - name: "Target Line Constraints"
+    steps:
+      - step: "Create work program without target lines"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Target Constraints"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+
+      - step: "Student line without grade is rejected"
+        action: "create"
+        model: "work_program_target"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Grade is required"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "student"
+          quantity: 10
+
+      - step: "Zero quantity is rejected"
+        action: "create"
+        model: "work_program_target"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Quantity must be greater than zero"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "teacher"
+          quantity: 0
+
+      - step: "Teacher line without grade is saved"
+        action: "create"
+        model: "work_program_target"
+        save_as: "teacher_line"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "teacher"
+          quantity: 3
+
+      - step: "Teacher line keeps an empty grade"
+        action: "assert"
+        target: "teacher_line"
+        asserts:
+          grade_id:
+            type: "value"
+            operator: "is_falsy"
+
+      - step: "First student line with grade is saved"
+        action: "create"
+        model: "work_program_target"
+        save_as: "student_line"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "student"
+          grade_id: "REC: grade_a.id"
+          quantity: 20
+
+      - step: "Second line with the same type and grade is rejected"
+        action: "create"
+        model: "work_program_target"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "is already targeted"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "student"
+          grade_id: "REC: grade_a.id"
+          quantity: 15

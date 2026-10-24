@@ -57,6 +57,12 @@ class WorkProgramTarget(models.Model):
         help="Planned number of participants for this line. Must be positive.",
     )
 
+    @api.onchange("participant_type")
+    def onchange_grade_id(self):
+        """Clear the grade when the participant type is not Student."""
+        if self.participant_type != "student":
+            self.grade_id = False
+
     @api.constrains("participant_type", "grade_id")
     def _check_grade_required(self):
         """Require a grade on every student target line.
