@@ -2305,16 +2305,6 @@ msgid "Status"
 msgstr ""
 
 #. module: ssi_school_work_program
-#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__status_check_ids
-msgid "Status Check"
-msgstr ""
-
-#. module: ssi_school_work_program
-#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__status_check_template_id
-msgid "Status Check Template"
-msgstr ""
-
-#. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program__activity_state
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__activity_state
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__activity_state
