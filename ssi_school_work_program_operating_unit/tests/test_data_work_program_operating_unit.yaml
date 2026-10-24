@@ -1,0 +1,683 @@
+options:
+  auto_refresh: true
+
+scenarios:
+  - name: "Program keeps the chosen Operating Unit and generated occurrences follow it"
+    steps:
+      - step: "Get main company"
+        action: "ref"
+        xml_id: "base.main_company"
+        save_as: "wpou1_company"
+
+      - step: "Setup - create grade type"
+        action: "create"
+        model: "school_grade_type"
+        save_as: "wpou1_grade_type"
+        values:
+          code: "/"
+          name: "Grade Type WPOU1"
+
+      - step: "Setup - create school"
+        action: "create"
+        model: "school"
+        save_as: "wpou1_school"
+        values:
+          code: "/"
+          name: "School WPOU1"
+          grade_type_id: "REC: wpou1_grade_type.id"
+
+      - step: "Setup - create academic year"
+        action: "create"
+        model: "school_academic_year"
+        save_as: "wpou1_year"
+        values:
+          code: "/"
+          name: "Year WPOU1"
+          date_start: "2026-01-01"
+          date_end: "2026-12-31"
+
+      - step: "Setup - create employee"
+        action: "create"
+        model: "hr.employee"
+        save_as: "wpou1_employee"
+        values:
+          name: "Employee WPOU1"
+
+      - step: "Setup - create work program type"
+        action: "create"
+        model: "work_program_type"
+        save_as: "wpou1_wp_type"
+        values:
+          code: "/"
+          name: "Type WPOU1"
+
+      - step: "Setup - create work program category"
+        action: "create"
+        model: "work_program_category"
+        save_as: "wpou1_wp_category"
+        values:
+          code: "/"
+          name: "Category WPOU1"
+
+      - step: "Setup - create partner of Operating Unit A"
+        action: "create"
+        model: "res.partner"
+        save_as: "wpou1_ou_a_partner"
+        values:
+          name: "WPOU1 Operating Unit A Partner"
+
+      - step: "Setup - create Operating Unit A"
+        action: "create"
+        model: "operating.unit"
+        save_as: "wpou1_ou_a"
+        values:
+          name: "WPOU1 Operating Unit A"
+          code: "WPOU1A"
+          company_id: "REC: wpou1_company.id"
+          partner_id: "REC: wpou1_ou_a_partner.id"
+
+      - step: "Setup - create partner of Operating Unit B"
+        action: "create"
+        model: "res.partner"
+        save_as: "wpou1_ou_b_partner"
+        values:
+          name: "WPOU1 Operating Unit B Partner"
+
+      - step: "Setup - create Operating Unit B"
+        action: "create"
+        model: "operating.unit"
+        save_as: "wpou1_ou_b"
+        values:
+          name: "WPOU1 Operating Unit B"
+          code: "WPOU1B"
+          company_id: "REC: wpou1_company.id"
+          partner_id: "REC: wpou1_ou_b_partner.id"
+
+      - step: "Setup - create the Monday frequency"
+        action: "create"
+        model: "frequency"
+        save_as: "wpou1_monday"
+        values:
+          code: "/"
+          name: "Every Monday WPOU1"
+          interval: 1
+          interval_type: "weekly"
+          use_byweekday: true
+          mo: true
+
+      - step: "Setup - create the frequency set"
+        action: "create"
+        model: "frequency_set"
+        save_as: "wpou1_frequency_set"
+        values:
+          code: "/"
+          name: "Mondays WPOU1"
+          fsm_frequency_ids:
+            - - 6
+              - 0
+              - - "REC: wpou1_monday.id"
+
+      - step: "Create work program WPOU1 Generate"
+        action: "create"
+        model: "work_program"
+        save_as: "wpou1_program"
+        values:
+          title: "WPOU1 Generate"
+          school_id: "REC: wpou1_school.id"
+          academic_year_id: "REC: wpou1_year.id"
+          type_id: "REC: wpou1_wp_type.id"
+          category_id: "REC: wpou1_wp_category.id"
+          pic_id: "REC: wpou1_employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          operating_unit_id: "REC: wpou1_ou_b.id"
+          frequency_set_id: "REC: wpou1_frequency_set.id"
+
+      - step: "The program has Operating Unit B, not the default one"
+        action: "assert"
+        target: "wpou1_program"
+        asserts:
+          operating_unit_id:
+            type: "m2o"
+            expected: "REC: wpou1_ou_b"
+
+      - step: "Generate the occurrence"
+        action: "call"
+        target: "wpou1_program"
+        method: "action_generate_occurrence"
+
+      - step: "Every generated occurrence carries Operating Unit B"
+        action: "search"
+        model: "work_program_occurrence"
+        domain:
+          - ["work_program_id", "=", "REC: wpou1_program.id"]
+          - ["operating_unit_id", "=", "REC: wpou1_ou_b.id"]
+        save_as: "wpou1_in_b"
+        expect_count: 4
+
+      - step: "No occurrence of the program carries another Operating Unit"
+        action: "search"
+        model: "work_program_occurrence"
+        domain:
+          - ["work_program_id", "=", "REC: wpou1_program.id"]
+          - ["operating_unit_id", "!=", "REC: wpou1_ou_b.id"]
+        save_as: "wpou1_not_b"
+        expect_count: 0
+
+  - name: "Changing the Operating Unit of a draft program re-points its occurrences"
+    steps:
+      - step: "Get main company"
+        action: "ref"
+        xml_id: "base.main_company"
+        save_as: "wpou2_company"
+
+      - step: "Setup - create grade type"
+        action: "create"
+        model: "school_grade_type"
+        save_as: "wpou2_grade_type"
+        values:
+          code: "/"
+          name: "Grade Type WPOU2"
+
+      - step: "Setup - create school"
+        action: "create"
+        model: "school"
+        save_as: "wpou2_school"
+        values:
+          code: "/"
+          name: "School WPOU2"
+          grade_type_id: "REC: wpou2_grade_type.id"
+
+      - step: "Setup - create academic year"
+        action: "create"
+        model: "school_academic_year"
+        save_as: "wpou2_year"
+        values:
+          code: "/"
+          name: "Year WPOU2"
+          date_start: "2026-01-01"
+          date_end: "2026-12-31"
+
+      - step: "Setup - create employee"
+        action: "create"
+        model: "hr.employee"
+        save_as: "wpou2_employee"
+        values:
+          name: "Employee WPOU2"
+
+      - step: "Setup - create work program type"
+        action: "create"
+        model: "work_program_type"
+        save_as: "wpou2_wp_type"
+        values:
+          code: "/"
+          name: "Type WPOU2"
+
+      - step: "Setup - create work program category"
+        action: "create"
+        model: "work_program_category"
+        save_as: "wpou2_wp_category"
+        values:
+          code: "/"
+          name: "Category WPOU2"
+
+      - step: "Setup - create partner of Operating Unit A"
+        action: "create"
+        model: "res.partner"
+        save_as: "wpou2_ou_a_partner"
+        values:
+          name: "WPOU2 Operating Unit A Partner"
+
+      - step: "Setup - create Operating Unit A"
+        action: "create"
+        model: "operating.unit"
+        save_as: "wpou2_ou_a"
+        values:
+          name: "WPOU2 Operating Unit A"
+          code: "WPOU2A"
+          company_id: "REC: wpou2_company.id"
+          partner_id: "REC: wpou2_ou_a_partner.id"
+
+      - step: "Setup - create partner of Operating Unit B"
+        action: "create"
+        model: "res.partner"
+        save_as: "wpou2_ou_b_partner"
+        values:
+          name: "WPOU2 Operating Unit B Partner"
+
+      - step: "Setup - create Operating Unit B"
+        action: "create"
+        model: "operating.unit"
+        save_as: "wpou2_ou_b"
+        values:
+          name: "WPOU2 Operating Unit B"
+          code: "WPOU2B"
+          company_id: "REC: wpou2_company.id"
+          partner_id: "REC: wpou2_ou_b_partner.id"
+
+      - step: "Setup - create the Monday frequency"
+        action: "create"
+        model: "frequency"
+        save_as: "wpou2_monday"
+        values:
+          code: "/"
+          name: "Every Monday WPOU2"
+          interval: 1
+          interval_type: "weekly"
+          use_byweekday: true
+          mo: true
+
+      - step: "Setup - create the frequency set"
+        action: "create"
+        model: "frequency_set"
+        save_as: "wpou2_frequency_set"
+        values:
+          code: "/"
+          name: "Mondays WPOU2"
+          fsm_frequency_ids:
+            - - 6
+              - 0
+              - - "REC: wpou2_monday.id"
+
+      - step: "Create work program WPOU2 Move"
+        action: "create"
+        model: "work_program"
+        save_as: "wpou2_program"
+        values:
+          title: "WPOU2 Move"
+          school_id: "REC: wpou2_school.id"
+          academic_year_id: "REC: wpou2_year.id"
+          type_id: "REC: wpou2_wp_type.id"
+          category_id: "REC: wpou2_wp_category.id"
+          pic_id: "REC: wpou2_employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          operating_unit_id: "REC: wpou2_ou_a.id"
+          frequency_set_id: "REC: wpou2_frequency_set.id"
+
+      - step: "Generate the occurrence at Operating Unit A"
+        action: "call"
+        target: "wpou2_program"
+        method: "action_generate_occurrence"
+
+      - step: "The occurrences carry Operating Unit A"
+        action: "search"
+        model: "work_program_occurrence"
+        domain:
+          - ["work_program_id", "=", "REC: wpou2_program.id"]
+          - ["operating_unit_id", "=", "REC: wpou2_ou_a.id"]
+        save_as: "wpou2_in_a"
+        expect_count: 4
+
+      - step: "Move the draft program to Operating Unit B"
+        action: "write"
+        target: "wpou2_program"
+        values:
+          operating_unit_id: "REC: wpou2_ou_b.id"
+
+      - step: "The existing occurrences now carry Operating Unit B"
+        action: "search"
+        model: "work_program_occurrence"
+        domain:
+          - ["work_program_id", "=", "REC: wpou2_program.id"]
+          - ["operating_unit_id", "=", "REC: wpou2_ou_b.id"]
+        save_as: "wpou2_in_b"
+        expect_count: 4
+
+  - name: "Evaluation follows the Operating Unit of its program"
+    steps:
+      - step: "Get main company"
+        action: "ref"
+        xml_id: "base.main_company"
+        save_as: "wpou3_company"
+
+      - step: "Setup - create grade type"
+        action: "create"
+        model: "school_grade_type"
+        save_as: "wpou3_grade_type"
+        values:
+          code: "/"
+          name: "Grade Type WPOU3"
+
+      - step: "Setup - create school"
+        action: "create"
+        model: "school"
+        save_as: "wpou3_school"
+        values:
+          code: "/"
+          name: "School WPOU3"
+          grade_type_id: "REC: wpou3_grade_type.id"
+
+      - step: "Setup - create academic year"
+        action: "create"
+        model: "school_academic_year"
+        save_as: "wpou3_year"
+        values:
+          code: "/"
+          name: "Year WPOU3"
+          date_start: "2026-01-01"
+          date_end: "2026-12-31"
+
+      - step: "Setup - create employee"
+        action: "create"
+        model: "hr.employee"
+        save_as: "wpou3_employee"
+        values:
+          name: "Employee WPOU3"
+
+      - step: "Setup - create work program type"
+        action: "create"
+        model: "work_program_type"
+        save_as: "wpou3_wp_type"
+        values:
+          code: "/"
+          name: "Type WPOU3"
+
+      - step: "Setup - create work program category"
+        action: "create"
+        model: "work_program_category"
+        save_as: "wpou3_wp_category"
+        values:
+          code: "/"
+          name: "Category WPOU3"
+
+      - step: "Setup - create partner of Operating Unit A"
+        action: "create"
+        model: "res.partner"
+        save_as: "wpou3_ou_a_partner"
+        values:
+          name: "WPOU3 Operating Unit A Partner"
+
+      - step: "Setup - create Operating Unit A"
+        action: "create"
+        model: "operating.unit"
+        save_as: "wpou3_ou_a"
+        values:
+          name: "WPOU3 Operating Unit A"
+          code: "WPOU3A"
+          company_id: "REC: wpou3_company.id"
+          partner_id: "REC: wpou3_ou_a_partner.id"
+
+      - step: "Setup - create partner of Operating Unit B"
+        action: "create"
+        model: "res.partner"
+        save_as: "wpou3_ou_b_partner"
+        values:
+          name: "WPOU3 Operating Unit B Partner"
+
+      - step: "Setup - create Operating Unit B"
+        action: "create"
+        model: "operating.unit"
+        save_as: "wpou3_ou_b"
+        values:
+          name: "WPOU3 Operating Unit B"
+          code: "WPOU3B"
+          company_id: "REC: wpou3_company.id"
+          partner_id: "REC: wpou3_ou_b_partner.id"
+
+      - step: "Create work program WPOU3 Evaluate"
+        action: "create"
+        model: "work_program"
+        save_as: "wpou3_program"
+        values:
+          title: "WPOU3 Evaluate"
+          school_id: "REC: wpou3_school.id"
+          academic_year_id: "REC: wpou3_year.id"
+          type_id: "REC: wpou3_wp_type.id"
+          category_id: "REC: wpou3_wp_category.id"
+          pic_id: "REC: wpou3_employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          operating_unit_id: "REC: wpou3_ou_b.id"
+
+      - step: "Create the evaluation of the program"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "wpou3_evaluation"
+        values:
+          work_program_id: "REC: wpou3_program.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+
+      - step: "The evaluation carries Operating Unit B"
+        action: "assert"
+        target: "wpou3_evaluation"
+        asserts:
+          operating_unit_id:
+            type: "m2o"
+            expected: "REC: wpou3_ou_b"
+
+  - name:
+      "Operating Unit rules hide programs, occurrences and evaluations of other units"
+    steps:
+      - step: "Get main company"
+        action: "ref"
+        xml_id: "base.main_company"
+        save_as: "wpou4_company"
+
+      - step: "Setup - create grade type"
+        action: "create"
+        model: "school_grade_type"
+        save_as: "wpou4_grade_type"
+        values:
+          code: "/"
+          name: "Grade Type WPOU4"
+
+      - step: "Setup - create school"
+        action: "create"
+        model: "school"
+        save_as: "wpou4_school"
+        values:
+          code: "/"
+          name: "School WPOU4"
+          grade_type_id: "REC: wpou4_grade_type.id"
+
+      - step: "Setup - create academic year"
+        action: "create"
+        model: "school_academic_year"
+        save_as: "wpou4_year"
+        values:
+          code: "/"
+          name: "Year WPOU4"
+          date_start: "2026-01-01"
+          date_end: "2026-12-31"
+
+      - step: "Setup - create employee"
+        action: "create"
+        model: "hr.employee"
+        save_as: "wpou4_employee"
+        values:
+          name: "Employee WPOU4"
+
+      - step: "Setup - create work program type"
+        action: "create"
+        model: "work_program_type"
+        save_as: "wpou4_wp_type"
+        values:
+          code: "/"
+          name: "Type WPOU4"
+
+      - step: "Setup - create work program category"
+        action: "create"
+        model: "work_program_category"
+        save_as: "wpou4_wp_category"
+        values:
+          code: "/"
+          name: "Category WPOU4"
+
+      - step: "Setup - create partner of Operating Unit A"
+        action: "create"
+        model: "res.partner"
+        save_as: "wpou4_ou_a_partner"
+        values:
+          name: "WPOU4 Operating Unit A Partner"
+
+      - step: "Setup - create Operating Unit A"
+        action: "create"
+        model: "operating.unit"
+        save_as: "wpou4_ou_a"
+        values:
+          name: "WPOU4 Operating Unit A"
+          code: "WPOU4A"
+          company_id: "REC: wpou4_company.id"
+          partner_id: "REC: wpou4_ou_a_partner.id"
+
+      - step: "Setup - create partner of Operating Unit B"
+        action: "create"
+        model: "res.partner"
+        save_as: "wpou4_ou_b_partner"
+        values:
+          name: "WPOU4 Operating Unit B Partner"
+
+      - step: "Setup - create Operating Unit B"
+        action: "create"
+        model: "operating.unit"
+        save_as: "wpou4_ou_b"
+        values:
+          name: "WPOU4 Operating Unit B"
+          code: "WPOU4B"
+          company_id: "REC: wpou4_company.id"
+          partner_id: "REC: wpou4_ou_b_partner.id"
+
+      - step: "Create work program WPOU4 Program A"
+        action: "create"
+        model: "work_program"
+        save_as: "wpou4_program_a"
+        values:
+          title: "WPOU4 Program A"
+          school_id: "REC: wpou4_school.id"
+          academic_year_id: "REC: wpou4_year.id"
+          type_id: "REC: wpou4_wp_type.id"
+          category_id: "REC: wpou4_wp_category.id"
+          pic_id: "REC: wpou4_employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          operating_unit_id: "REC: wpou4_ou_a.id"
+
+      - step: "Create work program WPOU4 Program B"
+        action: "create"
+        model: "work_program"
+        save_as: "wpou4_program_b"
+        values:
+          title: "WPOU4 Program B"
+          school_id: "REC: wpou4_school.id"
+          academic_year_id: "REC: wpou4_year.id"
+          type_id: "REC: wpou4_wp_type.id"
+          category_id: "REC: wpou4_wp_category.id"
+          pic_id: "REC: wpou4_employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          operating_unit_id: "REC: wpou4_ou_b.id"
+
+      - step: "Create an occurrence of program A"
+        action: "create"
+        model: "work_program_occurrence"
+        save_as: "wpou4_occurrence_a"
+        values:
+          work_program_id: "REC: wpou4_program_a.id"
+          name: "WPOU4 Occurrence A"
+          date_start: "2026-01-12"
+
+      - step: "Create an evaluation of program A"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "wpou4_evaluation_a"
+        values:
+          work_program_id: "REC: wpou4_program_a.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+
+      - step: "Create an occurrence of program B"
+        action: "create"
+        model: "work_program_occurrence"
+        save_as: "wpou4_occurrence_b"
+        values:
+          work_program_id: "REC: wpou4_program_b.id"
+          name: "WPOU4 Occurrence B"
+          date_start: "2026-01-12"
+
+      - step: "Create an evaluation of program B"
+        action: "create"
+        model: "work_program_evaluation"
+        save_as: "wpou4_evaluation_b"
+        values:
+          work_program_id: "REC: wpou4_program_b.id"
+          evaluation_type: "final"
+          date: "2026-02-01"
+
+      # The restricted user is deliberately NOT put in ``base.group_user``:
+      # the internal user rule of the base module is scoped to that group
+      # and would OR its own domain back in, masking the Operating Unit
+      # rules. Leaving it out makes the Operating Unit rules the only active
+      # group rules, so the assertions below are caused by them alone.
+      - step: "Create a user restricted to Operating Unit A only"
+        action: "create"
+        model: "res.users"
+        save_as: "wpou4_restricted_user"
+        values:
+          name: "WPOU4 Restricted User"
+          login: "wpou4_restricted_user@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: ssi_school_work_program.work_program_user_group"
+                - "REF: ssi_school_work_program.work_program_evaluation_user_group"
+                - "REF:
+                  ssi_school_work_program_operating_unit.work_program_operating_unit_group"
+                - "REF:
+                  ssi_school_work_program_operating_unit.work_program_evaluation_operating_unit_group"
+          assigned_operating_unit_ids: [[6, 0, ["REC: wpou4_ou_a.id"]]]
+
+      - step: "Restricted user searches the program of Operating Unit B -- excluded"
+        action: "search"
+        model: "work_program"
+        domain:
+          - ["id", "=", "REC: wpou4_program_b.id"]
+        save_as: "wpou4_search_program_b"
+        as_user: "wpou4_restricted_user"
+        expect_count: 0
+
+      - step: "Restricted user searches the program of Operating Unit A -- visible"
+        action: "search"
+        model: "work_program"
+        domain:
+          - ["id", "=", "REC: wpou4_program_a.id"]
+        save_as: "wpou4_search_program_a"
+        as_user: "wpou4_restricted_user"
+        expect_count: 1
+
+      - step: "Restricted user searches the occurrence of Operating Unit B -- excluded"
+        action: "search"
+        model: "work_program_occurrence"
+        domain:
+          - ["id", "=", "REC: wpou4_occurrence_b.id"]
+        save_as: "wpou4_search_occurrence_b"
+        as_user: "wpou4_restricted_user"
+        expect_count: 0
+
+      - step: "Restricted user searches the occurrence of Operating Unit A -- visible"
+        action: "search"
+        model: "work_program_occurrence"
+        domain:
+          - ["id", "=", "REC: wpou4_occurrence_a.id"]
+        save_as: "wpou4_search_occurrence_a"
+        as_user: "wpou4_restricted_user"
+        expect_count: 1
+
+      - step: "Restricted user searches the evaluation of Operating Unit B -- excluded"
+        action: "search"
+        model: "work_program_evaluation"
+        domain:
+          - ["id", "=", "REC: wpou4_evaluation_b.id"]
+        save_as: "wpou4_search_evaluation_b"
+        as_user: "wpou4_restricted_user"
+        expect_count: 0
+
+      - step: "Restricted user searches the evaluation of Operating Unit A -- visible"
+        action: "search"
+        model: "work_program_evaluation"
+        domain:
+          - ["id", "=", "REC: wpou4_evaluation_a.id"]
+        save_as: "wpou4_search_evaluation_a"
+        as_user: "wpou4_restricted_user"
+        expect_count: 1
