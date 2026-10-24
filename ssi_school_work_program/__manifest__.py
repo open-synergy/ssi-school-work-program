@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "School Work Program",
-    "version": "14.0.1.1.1",
+    "version": "14.0.1.1.2",
     "website": "https://simetri-sinergi.id",
     # pylint: disable=line-too-long
     "author": "PT. Simetri Sinergi Indonesia, OpenSynergy Indonesia, Odoo Community Association (OCA)",  # noqa: B950
@@ -17,7 +17,6 @@
         "ssi_transaction_open_mixin",
         "ssi_transaction_done_mixin",
         "ssi_transaction_cancel_mixin",
-        "ssi_status_check_mixin",
         "ssi_company_currency_mixin",
         "ssi_master_data_mixin",
         "ssi_frequency",
