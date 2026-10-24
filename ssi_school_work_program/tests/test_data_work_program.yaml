@@ -1,0 +1,701 @@
+setup:
+  steps:
+    - step: "Setup - create grade type"
+      action: "create"
+      model: "school_grade_type"
+      save_as: "grade_type"
+      values:
+        code: "/"
+        name: "Grade Type WP"
+
+    - step: "Setup - create grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_a"
+      values:
+        code: "/"
+        name: "Grade A WP"
+        sequence: 10
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create second grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_b"
+      values:
+        code: "/"
+        name: "Grade B WP"
+        sequence: 20
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create school"
+      action: "create"
+      model: "school"
+      save_as: "school"
+      values:
+        code: "/"
+        name: "School WP"
+        grade_type_id: "REC: grade_type.id"
+
+    - step: "Setup - create academic year"
+      action: "create"
+      model: "school_academic_year"
+      save_as: "year"
+      values:
+        code: "/"
+        name: "Year WP"
+        date_start: "2026-01-01"
+        date_end: "2026-12-31"
+
+    - step: "Setup - create employee"
+      action: "create"
+      model: "hr.employee"
+      save_as: "employee"
+      values:
+        name: "Employee WP"
+
+    - step: "Setup - create work program type"
+      action: "create"
+      model: "work_program_type"
+      save_as: "wp_type"
+      values:
+        code: "/"
+        name: "Type WP"
+
+    - step: "Setup - create work program category"
+      action: "create"
+      model: "work_program_category"
+      save_as: "wp_category"
+      values:
+        code: "/"
+        name: "Category WP"
+
+scenarios:
+  - name:
+      "Complete Program Is Planning Complete And Loses Complete When A Section Empties"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create committee role"
+        action: "create"
+        model: "work_program_role"
+        save_as: "wp_role"
+        values:
+          code: "/"
+          name: "Role Chair"
+      - step: "Create resource partner"
+        action: "create"
+        model: "res.partner"
+        save_as: "partner"
+        values:
+          name: "Resource Partner WP"
+      - step: "Create work program with every detail"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Complete"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          target_ids:
+            - - 0
+              - 0
+              - participant_type: "student"
+                grade_id: "REC: grade_a.id"
+                quantity: 30
+          objective_ids:
+            - - 0
+              - 0
+              - name: "Objective A"
+                indicator: "Indicator A"
+          committee_ids:
+            - - 0
+              - 0
+              - employee_id: "REC: employee.id"
+                role_id: "REC: wp_role.id"
+          material_ids:
+            - - 0
+              - 0
+              - name: "Material A"
+          resource_ids:
+            - - 0
+              - 0
+              - partner_id: "REC: partner.id"
+          need_ids:
+            - - 0
+              - 0
+              - name: "Need A"
+          occurrence_ids:
+            - - 0
+              - 0
+              - date_start: "2026-01-10"
+                rundown_ids:
+                  - - 0
+                    - 0
+                    - time_start: 8.0
+                      time_end: 9.0
+                      name: "Opening"
+
+      - step: "Assert every section and planning_complete are on"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+          section_occurrence_ok:
+            type: "value"
+            expected: true
+          section_target_ok:
+            type: "value"
+            expected: true
+          section_objective_ok:
+            type: "value"
+            expected: true
+          section_committee_ok:
+            type: "value"
+            expected: true
+          section_material_ok:
+            type: "value"
+            expected: true
+          section_resource_ok:
+            type: "value"
+            expected: true
+          section_need_ok:
+            type: "value"
+            expected: true
+          section_rundown_ok:
+            type: "value"
+            expected: true
+          planning_complete:
+            type: "value"
+            expected: true
+      - step: "Remove the material line"
+        action: "write"
+        target: "program"
+        values:
+          material_ids:
+            - - 5
+              - 0
+              - 0
+      - step: "Assert material section and planning_complete are off"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          section_material_ok:
+            type: "value"
+            expected: false
+          planning_complete:
+            type: "value"
+            expected: false
+          section_target_ok:
+            type: "value"
+            expected: true
+
+  - name: "Type Without Required Sections Still Planning Complete"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create type that requires nothing but target"
+        action: "create"
+        model: "work_program_type"
+        save_as: "light_type"
+        values:
+          code: "/"
+          name: "Type Light"
+          require_occurrence: false
+          require_objective: false
+          require_committee: false
+          require_material: false
+          require_resource: false
+          require_need: false
+          require_rundown: false
+      - step: "Create work program with only a target line"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Light"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: light_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          target_ids:
+            - - 0
+              - 0
+              - participant_type: "teacher"
+                quantity: 5
+      - step: "Assert planning_complete although other sections are empty"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          section_material_ok:
+            type: "value"
+            expected: false
+          section_rundown_ok:
+            type: "value"
+            expected: false
+          planning_complete:
+            type: "value"
+            expected: true
+
+  - name: "Rundown Section Needs A Rundown On Every Live Occurrence"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create program with two occurrences, one rundown"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Rundown"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+          occurrence_ids:
+            - - 0
+              - 0
+              - date_start: "2026-01-10"
+                rundown_ids:
+                  - - 0
+                    - 0
+                    - time_start: 8.0
+                      time_end: 9.0
+                      name: "Opening"
+            - - 0
+              - 0
+              - date_start: "2026-01-11"
+      - step: "Rundown section is off while one occurrence has no rundown"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          section_rundown_ok:
+            type: "value"
+            expected: false
+          section_occurrence_ok:
+            type: "value"
+            expected: true
+      - step: "Find the occurrence without rundown"
+        action: "search"
+        model: "work_program_occurrence"
+        domain:
+          - ["work_program_id", "=", "REC: program.id"]
+          - ["date_start", "=", "2026-01-11"]
+        save_as: "bare_occurrence"
+        expect_count: 1
+      - step: "Cancel that occurrence"
+        action: "call"
+        target: "bare_occurrence"
+        method: "action_cancel"
+      - step: "Cancelled occurrence is ignored by the rundown section"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          section_rundown_ok:
+            type: "value"
+            expected: true
+
+  - name: "Targets Accept Non Student Without Grade And Several Student Grades"
+    steps:
+      - step: "Create program"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Targets"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Teacher target without grade"
+        action: "create"
+        model: "work_program_target"
+        save_as: "teacher_target"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "teacher"
+          quantity: 4
+      - step: "Student target grade A"
+        action: "create"
+        model: "work_program_target"
+        save_as: "student_a"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "student"
+          grade_id: "REC: grade_a.id"
+          quantity: 20
+      - step: "Student target grade B"
+        action: "create"
+        model: "work_program_target"
+        save_as: "student_b"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "student"
+          grade_id: "REC: grade_b.id"
+          quantity: 25
+      - step: "Assert three target lines"
+        action: "assert"
+        target: "program"
+        asserts:
+          target_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 3
+      - step: "A student target without grade must be rejected"
+        action: "create"
+        model: "work_program_target"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Grade is required when the participant type is Student"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "student"
+          quantity: 10
+      - step: "A duplicate type and grade pair must be rejected"
+        action: "create"
+        model: "work_program_target"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "is already targeted"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "student"
+          grade_id: "REC: grade_a.id"
+          quantity: 10
+      - step: "A target quantity of zero must be rejected"
+        action: "create"
+        model: "work_program_target"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Quantity must be greater than zero"
+        values:
+          work_program_id: "REC: program.id"
+          participant_type: "staff"
+          quantity: 0
+
+  - name: "Qualitative Objective Without Target Value Is Saved"
+    steps:
+      - step: "Create program"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Objective"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Create qualitative objective"
+        action: "create"
+        model: "work_program_objective"
+        save_as: "objective"
+        values:
+          work_program_id: "REC: program.id"
+          kind: "output"
+          name: "Students feel confident"
+          indicator: "Observation"
+          measurement_type: "qualitative"
+          target_description: "Most students present without help"
+          verification: "Teacher observation sheet"
+      - step: "Assert saved with zero values"
+        action: "assert"
+        target: "objective"
+        asserts:
+          measurement_type:
+            type: "value"
+            expected: "qualitative"
+          target_value:
+            type: "value"
+            expected: 0.0
+          baseline_value:
+            type: "value"
+            expected: 0.0
+      - step: "A negative target value must be rejected"
+        action: "create"
+        model: "work_program_objective"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "must not be negative"
+        values:
+          work_program_id: "REC: program.id"
+          name: "Bad objective"
+          indicator: "Bad indicator"
+          target_value: -1.0
+
+  - name: "Planning Cycle Follows The Year Planning Deadline"
+    steps:
+      - step: "Create year with a far future deadline"
+        action: "create"
+        model: "school_academic_year"
+        save_as: "year_future"
+        values:
+          code: "/"
+          name: "Year WP Future Deadline"
+          date_start: "2026-01-01"
+          date_end: "2026-12-31"
+          work_program_planning_deadline: "2099-12-31"
+      - step: "Create year with a long past deadline"
+        action: "create"
+        model: "school_academic_year"
+        save_as: "year_past"
+        values:
+          code: "/"
+          name: "Year WP Past Deadline"
+          date_start: "2000-01-01"
+          date_end: "2000-12-31"
+          work_program_planning_deadline: "2000-01-31"
+      - step: "Create program in the future-deadline year"
+        action: "create"
+        model: "work_program"
+        save_as: "program_regular"
+        values:
+          title: "WP Regular"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year_future.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Create program in the past-deadline year"
+        action: "create"
+        model: "work_program"
+        save_as: "program_additional"
+        values:
+          title: "WP Additional"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year_past.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Create program in a year without deadline"
+        action: "create"
+        model: "work_program"
+        save_as: "program_open_year"
+        values:
+          title: "WP No Deadline"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Assert regular"
+        action: "assert"
+        target: "program_regular"
+        asserts:
+          planning_cycle:
+            type: "value"
+            expected: "regular"
+      - step: "Assert additional"
+        action: "assert"
+        target: "program_additional"
+        asserts:
+          planning_cycle:
+            type: "value"
+            expected: "additional"
+      - step: "Assert regular when the year has no deadline"
+        action: "assert"
+        target: "program_open_year"
+        asserts:
+          planning_cycle:
+            type: "value"
+            expected: "regular"
+
+  - name: "Multi Day Occurrence And Rundown On The Second Day"
+    steps:
+      - step: "Create program"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Multi Day"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Create three day occurrence"
+        action: "create"
+        model: "work_program_occurrence"
+        save_as: "occurrence"
+        values:
+          work_program_id: "REC: program.id"
+          name: "Camp"
+          date_start: "2026-01-10"
+          date_end: "2026-01-12"
+      - step: "Assert the end date was kept"
+        action: "assert"
+        target: "occurrence"
+        asserts:
+          date_end:
+            type: "value"
+            expected: 2026-01-12
+          state:
+            type: "value"
+            expected: "planned"
+      - step: "Create rundown on the second day"
+        action: "create"
+        model: "work_program_rundown"
+        save_as: "rundown"
+        values:
+          occurrence_id: "REC: occurrence.id"
+          date: "2026-01-11"
+          time_start: 9.0
+          time_end: 10.5
+          name: "Hiking"
+      - step: "Assert rundown day"
+        action: "assert"
+        target: "rundown"
+        asserts:
+          date:
+            type: "value"
+            expected: 2026-01-11
+      - step: "Rundown without a date takes the occurrence start date"
+        action: "create"
+        model: "work_program_rundown"
+        save_as: "rundown_default"
+        values:
+          occurrence_id: "REC: occurrence.id"
+          time_start: 7.0
+          time_end: 8.0
+          name: "Wake up"
+      - step: "Assert default rundown day"
+        action: "assert"
+        target: "rundown_default"
+        asserts:
+          date:
+            type: "value"
+            expected: 2026-01-10
+      - step: "Occurrence without end date ends on its start date"
+        action: "create"
+        model: "work_program_occurrence"
+        save_as: "single_day"
+        values:
+          work_program_id: "REC: program.id"
+          date_start: "2026-01-15"
+      - step: "Assert single day"
+        action: "assert"
+        target: "single_day"
+        asserts:
+          date_end:
+            type: "value"
+            expected: 2026-01-15
+
+  - name: "Date And Time Constraints Reject Invalid Input"
+    steps:
+      - step: "Create program"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Constraints"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Create occurrence for the rundown checks"
+        action: "create"
+        model: "work_program_occurrence"
+        save_as: "occurrence"
+        values:
+          work_program_id: "REC: program.id"
+          date_start: "2026-01-10"
+          date_end: "2026-01-11"
+      - step: "A program ending before it starts must be rejected"
+        action: "create"
+        model: "work_program"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Date End is earlier than Date Start"
+        values:
+          title: "WP Bad Period"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2025-12-01"
+      - step: "An occurrence outside the program period must be rejected"
+        action: "create"
+        model: "work_program_occurrence"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "outside the work program period"
+        values:
+          work_program_id: "REC: program.id"
+          date_start: "2026-02-10"
+      - step: "An occurrence ending before it starts must be rejected"
+        action: "create"
+        model: "work_program_occurrence"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Date End is earlier than Date Start"
+        values:
+          work_program_id: "REC: program.id"
+          date_start: "2026-01-10"
+          date_end: "2026-01-09"
+      - step: "An occurrence time window in reverse must be rejected"
+        action: "create"
+        model: "work_program_occurrence"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Time End must be later than Time Start"
+        values:
+          work_program_id: "REC: program.id"
+          date_start: "2026-01-10"
+          time_start: 10.0
+          time_end: 9.0
+      - step: "A rundown outside its occurrence must be rejected"
+        action: "create"
+        model: "work_program_rundown"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "outside the period of the occurrence"
+        values:
+          occurrence_id: "REC: occurrence.id"
+          date: "2026-01-20"
+          time_start: 8.0
+          time_end: 9.0
+          name: "Late"
+      - step: "A rundown with end time not after start must be rejected"
+        action: "create"
+        model: "work_program_rundown"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Time End must be later than Time Start"
+        values:
+          occurrence_id: "REC: occurrence.id"
+          date: "2026-01-10"
+          time_start: 9.0
+          time_end: 9.0
+          name: "Zero length"

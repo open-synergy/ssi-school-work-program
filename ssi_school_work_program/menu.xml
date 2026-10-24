@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<menuitem
+        id="menu_work_program_root"
+        name="Work Program"
+        parent="ssi_school.menu_school_root"
+        sequence="70"
+    />
+
+<menuitem
+        id="menu_work_program_configuration"
+        name="Work Program"
+        parent="ssi_school.menu_school_configuration"
+        sequence="170"
+    />
+</odoo>

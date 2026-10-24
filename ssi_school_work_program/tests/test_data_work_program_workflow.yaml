@@ -1,0 +1,305 @@
+setup:
+  steps:
+    - step: "Setup - create grade type"
+      action: "create"
+      model: "school_grade_type"
+      save_as: "grade_type"
+      values:
+        code: "/"
+        name: "Grade Type WP"
+
+    - step: "Setup - create grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_a"
+      values:
+        code: "/"
+        name: "Grade A WP"
+        sequence: 10
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create second grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_b"
+      values:
+        code: "/"
+        name: "Grade B WP"
+        sequence: 20
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create school"
+      action: "create"
+      model: "school"
+      save_as: "school"
+      values:
+        code: "/"
+        name: "School WP"
+        grade_type_id: "REC: grade_type.id"
+
+    - step: "Setup - create academic year"
+      action: "create"
+      model: "school_academic_year"
+      save_as: "year"
+      values:
+        code: "/"
+        name: "Year WP"
+        date_start: "2026-01-01"
+        date_end: "2026-12-31"
+
+    - step: "Setup - create employee"
+      action: "create"
+      model: "hr.employee"
+      save_as: "employee"
+      values:
+        name: "Employee WP"
+
+    - step: "Setup - create work program type"
+      action: "create"
+      model: "work_program_type"
+      save_as: "wp_type"
+      values:
+        code: "/"
+        name: "Type WP"
+
+    - step: "Setup - create work program category"
+      action: "create"
+      model: "work_program_category"
+      save_as: "wp_category"
+      values:
+        code: "/"
+        name: "Category WP"
+
+scenarios:
+  - name: "Approval Workflow To Open Creates Number And Analytic Account Then Done"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create work program WP Workflow"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Workflow"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Assert draft, no analytic account and planning incomplete"
+        action: "assert"
+        target: "program"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+          analytic_account_id:
+            type: "value"
+            operator: "is_falsy"
+          planning_complete:
+            type: "value"
+            expected: false
+      - step: "Confirm even though the planning is incomplete"
+        action: "call"
+        target: "program"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Assert confirm before approve (forces cache refresh)"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve as the validator"
+        action: "call"
+        target: "program"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Assert number and analytic account after open"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          name:
+            type: "value"
+            operator: "contains"
+            expected: "WP/"
+          analytic_account_id:
+            type: "value"
+            operator: "is_truthy"
+          analytic_account_id.name:
+            type: "value"
+            expected: "WP Workflow"
+      - step: "Finish the program"
+        action: "call"
+        target: "program"
+        method: "action_done"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+  - name: "Reject Then Restart Returns To Draft"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create work program WP Reject"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Reject"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Confirm"
+        action: "call"
+        target: "program"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Assert confirm before reject (forces cache refresh)"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Reject as the validator"
+        action: "call"
+        target: "program"
+        method: "action_reject_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "reject"
+      - step: "Assert reject before restart (forces cache refresh)"
+        action: "assert"
+        target: "program"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "reject"
+      - step: "Restart"
+        action: "call"
+        target: "program"
+        method: "action_restart"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+
+  - name: "Cancel From Draft Through The Reason Wizard"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create work program WP Cancel"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Cancel"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: wp_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Create cancel reason"
+        action: "create"
+        model: "base.cancel_reason"
+        save_as: "reason"
+        values:
+          name: "Plan dropped"
+      - step: "Cancel through the wizard"
+        action: "wizard"
+        model: "base.select_cancel_reason"
+        target: "program"
+        as_user: "base.user_admin"
+        values:
+          cancel_reason_id: "REC: reason"
+        method: "action_confirm"
+        asserts:
+          state:
+            type: "value"
+            expected: "cancel"
+
+  - name: "Create Analytic Account Twice Gives One Account With Type Group"
+    steps:
+      - step: "Create analytic group"
+        action: "create"
+        model: "account.analytic.group"
+        save_as: "analytic_group"
+        values:
+          name: "WP Analytic Group"
+      - step: "Create type with the analytic group"
+        action: "create"
+        model: "work_program_type"
+        save_as: "grouped_type"
+        values:
+          code: "/"
+          name: "Type With Analytic Group"
+          analytic_group_id: "REC: analytic_group.id"
+      - step: "Create work program WP Analytic"
+        action: "create"
+        model: "work_program"
+        save_as: "program"
+        values:
+          title: "WP Analytic"
+          school_id: "REC: school.id"
+          academic_year_id: "REC: year.id"
+          type_id: "REC: grouped_type.id"
+          category_id: "REC: wp_category.id"
+          pic_id: "REC: employee.id"
+          date_start: "2026-01-01"
+          date_end: "2026-01-28"
+      - step: "Create the analytic account"
+        action: "call"
+        target: "program"
+        method: "action_create_analytic_account"
+      - step: "Create the analytic account again"
+        action: "call"
+        target: "program"
+        method: "action_create_analytic_account"
+      - step: "Only one analytic account exists for the program"
+        action: "search"
+        model: "account.analytic.account"
+        domain:
+          - ["name", "=", "WP Analytic"]
+        save_as: "accounts"
+        expect_count: 1
+      - step: "Assert the account is linked, grouped and owned by the company partner"
+        action: "assert"
+        target: "program"
+        asserts:
+          analytic_account_id.group_id:
+            type: "m2o"
+            expected: "REC: analytic_group"
+          analytic_account_id.partner_id:
+            type: "m2o"
+            expected: "REC: company.partner_id"
+          analytic_account_id.company_id:
+            type: "m2o"
+            expected: "REC: company"
