@@ -17,7 +17,11 @@ School work program (annual activity plan) management for Odoo
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[ssi_school_work_program](ssi_school_work_program/) | 14.0.1.0.1 |  | School Work Program
 
 [//]: # (end addons)
 
