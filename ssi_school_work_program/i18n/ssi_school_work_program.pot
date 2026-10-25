@@ -14,6 +14,17 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence_preparation.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Change work program occurrence preparation\n"
+"Database ID: %s\n"
+"Problem: The occurrence is '%s', so its preparation can no longer change\n"
+"Solution: Reset the occurrence to planned before changing its preparation\n"
+msgstr ""
+
+#. module: ssi_school_work_program
 #: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
 #, python-format
 msgid ""
@@ -44,6 +55,17 @@ msgid ""
 "Database ID: %s\n"
 "Problem: The work program has no frequency set\n"
 "Solution: Select a frequency set, then generate the occurrence again\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Load work program occurrence preparation\n"
+"Database ID: %s\n"
+"Problem: The work program type has no preparation template\n"
+"Solution: Add preparation templates to the type, then load again\n"
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -264,6 +286,17 @@ msgid ""
 "Database ID: %s\n"
 "Problem: Quantity must be greater than zero\n"
 "Solution: Enter the planned number of participants\n"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_type_preparation.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program type preparation lead days\n"
+"Database ID: %s\n"
+"Problem: Lead Days cannot be negative\n"
+"Solution: Enter zero or a positive number of days\n"
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -689,6 +722,11 @@ msgid "Category used to classify and group the work program."
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__is_done
+msgid "Checked once the actual finish date is filled in."
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program__planning_complete
 msgid ""
 "Checked when every planning section required by the type of the program is "
@@ -751,6 +789,11 @@ msgstr ""
 msgid ""
 "Checked when the target section is filled in, i.e. there is at least one "
 "participant target line."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__preparation_ids
+msgid "Checklist of tasks to prepare before the occurrence."
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -853,12 +896,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__create_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__create_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__create_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__create_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__create_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__create_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__create_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__create_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__create_uid
 msgid "Created by"
 msgstr ""
 
@@ -874,12 +919,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__create_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__create_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__create_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__create_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__create_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__create_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__create_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__create_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__create_date
 msgid "Created on"
 msgstr ""
 
@@ -892,6 +939,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__date
 msgid "Date"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__date_done
+msgid "Date Done"
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -922,6 +974,16 @@ msgid ""
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__date_deadline
+msgid "Day on which the task has to be finished."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__date_done
+msgid "Day on which the task was actually finished."
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_occurrence__date_actual
 msgid ""
 "Day the occurrence really took place. Leave empty when it took place on the "
@@ -929,8 +991,14 @@ msgid ""
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__date_deadline
+msgid "Deadline"
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__description
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__description
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__description
 msgid "Description"
 msgstr ""
 
@@ -957,16 +1025,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__display_name
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__display_name
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__display_name
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__display_name
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__display_name
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__display_name
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__display_name
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__display_name
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__is_done
 #: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__state__done
 #: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
@@ -990,6 +1061,11 @@ msgstr ""
 #. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__pic_id
 msgid "Employee responsible for this slot."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__pic_id
+msgid "Employee responsible for this task."
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -1048,12 +1124,18 @@ msgstr ""
 #. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__attachment_ids
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__attachment_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__attachment_ids
 msgid "Evidence"
 msgstr ""
 
 #. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__target_description
 msgid "Expected result of a qualitative indicator, from the plan."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__attachment_ids
+msgid "Files proving that the task has been carried out."
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -1130,6 +1212,11 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__note
+msgid "Free remark about the task."
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__description
 msgid "Free text clarifying who exactly is targeted by this line."
 msgstr ""
@@ -1142,6 +1229,11 @@ msgstr ""
 #. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__frequency_set_id
 msgid "Frequency Set"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__description
+msgid "Further explanation of the task."
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -1201,12 +1293,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__id
 msgid "ID"
 msgstr ""
 
@@ -1320,6 +1414,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__preparation_state__in_progress
+msgid "In Progress"
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__indicator
 msgid "Indicator"
 msgstr ""
@@ -1362,12 +1461,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need____last_update
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective____last_update
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation____last_update
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource____last_update
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role____last_update
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown____last_update
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective____last_update
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target____last_update
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -1383,12 +1484,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__write_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__write_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__write_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__write_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__write_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__write_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__write_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__write_uid
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__write_uid
 msgid "Last Updated by"
 msgstr ""
 
@@ -1404,12 +1507,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__write_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__write_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__write_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__write_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__write_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__write_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__write_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__write_date
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -1434,6 +1539,11 @@ msgid "Last day of the period in which the program is carried out."
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__lead_days
+msgid "Lead Days"
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__lesson_learned
 msgid "Lesson Learned"
 msgstr ""
@@ -1441,6 +1551,11 @@ msgstr ""
 #. module: ssi_school_work_program
 #: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_form
 msgid "Load Lines"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Load Preparation"
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -1670,10 +1785,23 @@ msgid "Next Approvals"
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__preparation_state__none
+msgid "No Checklist"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__preparation_state
+msgid ""
+"No Checklist = no preparation task, In Progress = some task is not done yet,"
+" Ready = every task is done."
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__note
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__note
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__note
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__note
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__note
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__note
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__note
@@ -1688,6 +1816,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_needaction_counter
 msgid "Number of Actions"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__lead_days
+msgid ""
+"Number of days before the start date of the occurrence on which the task is "
+"due."
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -1807,6 +1942,7 @@ msgstr ""
 #. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__occurrence_id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__occurrence_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__occurrence_id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__occurrence_id
 msgid "Occurrence"
 msgstr ""
@@ -1834,6 +1970,11 @@ msgid "Occurrence of the work program this rundown line belongs to."
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__occurrence_id
+msgid "Occurrence of the work program this task belongs to."
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__occurrence_ids
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__occurrence_ids
 #: model:ir.ui.menu,name:ssi_school_work_program.work_program_occurrence_menu
@@ -1850,6 +1991,12 @@ msgstr ""
 #. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__time_start
 msgid "Optional start time of day of the occurrence."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__sequence
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__sequence
+msgid "Order of the task in the checklist."
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -1929,7 +2076,13 @@ msgid "People taking part in the program who are not in the committee."
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__preparation_progress
+msgid "Percentage of the preparation tasks that are done."
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__pic_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__pic_id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__pic_id
 msgid "Person in Charge"
 msgstr ""
@@ -2029,6 +2182,35 @@ msgid "Policy that determines whether the Load Lines button is visible."
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__preparation_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_form
+msgid "Preparation"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__preparation_progress
+msgid "Preparation Progress (%)"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__preparation_state
+msgid "Preparation Status"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__preparation_template_ids
+msgid "Preparation Templates"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__template_id
+msgid ""
+"Preparation task of the work program type this line was loaded from. Empty "
+"for a line added by hand."
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_objective__measurement_type__qualitative
 msgid "Qualitative"
 msgstr ""
@@ -2037,6 +2219,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__quantity
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__quantity
 msgid "Quantity"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__preparation_state__ready
+msgid "Ready"
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -2250,6 +2437,12 @@ msgid "School that carries out this work program."
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__sequence
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__name
 msgid "Short label of the occurrence, for example the session name."
 msgstr ""
@@ -2272,6 +2465,13 @@ msgstr ""
 #. module: ssi_school_work_program
 #: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__staff
 msgid "Staff"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__preparation_template_ids
+msgid ""
+"Standard preparation tasks that can be loaded into the occurrences of the "
+"work programs of this type."
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -2361,8 +2561,19 @@ msgid "Target Value"
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__name
+msgid "Task"
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__teacher
 msgid "Teacher"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__template_id
+msgid "Template"
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -2408,6 +2619,7 @@ msgstr ""
 
 #. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__type_id
 #: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
 msgid "Type"
 msgstr ""
@@ -2564,6 +2776,12 @@ msgid "What happened on each planned implementation date."
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__name
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__name
+msgid "What has to be prepared."
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__recommendation
 msgid "What should be done differently the next time."
 msgstr ""
@@ -2664,6 +2882,11 @@ msgid "Work Program Occurrence"
 msgstr ""
 
 #. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_occurrence_preparation
+msgid "Work Program Occurrence Preparation"
+msgstr ""
+
+#. module: ssi_school_work_program
 #: model:ir.actions.act_window,name:ssi_school_work_program.work_program_occurrence_action
 msgid "Work Program Occurrences"
 msgstr ""
@@ -2713,6 +2936,11 @@ msgstr ""
 #: model:ir.model,name:ssi_school_work_program.model_work_program_type
 #: model:res.groups,name:ssi_school_work_program.work_program_type_group
 msgid "Work Program Type"
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_type_preparation
+msgid "Work Program Type Preparation"
 msgstr ""
 
 #. module: ssi_school_work_program
@@ -2781,4 +3009,9 @@ msgstr ""
 #. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_resource__work_program_id
 msgid "Work program this resource person belongs to."
+msgstr ""
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__type_id
+msgid "Work program type this preparation task belongs to."
 msgstr ""
