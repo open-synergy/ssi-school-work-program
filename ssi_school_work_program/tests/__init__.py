@@ -7,6 +7,7 @@ from . import test_work_program
 from . import test_work_program_target
 from . import test_work_program_workflow
 from . import test_work_program_occurrence
+from . import test_work_program_preparation
 from . import test_work_program_evaluation
 from . import test_ui_work_program_type
 from . import test_ui_work_program_category

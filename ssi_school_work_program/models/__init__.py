@@ -5,6 +5,7 @@
 from . import (  # noqa: F401
     school_academic_year,
     work_program_type,
+    work_program_type_preparation,
     work_program_category,
     work_program_strategic_objective,
     work_program_role,
@@ -16,6 +17,7 @@ from . import (  # noqa: F401
     work_program_resource,
     work_program_need,
     work_program_occurrence,
+    work_program_occurrence_preparation,
     work_program_rundown,
     work_program_evaluation,
     work_program_evaluation_participant,

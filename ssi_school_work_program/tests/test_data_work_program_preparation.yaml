@@ -1,0 +1,332 @@
+setup:
+  steps:
+    - step: "Setup - create grade type"
+      action: "create"
+      model: "school_grade_type"
+      save_as: "grade_type"
+      values:
+        code: "/"
+        name: "Grade Type WP"
+
+    - step: "Setup - create grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_a"
+      values:
+        code: "/"
+        name: "Grade A WP"
+        sequence: 10
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create second grade"
+      action: "create"
+      model: "school_grade"
+      save_as: "grade_b"
+      values:
+        code: "/"
+        name: "Grade B WP"
+        sequence: 20
+        type_id: "REC: grade_type.id"
+
+    - step: "Setup - create school"
+      action: "create"
+      model: "school"
+      save_as: "school"
+      values:
+        code: "/"
+        name: "School WP"
+        grade_type_id: "REC: grade_type.id"
+
+    - step: "Setup - create academic year"
+      action: "create"
+      model: "school_academic_year"
+      save_as: "year"
+      values:
+        code: "/"
+        name: "Year WP"
+        date_start: "2026-01-01"
+        date_end: "2026-12-31"
+
+    - step: "Setup - create employee"
+      action: "create"
+      model: "hr.employee"
+      save_as: "employee"
+      values:
+        name: "Employee WP"
+
+    - step: "Setup - create work program type"
+      action: "create"
+      model: "work_program_type"
+      save_as: "wp_type"
+      values:
+        code: "/"
+        name: "Type WP"
+
+    - step: "Setup - create work program category"
+      action: "create"
+      model: "work_program_category"
+      save_as: "wp_category"
+      values:
+        code: "/"
+        name: "Category WP"
+
+    - step: "Setup - create work program type without template"
+      action: "create"
+      model: "work_program_type"
+      save_as: "wp_type_empty"
+      values:
+        code: "/"
+        name: "Type WP Empty"
+
+    - step: "Setup - create template due seven days before"
+      action: "create"
+      model: "work_program_type_preparation"
+      save_as: "tpl_early"
+      values:
+        type_id: "REC: wp_type.id"
+        sequence: 10
+        name: "Book the venue"
+        lead_days: 7
+
+    - step: "Setup - create template due on the day"
+      action: "create"
+      model: "work_program_type_preparation"
+      save_as: "tpl_late"
+      values:
+        type_id: "REC: wp_type.id"
+        sequence: 20
+        name: "Final check"
+        lead_days: 0
+
+    - step: "Setup - create work program"
+      action: "create"
+      model: "work_program"
+      save_as: "program"
+      values:
+        title: "WP Preparation"
+        school_id: "REC: school.id"
+        academic_year_id: "REC: year.id"
+        type_id: "REC: wp_type.id"
+        category_id: "REC: wp_category.id"
+        pic_id: "REC: employee.id"
+        date_start: "2026-01-01"
+        date_end: "2026-01-28"
+
+    - step: "Setup - create occurrence"
+      action: "create"
+      model: "work_program_occurrence"
+      save_as: "occurrence"
+      values:
+        work_program_id: "REC: program.id"
+        name: "Occurrence WP Preparation"
+        date_start: "2026-01-10"
+
+scenarios:
+  - name: "Load Preparation Creates One Line Per Template Idempotently"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Load the preparation"
+        action: "call"
+        target: "occurrence"
+        method: "action_load_preparation"
+      - step: "Find the line of the early template"
+        action: "search"
+        model: "work_program_occurrence_preparation"
+        domain:
+          - ["occurrence_id", "=", "REC: occurrence.id"]
+          - ["template_id", "=", "REC: tpl_early.id"]
+        save_as: "line_early"
+        expect_count: 1
+      - step: "Find the line of the late template"
+        action: "search"
+        model: "work_program_occurrence_preparation"
+        domain:
+          - ["occurrence_id", "=", "REC: occurrence.id"]
+          - ["template_id", "=", "REC: tpl_late.id"]
+        save_as: "line_late"
+        expect_count: 1
+      - step: "The early line is due seven days before the start"
+        action: "assert"
+        target: "line_early"
+        asserts:
+          date_deadline:
+            type: "value"
+            expected: "EVAL: date(2026, 1, 3)"
+          pic_id:
+            type: "m2o"
+            expected: "REC: employee"
+      - step: "The late line is due on the start date"
+        action: "assert"
+        target: "line_late"
+        asserts:
+          date_deadline:
+            type: "value"
+            expected: "EVAL: date(2026, 1, 10)"
+      - step: "The occurrence is in progress with no progress"
+        action: "assert"
+        target: "occurrence"
+        asserts:
+          preparation_state:
+            type: "value"
+            expected: "in_progress"
+          preparation_progress:
+            type: "value"
+            expected: 0.0
+      - step: "Load again"
+        action: "call"
+        target: "occurrence"
+        method: "action_load_preparation"
+      - step: "Still two lines"
+        action: "assert"
+        target: "occurrence"
+        asserts:
+          preparation_ids:
+            type: "o2m"
+            check: "count"
+            expected_count: 2
+
+  - name: "Date Done Moves The Progress And The Preparation Status"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Load the preparation"
+        action: "call"
+        target: "occurrence"
+        method: "action_load_preparation"
+      - step: "Find the line of the early template"
+        action: "search"
+        model: "work_program_occurrence_preparation"
+        domain:
+          - ["occurrence_id", "=", "REC: occurrence.id"]
+          - ["template_id", "=", "REC: tpl_early.id"]
+        save_as: "line_early"
+        expect_count: 1
+      - step: "Find the line of the late template"
+        action: "search"
+        model: "work_program_occurrence_preparation"
+        domain:
+          - ["occurrence_id", "=", "REC: occurrence.id"]
+          - ["template_id", "=", "REC: tpl_late.id"]
+        save_as: "line_late"
+        expect_count: 1
+      - step: "Finish the first line"
+        action: "write"
+        target: "line_early"
+        values:
+          date_done: "2026-01-04"
+      - step: "Half of the checklist is done"
+        action: "assert"
+        target: "occurrence"
+        asserts:
+          preparation_progress:
+            type: "value"
+            expected: 50.0
+          preparation_state:
+            type: "value"
+            expected: "in_progress"
+      - step: "Finish the second line"
+        action: "write"
+        target: "line_late"
+        values:
+          date_done: "2026-01-10"
+      - step: "The whole checklist is done"
+        action: "assert"
+        target: "occurrence"
+        asserts:
+          preparation_progress:
+            type: "value"
+            expected: 100.0
+          preparation_state:
+            type: "value"
+            expected: "ready"
+
+  - name: "An Occurrence Without Line Has No Checklist"
+    options: {auto_refresh: true}
+    steps:
+      - step: "No line, no checklist status"
+        action: "assert"
+        target: "occurrence"
+        asserts:
+          preparation_state:
+            type: "value"
+            expected: "none"
+          preparation_progress:
+            type: "value"
+            expected: 0.0
+
+  - name: "Load Preparation Needs A Template On The Type"
+    steps:
+      - step: "Move the program to the type without template"
+        action: "write"
+        target: "program"
+        values:
+          type_id: "REC: wp_type_empty.id"
+      - step: "Load must be refused"
+        action: "call"
+        target: "occurrence"
+        method: "action_load_preparation"
+        expect_error:
+          type: "UserError"
+          message_contains: "has no preparation template"
+
+  - name: "Load Preparation Is Refused On A Cancelled Occurrence"
+    steps:
+      - step: "Cancel the occurrence"
+        action: "call"
+        target: "occurrence"
+        method: "action_cancel"
+      - step: "Load must be refused"
+        action: "call"
+        target: "occurrence"
+        method: "action_load_preparation"
+        expect_error:
+          type: "UserError"
+          message_contains: "cannot be changed from status 'cancel'"
+
+  - name: "Negative Lead Days Are Refused"
+    steps:
+      - step: "Create a template with negative lead days"
+        action: "create"
+        model: "work_program_type_preparation"
+        values:
+          type_id: "REC: wp_type.id"
+          name: "Bad lead days"
+          lead_days: -1
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Lead Days cannot be negative"
+
+  - name: "A Line Of A Cancelled Occurrence Cannot Change"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Load the preparation"
+        action: "call"
+        target: "occurrence"
+        method: "action_load_preparation"
+      - step: "Find the line of the early template"
+        action: "search"
+        model: "work_program_occurrence_preparation"
+        domain:
+          - ["occurrence_id", "=", "REC: occurrence.id"]
+          - ["template_id", "=", "REC: tpl_early.id"]
+        save_as: "line_early"
+        expect_count: 1
+      - step: "Find the line of the late template"
+        action: "search"
+        model: "work_program_occurrence_preparation"
+        domain:
+          - ["occurrence_id", "=", "REC: occurrence.id"]
+          - ["template_id", "=", "REC: tpl_late.id"]
+        save_as: "line_late"
+        expect_count: 1
+      - step: "Cancel the occurrence"
+        action: "call"
+        target: "occurrence"
+        method: "action_cancel"
+      - step: "Changing the line is refused"
+        action: "write"
+        target: "line_early"
+        values:
+          date_done: "2026-01-04"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "can no longer change"
