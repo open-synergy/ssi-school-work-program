@@ -243,8 +243,17 @@ odoo.define("ssi_school_work_program.work_program_occurrence_tour", function (re
                 extra_trigger: ".o_form_view",
             },
             {
+                content: "Load Preparation finished",
+                trigger:
+                    ".o_statusbar_buttons button[name='action_load_preparation']:enabled",
+                extra_trigger: ".o_form_view.o_form_readonly",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
                 content: "Click the Edit button",
-                trigger: ".o_form_button_edit",
+                trigger: ".o_form_button_edit:enabled",
                 extra_trigger: ".o_form_view.o_form_readonly",
             },
             {
