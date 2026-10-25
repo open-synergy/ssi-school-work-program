@@ -2,6 +2,8 @@
 # Copyright 2026 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from datetime import timedelta
+
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
 
@@ -81,6 +83,61 @@ class WorkProgramOccurrence(models.Model):
         inverse_name="occurrence_id",
         help="Schedule of activities that make up this occurrence.",
     )
+    preparation_ids = fields.One2many(
+        string="Preparation",
+        comodel_name="work_program_occurrence_preparation",
+        inverse_name="occurrence_id",
+        help="Checklist of tasks to prepare before the occurrence.",
+    )
+    preparation_progress = fields.Float(
+        string="Preparation Progress (%)",
+        compute="_compute_preparation_progress",
+        store=True,
+        compute_sudo=True,
+        help="Percentage of the preparation tasks that are done.",
+    )
+    preparation_state = fields.Selection(
+        string="Preparation Status",
+        selection=[
+            ("none", "No Checklist"),
+            ("in_progress", "In Progress"),
+            ("ready", "Ready"),
+        ],
+        compute="_compute_preparation_state",
+        store=True,
+        compute_sudo=True,
+        help=(
+            "No Checklist = no preparation task, In Progress = some task "
+            "is not done yet, Ready = every task is done."
+        ),
+    )
+
+    @api.depends("preparation_ids.is_done")
+    def _compute_preparation_progress(self):
+        """Compute the percentage of preparation tasks that are done.
+
+        An occurrence without any preparation task has a progress of
+        ``0.0``.
+        """
+        for record in self:
+            result = 0.0
+            lines = record.preparation_ids
+            if lines:
+                done = len(lines.filtered(lambda r: r.is_done))
+                result = 100.0 * done / len(lines)
+            record.preparation_progress = result
+
+    @api.depends("preparation_ids.is_done")
+    def _compute_preparation_state(self):
+        """Derive the preparation status from the checklist lines."""
+        for record in self:
+            result = "none"
+            lines = record.preparation_ids
+            if lines:
+                result = "in_progress"
+                if all(lines.mapped("is_done")):
+                    result = "ready"
+            record.preparation_state = result
 
     @api.depends("date_start")
     def _compute_date_end(self):
@@ -277,6 +334,57 @@ Solution: Enter an end time later than the start time
         if self.state == "planned":
             self._raise_state_error("reset to planned")
         self.write({"state": "planned"})
+
+    def action_load_preparation(self):
+        """Load the preparation checklist from the work program type.
+
+        Creates, for every record of the recordset, one checklist line per
+        template task of the type of the work program that is not loaded
+        yet. Existing lines are never changed or deleted, so the action
+        can be run again safely. Nothing is returned.
+        """
+        for record in self.sudo():
+            record._load_preparation()
+
+    def _load_preparation(self):
+        """Create the missing checklist lines of the occurrence.
+
+        The deadline is the start date minus the lead days of the
+        template, and the person in charge is the one of the work program.
+
+        :raises UserError: the occurrence is not ``planned`` or the type of
+            the work program has no preparation template.
+        """
+        self.ensure_one()
+        self._check_state_before("planned", "load preparation")
+        templates = self.work_program_id.type_id.preparation_template_ids
+        if not templates:
+            error_message = (
+                _(
+                    """
+Context: Load work program occurrence preparation
+Database ID: %s
+Problem: The work program type has no preparation template
+Solution: Add preparation templates to the type, then load again
+"""
+                )
+                % (self.id,)
+            )
+            raise UserError(error_message)
+        loaded = self.preparation_ids.mapped("template_id")
+        line_model = self.env["work_program_occurrence_preparation"]
+        for template in templates - loaded:
+            line_model.create(
+                {
+                    "occurrence_id": self.id,
+                    "template_id": template.id,
+                    "sequence": template.sequence,
+                    "name": template.name,
+                    "pic_id": self.work_program_id.pic_id.id,
+                    "date_deadline": self.date_start
+                    - timedelta(days=template.lead_days),
+                }
+            )
 
     def _check_state_before(self, expected_state, action_label):
         """Make sure the occurrence is in the state an action starts from.

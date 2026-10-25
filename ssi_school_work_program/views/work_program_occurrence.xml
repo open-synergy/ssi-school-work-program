@@ -58,6 +58,8 @@
             <field name="time_start" widget="float_time" optional="hide" />
             <field name="time_end" widget="float_time" optional="hide" />
             <field name="location" optional="hide" />
+            <field name="preparation_state" optional="hide" />
+            <field name="preparation_progress" widget="progressbar" optional="hide" />
             <field name="state" />
         </tree>
     </field>
@@ -81,6 +83,12 @@
                         type="object"
                         string="Cancel"
                         confirm="Cancel this occurrence. Are you sure?"
+                        states="planned"
+                    />
+                <button
+                        name="action_load_preparation"
+                        type="object"
+                        string="Load Preparation"
                         states="planned"
                     />
                 <button
@@ -122,6 +130,37 @@
                                     <field name="time_end" widget="float_time" />
                                     <field name="name" />
                                     <field name="pic_id" />
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                    <page name="preparation" string="Preparation">
+                        <group name="preparation_group_1" colspan="4" col="2">
+                            <field name="preparation_state" />
+                            <field name="preparation_progress" widget="progressbar" />
+                        </group>
+                        <field name="preparation_ids" nolabel="1" colspan="4">
+                            <tree>
+                                <field name="sequence" widget="handle" />
+                                <field name="name" />
+                                <field name="pic_id" />
+                                <field name="date_deadline" />
+                                <field name="date_done" />
+                                <field name="is_done" />
+                            </tree>
+                            <form>
+                                <group name="preparation_form" colspan="4" col="2">
+                                    <field name="sequence" />
+                                    <field name="name" />
+                                    <field name="pic_id" />
+                                    <field name="date_deadline" />
+                                    <field name="date_done" />
+                                    <field name="is_done" />
+                                    <field
+                                            name="attachment_ids"
+                                            widget="many2many_binary"
+                                        />
+                                    <field name="note" />
                                 </group>
                             </form>
                         </field>

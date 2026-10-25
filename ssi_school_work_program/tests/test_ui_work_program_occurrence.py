@@ -15,7 +15,8 @@ class TestUiWorkProgramOccurrence(HttpSavepointCase):
     def setUpClass(cls):
         """Create one program with an occurrence per tour.
 
-        Each tour acts on its own planned occurrence; the occurrence of the
+        Each tour acts on its own planned occurrence, the preparation tour on
+        one whose type has a preparation template; the occurrence of the
         reset tour is moved to ``done`` first because Reset starts from
         a finished or cancelled occurrence.
         """
@@ -53,6 +54,35 @@ class TestUiWorkProgramOccurrence(HttpSavepointCase):
                 "date_start": "2026-01-01",
                 "date_end": "2026-01-28",
                 "user_id": admin.id,
+            }
+        )
+        prepare_type = cls.env["work_program_type"].create(
+            {
+                "name": "Tour WPO Prepare Type",
+                "code": "/",
+                "preparation_template_ids": [
+                    (0, 0, {"name": "Tour Prepare Venue", "lead_days": 0})
+                ],
+            }
+        )
+        prepare_program = cls.env["work_program"].create(
+            {
+                "title": "Tour WPO Prepare Program",
+                "school_id": school.id,
+                "academic_year_id": year.id,
+                "type_id": prepare_type.id,
+                "category_id": category.id,
+                "pic_id": employee.id,
+                "date_start": "2026-01-01",
+                "date_end": "2026-01-28",
+                "user_id": admin.id,
+            }
+        )
+        cls.env["work_program_occurrence"].create(
+            {
+                "work_program_id": prepare_program.id,
+                "name": "Tour Occ Prepare",
+                "date_start": "2026-01-10",
             }
         )
         occurrence_model = cls.env["work_program_occurrence"]
@@ -96,5 +126,16 @@ class TestUiWorkProgramOccurrence(HttpSavepointCase):
         self.start_tour(
             "/web",
             "ssi_school_work_program_work_program_occurrence_reset",
+            login="admin",
+        )
+
+    def test_load_preparation(self):
+        """Run the load preparation tour for ``work_program_occurrence``.
+
+        IK: docs/work_program_occurrence/04-load-preparation.md
+        """
+        self.start_tour(
+            "/web",
+            "ssi_school_work_program_work_program_occurrence_load_preparation",
             login="admin",
         )

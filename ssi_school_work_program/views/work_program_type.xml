@@ -60,6 +60,23 @@
                             <field name="require_rundown" />
                     </group>
                 </page>
+                <page name="preparation" string="Preparation">
+                    <field name="preparation_template_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="sequence" widget="handle" />
+                            <field name="name" />
+                            <field name="lead_days" />
+                        </tree>
+                        <form>
+                            <group name="preparation_form" colspan="4" col="2">
+                                <field name="sequence" />
+                                <field name="name" />
+                                <field name="lead_days" />
+                                <field name="description" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
                 <page name="evaluation" string="Evaluation">
                     <group name="evaluation_group_1">
                         <field name="require_final_evaluation" />

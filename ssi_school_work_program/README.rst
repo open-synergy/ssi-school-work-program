@@ -74,6 +74,7 @@ Work Program Occurrence
 * `Mark Work Program Occurrence as Done <docs/work_program_occurrence/01-done.html>`_
 * `Cancel Work Program Occurrence <docs/work_program_occurrence/02-cancel.html>`_
 * `Reset Work Program Occurrence to Planned <docs/work_program_occurrence/03-reset.html>`_
+* `Load Preparation of Work Program Occurrence <docs/work_program_occurrence/04-load-preparation.html>`_
 
 Work Program Evaluation
 -----------------------

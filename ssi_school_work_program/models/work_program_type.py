@@ -101,3 +101,12 @@ class WorkProgramType(models.Model):  # pylint: disable=too-few-public-methods
             "done."
         ),
     )
+    preparation_template_ids = fields.One2many(
+        string="Preparation Templates",
+        comodel_name="work_program_type_preparation",
+        inverse_name="type_id",
+        help=(
+            "Standard preparation tasks that can be loaded into the "
+            "occurrences of the work programs of this type."
+        ),
+    )

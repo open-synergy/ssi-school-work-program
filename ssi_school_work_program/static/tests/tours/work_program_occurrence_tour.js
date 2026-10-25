@@ -192,4 +192,99 @@ odoo.define("ssi_school_work_program.work_program_occurrence_tour", function (re
             },
         ]
     );
+
+    // IK: docs/work_program_occurrence/04-load-preparation.md
+    tour.register(
+        "ssi_school_work_program_work_program_occurrence_load_preparation",
+        {
+            test: true,
+            url: "/web",
+        },
+        [
+            tour.stepUtils.showAppsMenuItem(),
+            {
+                content: "Open the School app",
+                trigger: '.o_app[data-menu-xmlid="ssi_school.menu_school_root"]',
+            },
+            {
+                content: "Open the Work Program menu",
+                trigger:
+                    '.o_menu_sections [data-menu-xmlid="ssi_school_work_program.menu_work_program_root"]',
+            },
+            {
+                content: "Open the Work Program Occurrences menu",
+                trigger:
+                    '.o_menu_sections [data-menu-xmlid="ssi_school_work_program.work_program_occurrence_menu"]',
+            },
+            {
+                content: "Work Program Occurrences list is displayed",
+                trigger:
+                    ".o_control_panel .breadcrumb-item.active:contains(Work Program Occurrences)",
+                extra_trigger: ".o_list_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Open the occurrence to prepare",
+                trigger: ".o_data_row:contains(Tour Occ Prepare) .o_data_cell:first",
+                extra_trigger: ".o_list_view",
+            },
+            {
+                content: "Form is open",
+                trigger: ".o_form_view",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Click the Load Preparation button",
+                trigger: ".o_statusbar_buttons button[name='action_load_preparation']",
+                extra_trigger: ".o_form_view",
+            },
+            {
+                content: "Click the Edit button",
+                trigger: ".o_form_button_edit",
+                extra_trigger: ".o_form_view.o_form_readonly",
+            },
+            {
+                content: "Open the Preparation tab",
+                trigger: ".o_notebook .nav-link:contains(Preparation)",
+                extra_trigger: ".o_form_view.o_form_editable",
+            },
+            {
+                content: "Open the loaded task line",
+                trigger:
+                    ".o_field_widget[name='preparation_ids'] .o_data_row:contains(Tour Prepare Venue) .o_data_cell:first",
+            },
+            {
+                content: "Fill in Date Done",
+                trigger: ".o_field_widget[name='date_done'] input",
+                run: "text 01/05/2026",
+            },
+            {
+                content: "Save & Close the task line",
+                trigger: ".modal-footer .btn-primary:contains(Save & Close)",
+            },
+            {
+                content: "Task line is listed",
+                trigger: ".o_field_widget[name='preparation_ids'] .o_data_row",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+            {
+                content: "Save the record",
+                trigger: ".o_form_button_save",
+            },
+            {
+                content: "Record is saved",
+                trigger: ".o_form_view.o_form_readonly",
+                run: function () {
+                    // Assertion only; do not trigger the default click action.
+                },
+            },
+        ]
+    );
 });
