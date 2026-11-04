@@ -379,8 +379,8 @@ msgstr ""
 "\n"
 "Konteks: Atur target program kerja\n"
 "ID Basis Data: %s\n"
-"Masalah: Tingkat kelas wajib diisi jika jenis peserta adalah Siswa\n"
-"Solusi: Pilih tingkat kelas siswa yang menjadi target\n"
+"Masalah: Tingkat wajib diisi jika jenis peserta adalah Siswa\n"
+"Solusi: Pilih tingkat siswa yang menjadi target\n"
 
 #. module: ssi_school_work_program
 #: code:addons/ssi_school_work_program/models/work_program_target.py:0
@@ -395,7 +395,7 @@ msgstr ""
 "\n"
 "Konteks: Atur target program kerja\n"
 "ID Basis Data: %s\n"
-"Masalah: Jenis peserta '%s' dengan tingkat kelas '%s' sudah menjadi target\n"
+"Masalah: Jenis peserta '%s' dengan tingkat '%s' sudah menjadi target\n"
 "Solusi: Ubah baris yang sudah ada, jangan menambahkan baris ganda\n"
 
 #. module: ssi_school_work_program
@@ -1397,19 +1397,19 @@ msgstr "Buat tanggal pelaksanaan dari set frekuensi. Apakah Anda yakin?"
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__grade_id
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__grade_id
 msgid "Grade"
-msgstr "Tingkat Kelas"
+msgstr "Tingkat"
 
 #. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_participant__grade_id
 msgid "Grade of the targeted students, copied from the plan."
-msgstr "Tingkat kelas siswa yang menjadi target, disalin dari rencana."
+msgstr "Tingkat siswa yang menjadi target, disalin dari rencana."
 
 #. module: ssi_school_work_program
 #: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__grade_id
 msgid ""
 "Grade of the targeted students. Required when the participant type is "
 "Student, optional otherwise."
-msgstr "Tingkat kelas siswa yang menjadi target. Wajib diisi bila jenis peserta adalah Siswa, opsional untuk jenis lainnya."
+msgstr "Tingkat siswa yang menjadi target. Wajib diisi bila jenis peserta adalah Siswa, opsional untuk jenis lainnya."
 
 #. module: ssi_school_work_program
 #: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_category_view_search
@@ -1758,8 +1758,8 @@ msgstr ""
 "Status data master\n"
 "\n"
 "* Data tidak aktif tidak dapat dipilih saat membuat transaksi baru\n"
-"* Transaksi dengan data master tidak aktif tetap dapat dilihat\n"
-"* Jadikan data master tidak aktif jika data master tidak diperlukan lagi,\n"
+"* Transaksi dengan data master tidak aktif masih dapat dilihat\n"
+"* Setel data master menjadi tidak aktif jika data master tidak lagi diperlukan,\n"
 "tetapi data master sudah digunakan pada transaksi"
 
 #. module: ssi_school_work_program
@@ -1775,12 +1775,12 @@ msgid ""
 "  Sequence template mush be set to perform this action\n"
 "  Only master data with '/' code will be assign automatic code"
 msgstr ""
-"Pengenal unik data master.\n"
+"Pengidentifikasi unik data master.\n"
 "\n"
-"* Isi dengan '/' jika Anda tidak membutuhkan pengenal unik\n"
+"* Isi dengan '/' jika Anda tidak memerlukan pengidentifikasi unik\n"
 "* Klik tombol 'Buat Kode' untuk menetapkan kode secara otomatis.\n"
-"  Templat urutan harus diatur untuk menjalankan aksi ini\n"
-"  Hanya data master dengan kode '/' yang akan ditetapkan kode otomatis"
+"  Templat penomoran harus disetel untuk melakukan tindakan ini\n"
+"  Hanya data master dengan kode '/' yang akan diberi kode otomatis"
 
 #. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__name
@@ -2942,7 +2942,7 @@ msgstr "Verifikasi"
 #: model:res.groups,name:ssi_school_work_program.work_program_evaluation_viewer_group
 #: model:res.groups,name:ssi_school_work_program.work_program_viewer_group
 msgid "Viewer"
-msgstr "Pembaca"
+msgstr "Penampil"
 
 #. module: ssi_school_work_program
 #: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__website_message_ids
