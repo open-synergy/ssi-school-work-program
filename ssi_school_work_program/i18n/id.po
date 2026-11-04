@@ -1,0 +1,3211 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_school_work_program
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence_preparation.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Change work program occurrence preparation\n"
+"Database ID: %s\n"
+"Problem: The occurrence is '%s', so its preparation can no longer change\n"
+"Solution: Reset the occurrence to planned before changing its preparation\n"
+msgstr ""
+"\n"
+"Konteks: Ubah persiapan pelaksanaan program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Pelaksanaan berstatus '%s', sehingga persiapannya tidak dapat diubah lagi\n"
+"Solusi: Atur ulang pelaksanaan ke Direncanakan sebelum mengubah persiapannya\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Change work program occurrence status (%s)\n"
+"Database ID: %s\n"
+"Problem: The occurrence cannot be changed from status '%s'\n"
+"Solution: Check the status of the occurrence before running this action\n"
+msgstr ""
+"\n"
+"Konteks: Ubah status pelaksanaan program kerja (%s)\n"
+"ID Basis Data: %s\n"
+"Masalah: Pelaksanaan tidak dapat diubah dari status '%s'\n"
+"Solusi: Periksa status pelaksanaan sebelum menjalankan aksi ini\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Finish work program\n"
+"Database ID: %s\n"
+"Problem: The type requires a final evaluation that is done, and there is none\n"
+"Solution: Create the final evaluation of this program and get it approved\n"
+msgstr ""
+"\n"
+"Konteks: Selesaikan program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Jenis program mewajibkan evaluasi akhir yang selesai, dan belum ada\n"
+"Solusi: Buat evaluasi akhir program ini dan minta persetujuannya\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Generate work program occurrence\n"
+"Database ID: %s\n"
+"Problem: The work program has no frequency set\n"
+"Solution: Select a frequency set, then generate the occurrence again\n"
+msgstr ""
+"\n"
+"Konteks: Buat pelaksanaan program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Program kerja belum memiliki set frekuensi\n"
+"Solusi: Pilih set frekuensi, lalu buat pelaksanaan kembali\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Load work program occurrence preparation\n"
+"Database ID: %s\n"
+"Problem: The work program type has no preparation template\n"
+"Solution: Add preparation templates to the type, then load again\n"
+msgstr ""
+"\n"
+"Konteks: Muat persiapan pelaksanaan program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Jenis program kerja belum memiliki templat persiapan\n"
+"Solusi: Tambahkan templat persiapan pada jenis program, lalu muat kembali\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation date\n"
+"Database ID: %s\n"
+"Problem: The date is earlier than the start date of the work program\n"
+"Solution: Enter a date on or after the start date of the work program\n"
+msgstr ""
+"\n"
+"Konteks: Atur tanggal evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Tanggal lebih awal daripada tanggal mulai program kerja\n"
+"Solusi: Masukkan tanggal pada atau setelah tanggal mulai program kerja\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation_objective.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation objective\n"
+"Database ID: %s\n"
+"Problem: The objective does not belong to the evaluated work program\n"
+"Solution: Select an objective of the work program being evaluated\n"
+msgstr ""
+"\n"
+"Konteks: Atur sasaran evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Sasaran bukan milik program kerja yang dievaluasi\n"
+"Solusi: Pilih sasaran dari program kerja yang sedang dievaluasi\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation_objective.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation objective\n"
+"Database ID: %s\n"
+"Problem: The objective is already reported in this evaluation\n"
+"Solution: Edit the existing line instead of adding a duplicate\n"
+msgstr ""
+"\n"
+"Konteks: Atur sasaran evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Sasaran sudah dilaporkan dalam evaluasi ini\n"
+"Solusi: Ubah baris yang sudah ada, jangan menambahkan baris ganda\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation occurrence\n"
+"Database ID: %s\n"
+"Problem: The occurrence does not belong to the evaluated work program\n"
+"Solution: Select an occurrence of the work program being evaluated\n"
+msgstr ""
+"\n"
+"Konteks: Atur pelaksanaan evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Pelaksanaan bukan milik program kerja yang dievaluasi\n"
+"Solusi: Pilih pelaksanaan dari program kerja yang sedang dievaluasi\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation occurrence\n"
+"Database ID: %s\n"
+"Problem: The occurrence is already reported in this evaluation\n"
+"Solution: Edit the existing line instead of adding a duplicate\n"
+msgstr ""
+"\n"
+"Konteks: Atur pelaksanaan evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Pelaksanaan sudah dilaporkan dalam evaluasi ini\n"
+"Solusi: Ubah baris yang sudah ada, jangan menambahkan baris ganda\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation occurrence participants\n"
+"Database ID: %s\n"
+"Problem: Actual participant must not be negative\n"
+"Solution: Enter zero or a positive number of participants\n"
+msgstr ""
+"\n"
+"Konteks: Atur peserta pelaksanaan evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Peserta aktual tidak boleh negatif\n"
+"Solusi: Masukkan jumlah peserta nol atau bilangan positif\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation_participant.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation participant\n"
+"Database ID: %s\n"
+"Problem: The target does not belong to the evaluated work program\n"
+"Solution: Select a target of the work program being evaluated\n"
+msgstr ""
+"\n"
+"Konteks: Atur peserta evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Target bukan milik program kerja yang dievaluasi\n"
+"Solusi: Pilih target dari program kerja yang sedang dievaluasi\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation_participant.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation participant\n"
+"Database ID: %s\n"
+"Problem: The target is already reported in this evaluation\n"
+"Solution: Edit the existing line instead of adding a duplicate\n"
+msgstr ""
+"\n"
+"Konteks: Atur peserta evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Target sudah dilaporkan dalam evaluasi ini\n"
+"Solusi: Ubah baris yang sudah ada, jangan menambahkan baris ganda\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation_participant.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation participant quantity\n"
+"Database ID: %s\n"
+"Problem: Actual quantity must not be negative\n"
+"Solution: Enter zero or a positive number of participants\n"
+msgstr ""
+"\n"
+"Konteks: Atur jumlah peserta evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Jumlah aktual tidak boleh negatif\n"
+"Solusi: Masukkan jumlah peserta nol atau bilangan positif\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_evaluation.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program evaluation type\n"
+"Database ID: %s\n"
+"Problem: The work program already has a final evaluation\n"
+"Solution: Cancel the other final evaluation or make this one mid-term\n"
+msgstr ""
+"\n"
+"Konteks: Atur jenis evaluasi program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Program kerja sudah memiliki evaluasi akhir\n"
+"Solusi: Batalkan evaluasi akhir yang lain atau jadikan evaluasi ini evaluasi tengah periode\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_objective.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program objective values\n"
+"Database ID: %s\n"
+"Problem: Baseline value and target value must not be negative\n"
+"Solution: Enter zero or a positive value\n"
+msgstr ""
+"\n"
+"Konteks: Atur nilai sasaran program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Nilai awal dan nilai target tidak boleh negatif\n"
+"Solusi: Masukkan nilai nol atau bilangan positif\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program occurrence dates\n"
+"Database ID: %s\n"
+"Problem: Date End is earlier than Date Start\n"
+"Solution: Enter a Date End on or after the Date Start\n"
+msgstr ""
+"\n"
+"Konteks: Atur tanggal pelaksanaan program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Tanggal Selesai lebih awal daripada Tanggal Mulai\n"
+"Solusi: Masukkan Tanggal Selesai pada atau setelah Tanggal Mulai\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program occurrence dates\n"
+"Database ID: %s\n"
+"Problem: The occurrence dates are outside the work program period\n"
+"Solution: Choose dates between %s and %s\n"
+msgstr ""
+"\n"
+"Konteks: Atur tanggal pelaksanaan program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Tanggal pelaksanaan berada di luar periode program kerja\n"
+"Solusi: Pilih tanggal antara %s dan %s\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_occurrence.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program occurrence time\n"
+"Database ID: %s\n"
+"Problem: Time End must be later than Time Start\n"
+"Solution: Enter an end time later than the start time\n"
+msgstr ""
+"\n"
+"Konteks: Atur waktu pelaksanaan program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Waktu Selesai harus lebih lambat daripada Waktu Mulai\n"
+"Solusi: Masukkan waktu selesai yang lebih lambat daripada waktu mulai\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program period\n"
+"Database ID: %s\n"
+"Problem: Date End is earlier than Date Start\n"
+"Solution: Enter a Date End on or after the Date Start\n"
+msgstr ""
+"\n"
+"Konteks: Atur periode program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Tanggal Selesai lebih awal daripada Tanggal Mulai\n"
+"Solusi: Masukkan Tanggal Selesai pada atau setelah Tanggal Mulai\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_rundown.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program rundown date\n"
+"Database ID: %s\n"
+"Problem: The date is outside the period of the occurrence\n"
+"Solution: Choose a date between %s and %s\n"
+msgstr ""
+"\n"
+"Konteks: Atur tanggal rundown program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Tanggal berada di luar periode pelaksanaan\n"
+"Solusi: Pilih tanggal antara %s dan %s\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_rundown.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program rundown time\n"
+"Database ID: %s\n"
+"Problem: Time End must be later than Time Start\n"
+"Solution: Enter an end time later than the start time\n"
+msgstr ""
+"\n"
+"Konteks: Atur waktu rundown program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Waktu Selesai harus lebih lambat daripada Waktu Mulai\n"
+"Solusi: Masukkan waktu selesai yang lebih lambat daripada waktu mulai\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_target.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program target\n"
+"Database ID: %s\n"
+"Problem: Grade is required when the participant type is Student\n"
+"Solution: Select the grade of the targeted students\n"
+msgstr ""
+"\n"
+"Konteks: Atur target program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Tingkat wajib diisi jika jenis peserta adalah Siswa\n"
+"Solusi: Pilih tingkat siswa yang menjadi target\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_target.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program target\n"
+"Database ID: %s\n"
+"Problem: Participant type '%s' with grade '%s' is already targeted\n"
+"Solution: Edit the existing line instead of adding a duplicate\n"
+msgstr ""
+"\n"
+"Konteks: Atur target program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Jenis peserta '%s' dengan tingkat '%s' sudah menjadi target\n"
+"Solusi: Ubah baris yang sudah ada, jangan menambahkan baris ganda\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_target.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program target quantity\n"
+"Database ID: %s\n"
+"Problem: Quantity must be greater than zero\n"
+"Solution: Enter the planned number of participants\n"
+msgstr ""
+"\n"
+"Konteks: Atur jumlah target program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Jumlah harus lebih besar dari nol\n"
+"Solusi: Masukkan jumlah peserta yang direncanakan\n"
+
+#. module: ssi_school_work_program
+#: code:addons/ssi_school_work_program/models/work_program_type_preparation.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Set work program type preparation lead days\n"
+"Database ID: %s\n"
+"Problem: Lead Days cannot be negative\n"
+"Solution: Enter zero or a positive number of days\n"
+msgstr ""
+"\n"
+"Konteks: Atur hari persiapan pada jenis program kerja\n"
+"ID Basis Data: %s\n"
+"Masalah: Hari Persiapan tidak boleh negatif\n"
+"Solusi: Masukkan jumlah hari nol atau bilangan positif\n"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__name
+msgid "# Document"
+msgstr "No. Dokumen"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__evaluation_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__evaluation_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__evaluation_id
+msgid "# Evaluation"
+msgstr "# Evaluasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__work_program_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__work_program_id
+msgid "# Work Program"
+msgstr "# Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__academic_year_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__academic_year_id
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Academic Year"
+msgstr "Tahun Ajaran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__academic_year_id
+msgid "Academic year of the evaluated work program."
+msgstr "Tahun ajaran dari program kerja yang dievaluasi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__academic_year_id
+msgid "Academic year this work program is planned for."
+msgstr "Tahun ajaran tempat program kerja ini direncanakan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__achievement_percent
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__achievement_percent
+msgid "Achievement (%)"
+msgstr "Capaian (%)"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__objective_ids
+msgid "Achievement of each objective indicator, with its evidence."
+msgstr "Capaian setiap indikator sasaran, beserta buktinya."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_needaction
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_needaction
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_needaction
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_needaction
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_needaction
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_needaction
+msgid "Action Needed"
+msgstr "Perlu Tindakan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__active
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__active
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__active
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__active
+msgid "Active"
+msgstr "Aktif"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__active_approval_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__active_approval_ids
+msgid "Active Approvals"
+msgstr "Persetujuan Aktif"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__active_approver_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__active_approver_partner_ids
+msgid "Active Partners"
+msgstr "Mitra Aktif"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__active_approver_user_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__active_approver_user_ids
+msgid "Active Users"
+msgstr "Pengguna Aktif"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__activity_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_ids
+msgid "Activities"
+msgstr "Aktivitas"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__name
+msgid "Activity"
+msgstr "Aktivitas"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Dekorasi Pengecualian Aktivitas"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__activity_state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_state
+msgid "Activity State"
+msgstr "Status Aktivitas"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ikon Jenis Aktivitas"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__date_actual
+msgid "Actual Date"
+msgstr "Tanggal Aktual"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__actual_note
+msgid "Actual Note"
+msgstr "Catatan Aktual"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__actual_participant
+msgid "Actual Participant"
+msgstr "Peserta Aktual"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__actual_quantity
+msgid "Actual Quantity"
+msgstr "Jumlah Aktual"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__actual_value
+msgid "Actual Value"
+msgstr "Nilai Aktual"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__participant_ids
+msgid "Actual number of participants for each participant target."
+msgstr "Jumlah peserta aktual untuk setiap target peserta."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_participant__achievement_percent
+msgid ""
+"Actual quantity as a percentage of the planned quantity. It is zero when "
+"nothing was planned."
+msgstr "Jumlah aktual sebagai persentase dari jumlah yang direncanakan. Bernilai nol bila tidak ada yang direncanakan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program__planning_cycle__additional
+msgid "Additional"
+msgstr "Tambahan"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Additional Cycle"
+msgstr "Siklus Tambahan"
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_all_group
+#: model:res.groups,name:ssi_school_work_program.work_program_evaluation_all_group
+msgid "All"
+msgstr "Semua"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__allowed_policy_template_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__allowed_policy_template_ids
+msgid "Allowed Policy Templates"
+msgstr "Templat Kebijakan yang Diizinkan"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_form
+msgid "Analytic"
+msgstr "Analitik"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__analytic_account_id
+msgid "Analytic Account"
+msgstr "Akun Analitik"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__analytic_group_id
+msgid "Analytic Group"
+msgstr "Grup Analitik"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__analytic_group_id
+msgid ""
+"Analytic account group assigned to the analytic account that is created for "
+"the work programs of this type. Leave empty to create the analytic account "
+"without a group."
+msgstr "Grup akun analitik yang diberikan pada akun analitik yang dibuat untuk program kerja jenis ini. Biarkan kosong untuk membuat akun analitik tanpa grup."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__analytic_account_id
+msgid ""
+"Analytic account of the program, used by other features to attach their "
+"records to it. It is created from the button or automatically when the "
+"program is opened."
+msgstr "Akun analitik program, digunakan oleh fitur lain untuk mengaitkan rekamannya dengan program. Dibuat dari tombol atau otomatis saat program dibuka."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__approval_template_id
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__approval_template_id
+msgid "Approval Configuration"
+msgstr "Konfigurasi Persetujuan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__approval_template_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__approval_template_id
+msgid "Approval Template"
+msgstr "Templat Persetujuan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__approval_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__approval_ids
+msgid "Approvals"
+msgstr "Persetujuan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__approve_ok
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__approve_ok
+msgid ""
+"Approve policy\n"
+"\n"
+"* If active user can see and execute 'Approve' button"
+msgstr ""
+"Kebijakan persetujuan\n"
+"\n"
+"* Jika pengguna aktif dapat melihat dan menjalankan tombol 'Setujui'"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__approved
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__approved
+msgid "Approved"
+msgstr "Disetujui"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_attachment_count
+msgid "Attachment Count"
+msgstr "Jumlah Lampiran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__objective_achievement_percent
+msgid ""
+"Average achievement of the objective lines. It is zero when there is no "
+"objective line."
+msgstr "Rata-rata capaian baris sasaran. Bernilai nol bila tidak ada baris sasaran."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__participant_achievement_percent
+msgid ""
+"Average achievement of the participant lines. It is zero when there is no "
+"participant line."
+msgstr "Rata-rata capaian baris peserta. Bernilai nol bila tidak ada baris peserta."
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Background"
+msgstr "Latar Belakang"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__background_context
+msgid "Background: Context"
+msgstr "Latar Belakang: Konteks"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__background_need
+msgid "Background: Need"
+msgstr "Latar Belakang: Kebutuhan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__baseline_value
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__baseline_value
+msgid "Baseline Value"
+msgstr "Nilai Awal"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__budget_ceiling
+msgid "Budget Ceiling"
+msgstr "Batas Anggaran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__approve_ok
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__approve_ok
+msgid "Can Approve"
+msgstr "Dapat Menyetujui"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__cancel_ok
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__cancel_ok
+msgid "Can Cancel"
+msgstr "Dapat Membatalkan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__confirm_ok
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__confirm_ok
+msgid "Can Confirm"
+msgstr "Dapat Mengonfirmasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__create_analytic_account_ok
+msgid "Can Create Analytic Account"
+msgstr "Dapat Membuat Akun Analitik"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__done_ok
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__done_ok
+msgid "Can Finished"
+msgstr "Dapat Diselesaikan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__generate_occurrence_ok
+msgid "Can Generate Occurrence"
+msgstr "Dapat Membuat Pelaksanaan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__manual_number_ok
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__manual_number_ok
+msgid "Can Input Manual Document Number"
+msgstr "Dapat Memasukkan Nomor Dokumen Manual"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__load_lines_ok
+msgid "Can Load Lines"
+msgstr "Dapat Memuat Baris"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__reject_ok
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__reject_ok
+msgid "Can Reject"
+msgstr "Dapat Menolak"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__restart_ok
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__restart_ok
+msgid "Can Restart"
+msgstr "Dapat Memulai Ulang"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__restart_approval_ok
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__restart_approval_ok
+msgid "Can Restart Approval"
+msgstr "Dapat Memulai Ulang Persetujuan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__open_ok
+msgid "Can Start"
+msgstr "Dapat Memulai"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Cancel"
+msgstr "Batal"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__cancel_reason_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__cancel_reason_id
+msgid "Cancel Reason"
+msgstr "Alasan Pembatalan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__cancel_ok
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__cancel_ok
+msgid ""
+"Cancel policy\n"
+"\n"
+"* If active user can see and execute 'Cancel' button"
+msgstr ""
+"Kebijakan pembatalan\n"
+"\n"
+"* Jika pengguna aktif dapat melihat dan menjalankan tombol 'Batal'"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Cancel this occurrence. Are you sure?"
+msgstr "Batalkan pelaksanaan ini. Apakah Anda yakin?"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__state__cancel
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Cancelled"
+msgstr "Dibatalkan"
+
+#. module: ssi_school_work_program
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_category_menu
+msgid "Categories"
+msgstr "Kategori"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__category_id
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Category"
+msgstr "Kategori"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__category_id
+msgid "Category used to classify and group the work program."
+msgstr "Kategori yang digunakan untuk mengklasifikasikan dan mengelompokkan program kerja."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__is_done
+msgid "Checked once the actual finish date is filled in."
+msgstr "Dicentang setelah tanggal selesai aktual diisi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__planning_complete
+msgid ""
+"Checked when every planning section required by the type of the program is "
+"filled in. It is informative only and does not block the confirmation of the"
+" program."
+msgstr "Dicentang bila setiap bagian perencanaan yang diwajibkan oleh jenis program telah diisi. Hanya bersifat informatif dan tidak menghalangi konfirmasi program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_committee_ok
+msgid ""
+"Checked when the committee section is filled in, i.e. there is at least one "
+"committee member line."
+msgstr "Dicentang bila bagian panitia telah diisi, yaitu ada setidaknya satu baris anggota panitia."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_material_ok
+msgid ""
+"Checked when the material section is filled in, i.e. there is at least one "
+"material line."
+msgstr "Dicentang bila bagian bahan telah diisi, yaitu ada setidaknya satu baris bahan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_need_ok
+msgid ""
+"Checked when the need section is filled in, i.e. there is at least one need "
+"line."
+msgstr "Dicentang bila bagian kebutuhan telah diisi, yaitu ada setidaknya satu baris kebutuhan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_objective_ok
+msgid ""
+"Checked when the objective section is filled in, i.e. there is at least one "
+"objective line."
+msgstr "Dicentang bila bagian sasaran telah diisi, yaitu ada setidaknya satu baris sasaran."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_occurrence_ok
+msgid ""
+"Checked when the occurrence section is filled in, i.e. there is at least one"
+" occurrence that is not cancelled."
+msgstr "Dicentang bila bagian pelaksanaan telah diisi, yaitu ada setidaknya satu pelaksanaan yang tidak dibatalkan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_resource_ok
+msgid ""
+"Checked when the resource section is filled in, i.e. there is at least one "
+"resource person line."
+msgstr "Dicentang bila bagian narasumber telah diisi, yaitu ada setidaknya satu baris narasumber."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_rundown_ok
+msgid ""
+"Checked when the rundown section is filled in, i.e. there is at least one "
+"occurrence that is not cancelled and every such occurrence has at least one "
+"rundown line."
+msgstr "Dicentang bila bagian rundown telah diisi, yaitu ada setidaknya satu pelaksanaan yang tidak dibatalkan dan setiap pelaksanaan tersebut memiliki setidaknya satu baris rundown."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__section_target_ok
+msgid ""
+"Checked when the target section is filled in, i.e. there is at least one "
+"participant target line."
+msgstr "Dicentang bila bagian target telah diisi, yaitu ada setidaknya satu baris target peserta."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__preparation_ids
+msgid "Checklist of tasks to prepare before the occurrence."
+msgstr "Daftar tugas yang harus dipersiapkan sebelum pelaksanaan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__code
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__code
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__code
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__code
+msgid "Code"
+msgstr "Kode"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__committee_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Committee"
+msgstr "Panitia"
+
+#. module: ssi_school_work_program
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_role_menu
+msgid "Committee Roles"
+msgstr "Peran Panitia"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_committee_ok
+msgid "Committee Section Complete"
+msgstr "Bagian Panitia Lengkap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__company_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__company_id
+#: model:res.groups,name:ssi_school_work_program.work_program_company_group
+#: model:res.groups,name:ssi_school_work_program.work_program_evaluation_company_group
+msgid "Company"
+msgstr "Perusahaan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__company_currency_id
+msgid "Company Currency"
+msgstr "Mata Uang Perusahaan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__company_partner_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__company_partner_id
+msgid "Company Partner"
+msgstr "Mitra Perusahaan"
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_company_child_group
+#: model:res.groups,name:ssi_school_work_program.work_program_evaluation_company_child_group
+msgid "Company and All Child Companies"
+msgstr "Perusahaan dan Semua Perusahaan Turunan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__company_id
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__company_id
+msgid ""
+"Company that own the document\n"
+"\n"
+"* Automatically filled with user's company.\n"
+"  Default company can be changed"
+msgstr ""
+"Perusahaan pemilik dokumen\n"
+"\n"
+"* Otomatis diisi dengan perusahaan pengguna.\n"
+"  Perusahaan bawaan dapat diubah"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Completeness"
+msgstr "Kelengkapan"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_form
+msgid "Conclusion"
+msgstr "Kesimpulan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__confirm_ok
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__confirm_ok
+msgid ""
+"Confirm policy\n"
+"\n"
+"* If active user can see and execute 'Confirm' button"
+msgstr ""
+"Kebijakan konfirmasi\n"
+"\n"
+"* Jika pengguna aktif dapat melihat dan menjalankan tombol 'Konfirmasi'"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Create Analytic Account"
+msgstr "Buat Akun Analitik"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Create the analytic account of this program. Are you sure?"
+msgstr "Buat akun analitik program ini. Apakah Anda yakin?"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__create_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__create_uid
+msgid "Created by"
+msgstr "Dibuat oleh"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__create_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__create_date
+msgid "Created on"
+msgstr "Dibuat pada"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__participant_criteria
+msgid "Criteria used to select the participants of the program."
+msgstr "Kriteria yang digunakan untuk memilih peserta program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__date
+msgid "Date"
+msgstr "Tanggal"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__date_done
+msgid "Date Done"
+msgstr "Tanggal Selesai"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__date_end
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__date_end
+msgid "Date End"
+msgstr "Tanggal Selesai"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__date_start
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__date_start
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Date Start"
+msgstr "Tanggal Mulai"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__date
+msgid ""
+"Date of the evaluation. It is also the date used by the document number "
+"sequence and cannot be earlier than the start date of the work program."
+msgstr "Tanggal evaluasi. Juga merupakan tanggal yang digunakan oleh urutan nomor dokumen dan tidak boleh lebih awal daripada tanggal mulai program kerja."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__date
+msgid ""
+"Day of the rundown line. It starts equal to the start date of the occurrence"
+" and can be moved inside the occurrence period."
+msgstr "Hari pada baris rundown. Awalnya sama dengan tanggal mulai pelaksanaan dan dapat dipindahkan di dalam periode pelaksanaan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__date_deadline
+msgid "Day on which the task has to be finished."
+msgstr "Hari saat tugas harus diselesaikan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__date_done
+msgid "Day on which the task was actually finished."
+msgstr "Hari saat tugas benar-benar diselesaikan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_occurrence__date_actual
+msgid ""
+"Day the occurrence really took place. Leave empty when it took place on the "
+"planned date."
+msgstr "Hari saat pelaksanaan benar-benar berlangsung. Biarkan kosong bila berlangsung pada tanggal yang direncanakan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__date_deadline
+msgid "Deadline"
+msgstr "Tenggat"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__description
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__description
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__description
+msgid "Description"
+msgstr "Deskripsi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__target_description
+msgid "Description of the expected result of a qualitative indicator."
+msgstr "Deskripsi hasil yang diharapkan dari indikator kualitatif."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__actual_note
+msgid "Description of the result that was actually reached."
+msgstr "Deskripsi hasil yang benar-benar dicapai."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_school_academic_year__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__display_name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__display_name
+msgid "Display Name"
+msgstr "Nama Tampilan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__is_done
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__state__done
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Done"
+msgstr "Selesai"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__done_ok
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__done_ok
+msgid ""
+"Done policy\n"
+"\n"
+"* If active user can see and execute 'Done' button"
+msgstr ""
+"Kebijakan selesai\n"
+"\n"
+"* Jika pengguna aktif dapat melihat dan menjalankan tombol 'Selesai'"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__employee_id
+msgid "Employee"
+msgstr "Karyawan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__pic_id
+msgid "Employee responsible for this slot."
+msgstr "Karyawan yang bertanggung jawab atas slot ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__pic_id
+msgid "Employee responsible for this task."
+msgstr "Karyawan yang bertanggung jawab atas tugas ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_committee__employee_id
+msgid "Employee who is a member of the committee."
+msgstr "Karyawan yang menjadi anggota panitia."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__pic_id
+msgid "Employee who is responsible for the whole program."
+msgstr "Karyawan yang bertanggung jawab atas seluruh program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__committee_ids
+msgid "Employees who form the committee of the program."
+msgstr "Karyawan yang membentuk panitia program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__time_end
+msgid "End time of day of the rundown line."
+msgstr "Waktu selesai pada hari tersebut untuk baris rundown."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__need_ids
+msgid "Equipment, venues and supplies the program needs."
+msgstr "Peralatan, tempat, dan perlengkapan yang dibutuhkan program."
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_form
+msgid "Evaluation"
+msgstr "Evaluasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__evaluation_count
+msgid "Evaluation Count"
+msgstr "Jumlah Evaluasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__evaluation_note
+msgid "Evaluation Note"
+msgstr "Catatan Evaluasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__evaluation_type
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_search
+msgid "Evaluation Type"
+msgstr "Jenis Evaluasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__evaluation_ids
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_evaluation_menu
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Evaluations"
+msgstr "Evaluasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__attachment_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__attachment_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__attachment_ids
+msgid "Evidence"
+msgstr "Bukti"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__target_description
+msgid "Expected result of a qualitative indicator, from the plan."
+msgstr "Hasil yang diharapkan dari indikator kualitatif, sesuai rencana."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__attachment_ids
+msgid "Files proving that the task has been carried out."
+msgstr "Berkas yang membuktikan bahwa tugas telah dilaksanakan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_occurrence__attachment_ids
+msgid "Files that prove the occurrence took place."
+msgstr "Berkas yang membuktikan bahwa pelaksanaan telah berlangsung."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__attachment_ids
+msgid "Files that prove the result reported on this line."
+msgstr "Berkas yang membuktikan hasil yang dilaporkan pada baris ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_evaluation__evaluation_type__final
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_search
+msgid "Final"
+msgstr "Akhir"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_occurrence__date_start
+msgid "First day of the occurrence as planned."
+msgstr "Hari pertama pelaksanaan sesuai rencana."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__date_start
+msgid "First day of the occurrence."
+msgstr "Hari pertama pelaksanaan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__date_start
+msgid ""
+"First day of the period in which the program is carried out. It is also the "
+"date used by the document number sequence."
+msgstr "Hari pertama periode pelaksanaan program. Juga merupakan tanggal yang digunakan oleh urutan nomor dokumen."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_follower_ids
+msgid "Followers"
+msgstr "Pengikut"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Pengikut (Saluran)"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Pengikut (Mitra)"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__activity_type_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__activity_type_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__activity_type_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__activity_type_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__activity_type_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ikon Font Awesome, mis. fa-tasks"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__note
+msgid "Free remark about the task."
+msgstr "Keterangan bebas tentang tugas."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__description
+msgid "Free text clarifying who exactly is targeted by this line."
+msgstr "Teks bebas yang memperjelas siapa tepatnya yang menjadi sasaran baris ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__uom_name
+msgid "Free text unit of measure of the baseline and target values."
+msgstr "Satuan ukuran berupa teks bebas untuk nilai awal dan nilai target."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__frequency_set_id
+msgid "Frequency Set"
+msgstr "Set Frekuensi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__description
+msgid "Further explanation of the task."
+msgstr "Penjelasan lebih lanjut tentang tugas."
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Generate Occurrence"
+msgstr "Buat Pelaksanaan"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Generate the occurrence dates from the frequency set. Are you sure?"
+msgstr "Buat tanggal pelaksanaan dari set frekuensi. Apakah Anda yakin?"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__grade_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__grade_id
+msgid "Grade"
+msgstr "Tingkat"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_participant__grade_id
+msgid "Grade of the targeted students, copied from the plan."
+msgstr "Tingkat siswa yang menjadi target, disalin dari rencana."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__grade_id
+msgid ""
+"Grade of the targeted students. Required when the participant type is "
+"Student, optional otherwise."
+msgstr "Tingkat siswa yang menjadi target. Wajib diisi bila jenis peserta adalah Siswa, opsional untuk jenis lainnya."
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_category_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_role_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_strategic_objective_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Group By"
+msgstr "Kelompokkan Menurut"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__target_ids
+msgid "Groups of intended participants and their planned numbers."
+msgstr "Kelompok calon peserta dan jumlah yang direncanakan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_school_academic_year__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__id
+msgid "ID"
+msgstr "ID"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_exception_icon
+msgid "Icon"
+msgstr "Ikon"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__activity_exception_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__activity_exception_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__activity_exception_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__activity_exception_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__activity_exception_icon
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ikon untuk menunjukkan aktivitas pengecualian."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_final_evaluation
+msgid ""
+"If checked, a work program of this type can only be finished after one of "
+"its final evaluations has been approved and is done."
+msgstr "Jika dicentang, program kerja jenis ini hanya dapat diselesaikan setelah salah satu evaluasi akhirnya disetujui dan selesai."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_committee
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" committee members section is filled in."
+msgstr "Jika dicentang, program kerja jenis ini hanya dianggap lengkap bila bagian anggota panitianya telah diisi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_material
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" materials section is filled in."
+msgstr "Jika dicentang, program kerja jenis ini hanya dianggap lengkap bila bagian bahannya telah diisi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_need
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" needs section is filled in."
+msgstr "Jika dicentang, program kerja jenis ini hanya dianggap lengkap bila bagian kebutuhannya telah diisi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_resource
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" non-committee resource persons section is filled in."
+msgstr "Jika dicentang, program kerja jenis ini hanya dianggap lengkap bila bagian narasumber non-panitianya telah diisi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_objective
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" objectives and indicators section is filled in."
+msgstr "Jika dicentang, program kerja jenis ini hanya dianggap lengkap bila bagian sasaran dan indikatornya telah diisi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_occurrence
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" occurrence dates section is filled in."
+msgstr "Jika dicentang, program kerja jenis ini hanya dianggap lengkap bila bagian tanggal pelaksanaannya telah diisi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_target
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" participant targets section is filled in."
+msgstr "Jika dicentang, program kerja jenis ini hanya dianggap lengkap bila bagian target pesertanya telah diisi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__require_rundown
+msgid ""
+"If checked, a work program of this type is only considered complete when its"
+" rundown (schedule of activities) section is filled in."
+msgstr "Jika dicentang, program kerja jenis ini hanya dianggap lengkap bila bagian rundown (jadwal kegiatan)-nya telah diisi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_unread
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_unread
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__message_unread
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_unread
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_unread
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_needaction
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Jika dicentang, pesan baru memerlukan perhatian Anda."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_has_error
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_has_error
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__message_has_error
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_has_error
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_has_error
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Jika dicentang, beberapa pesan mengalami kesalahan pengiriman."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__preparation_state__in_progress
+msgid "In Progress"
+msgstr "Dalam Proses"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__indicator
+msgid "Indicator"
+msgstr "Indikator"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_is_follower
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_is_follower
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_is_follower
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_is_follower
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_is_follower
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_is_follower
+msgid "Is Follower"
+msgstr "Adalah Pengikut"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__kind
+msgid "Kind"
+msgstr "Jenis"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_participant__participant_type
+msgid "Kind of participants of the target, copied from the plan."
+msgstr "Jenis peserta target, disalin dari rencana."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__participant_type
+msgid "Kind of participants this line targets."
+msgstr "Jenis peserta yang menjadi target baris ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_school_academic_year____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type____last_update
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation____last_update
+msgid "Last Modified on"
+msgstr "Terakhir Diubah pada"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__write_uid
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__write_uid
+msgid "Last Updated by"
+msgstr "Terakhir Diperbarui oleh"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__write_date
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__write_date
+msgid "Last Updated on"
+msgstr "Terakhir Diperbarui pada"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_school_academic_year__work_program_planning_deadline
+msgid ""
+"Last date on which work programs of this academic year are still planned in "
+"the regular cycle. Work programs created after this date are flagged as "
+"additional. Leave empty if the regular cycle has no deadline."
+msgstr "Tanggal terakhir program kerja tahun ajaran ini masih direncanakan dalam siklus reguler. Program kerja yang dibuat setelah tanggal ini ditandai sebagai tambahan. Biarkan kosong bila siklus reguler tidak memiliki batas waktu."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__date_end
+msgid ""
+"Last day of the occurrence. It starts equal to the start date and can be "
+"moved forward for an occurrence lasting several days."
+msgstr "Hari terakhir pelaksanaan. Awalnya sama dengan tanggal mulai dan dapat dimajukan untuk pelaksanaan yang berlangsung beberapa hari."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__date_end
+msgid "Last day of the period in which the program is carried out."
+msgstr "Hari terakhir periode pelaksanaan program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__lead_days
+msgid "Lead Days"
+msgstr "Hari Persiapan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__lesson_learned
+msgid "Lesson Learned"
+msgstr "Pelajaran yang Dipetik"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_form
+msgid "Load Lines"
+msgstr "Muat Baris"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Load Preparation"
+msgstr "Muat Persiapan"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_form
+msgid "Load the lines of this evaluation from the work program. Are you sure?"
+msgstr "Muat baris evaluasi ini dari program kerja. Apakah Anda yakin?"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__location
+msgid "Location"
+msgstr "Lokasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_material__description
+msgid "Longer description of the material and how it is used."
+msgstr "Deskripsi bahan yang lebih panjang dan cara penggunaannya."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Lampiran Utama"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__manual_number_ok
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__manual_number_ok
+msgid ""
+"Manual number assignment policy\n"
+"\n"
+"* If active user can edit document number"
+msgstr ""
+"Kebijakan penetapan nomor manual\n"
+"\n"
+"* Jika pengguna aktif dapat mengubah nomor dokumen"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__active
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__active
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__active
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__active
+msgid ""
+"Master data status\n"
+"\n"
+"* Inactive data can not be selected when creating new transaction\n"
+"* Transaction with inactive master data can still be viewed\n"
+"* Set master data as inactive if master data no longger needed,\n"
+"but master data already used on transaction"
+msgstr ""
+"Status data master\n"
+"\n"
+"* Data tidak aktif tidak dapat dipilih saat membuat transaksi baru\n"
+"* Transaksi dengan data master tidak aktif masih dapat dilihat\n"
+"* Setel data master menjadi tidak aktif jika data master tidak lagi diperlukan,\n"
+"tetapi data master sudah digunakan pada transaksi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__code
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__code
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__code
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__code
+msgid ""
+"Master data unique identifier.\n"
+"\n"
+"* Fill with '/' if You do not need unique identifier\n"
+"* Click 'Generate Code' button to automatically assign code.\n"
+"  Sequence template mush be set to perform this action\n"
+"  Only master data with '/' code will be assign automatic code"
+msgstr ""
+"Pengidentifikasi unik data master.\n"
+"\n"
+"* Isi dengan '/' jika Anda tidak memerlukan pengidentifikasi unik\n"
+"* Klik tombol 'Buat Kode' untuk menetapkan kode secara otomatis.\n"
+"  Templat penomoran harus disetel untuk melakukan tindakan ini\n"
+"  Hanya data master dengan kode '/' yang akan diberi kode otomatis"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_material__name
+msgid "Material"
+msgstr "Bahan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_material_ok
+msgid "Material Section Complete"
+msgstr "Bagian Bahan Lengkap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__material_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Materials"
+msgstr "Bahan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__material_ids
+msgid "Materials prepared for the program."
+msgstr "Bahan yang dipersiapkan untuk program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__budget_ceiling
+msgid ""
+"Maximum budget the program may use. The budget itself is managed on the "
+"analytic account of the program, not here."
+msgstr "Anggaran maksimum yang boleh digunakan program. Anggaran itu sendiri dikelola pada akun analitik program, bukan di sini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__indicator
+msgid "Measure used to tell whether the objective has been achieved."
+msgstr "Ukuran yang digunakan untuk menentukan apakah sasaran telah tercapai."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__measurement_type
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__measurement_type
+msgid "Measurement Type"
+msgstr "Jenis Pengukuran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_has_error
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_has_error
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_has_error
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_has_error
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_has_error
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_has_error
+msgid "Message Delivery error"
+msgstr "Kesalahan Pengiriman Pesan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_ids
+msgid "Messages"
+msgstr "Pesan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__verification
+msgid "Method or source used to verify the indicator."
+msgstr "Metode atau sumber yang digunakan untuk memverifikasi indikator."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_evaluation__evaluation_type__mid
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_search
+msgid "Mid-term"
+msgstr "Tengah Periode"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__evaluation_ids
+msgid "Mid-term and final evaluations written for this work program."
+msgstr "Evaluasi tengah periode dan evaluasi akhir yang ditulis untuk program kerja ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__evaluation_type
+msgid ""
+"Mid-term evaluates the program while it is still running; final evaluates it"
+" once it is over. Only one non-cancelled final evaluation is allowed for "
+"each work program."
+msgstr "Evaluasi tengah periode menilai program saat masih berjalan; evaluasi akhir menilainya setelah selesai. Hanya satu evaluasi akhir yang tidak dibatalkan yang diizinkan untuk setiap program kerja."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Batas Waktu Aktivitas Saya"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__name
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_category_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_role_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_strategic_objective_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_search
+msgid "Name"
+msgstr "Nama"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__name
+msgid "Need"
+msgstr "Kebutuhan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_need_ok
+msgid "Need Section Complete"
+msgstr "Bagian Kebutuhan Lengkap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__need_validation
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__need_validation
+msgid "Need Validation"
+msgstr "Perlu Validasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__need_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Needs"
+msgstr "Kebutuhan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Batas Waktu Aktivitas Berikutnya"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_summary
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_summary
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__activity_summary
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_summary
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_summary
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_summary
+msgid "Next Activity Summary"
+msgstr "Ringkasan Aktivitas Berikutnya"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__activity_type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_type_id
+msgid "Next Activity Type"
+msgstr "Jenis Aktivitas Berikutnya"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__next_approval_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__next_approval_ids
+msgid "Next Approvals"
+msgstr "Persetujuan Berikutnya"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__preparation_state__none
+msgid "No Checklist"
+msgstr "Tanpa Daftar Periksa"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__preparation_state
+msgid ""
+"No Checklist = no preparation task, In Progress = some task is not done yet,"
+" Ready = every task is done."
+msgstr "Tanpa Daftar Periksa = tidak ada tugas persiapan, Dalam Proses = ada tugas yang belum selesai, Siap = semua tugas telah selesai."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__note
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__note
+msgid "Note"
+msgstr "Catatan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Jumlah Tindakan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__lead_days
+msgid ""
+"Number of days before the start date of the occurrence on which the task is "
+"due."
+msgstr "Jumlah hari sebelum tanggal mulai pelaksanaan saat tugas jatuh tempo."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_has_error_counter
+msgid "Number of errors"
+msgstr "Jumlah kesalahan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__evaluation_count
+msgid "Number of evaluations written for this work program."
+msgstr "Jumlah evaluasi yang ditulis untuk program kerja ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_needaction_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_needaction_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__message_needaction_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_needaction_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_needaction_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Jumlah pesan yang memerlukan tindakan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_has_error_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_has_error_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__message_has_error_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_has_error_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_has_error_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Jumlah pesan dengan kesalahan pengiriman"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_participant__actual_quantity
+msgid "Number of participants of the target that actually took part."
+msgstr "Jumlah peserta target yang benar-benar hadir."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_participant__planned_quantity
+msgid "Number of participants planned for the target."
+msgstr "Jumlah peserta yang direncanakan untuk target."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_occurrence__actual_participant
+msgid "Number of participants who attended the occurrence."
+msgstr "Jumlah peserta yang menghadiri pelaksanaan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__message_unread_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__message_unread_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__message_unread_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__message_unread_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__message_unread_counter
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Jumlah pesan yang belum dibaca"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_objective__measurement_type__numeric
+msgid "Numeric"
+msgstr "Numerik"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__achievement_percent
+msgid ""
+"Numeric indicator: actual value as a percentage of the target value, zero "
+"when the target is zero. Qualitative indicator: the percentage entered by "
+"the user, which is kept as is."
+msgstr "Indikator numerik: nilai aktual sebagai persentase dari nilai target, nol bila target bernilai nol. Indikator kualitatif: persentase yang dimasukkan pengguna, yang dipertahankan apa adanya."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__measurement_type
+msgid ""
+"Numeric indicators use the baseline and target values; qualitative "
+"indicators use the target description."
+msgstr "Indikator numerik menggunakan nilai awal dan nilai target; indikator kualitatif menggunakan deskripsi target."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__measurement_type
+msgid "Numeric or qualitative indicator, copied from the plan."
+msgstr "Indikator numerik atau kualitatif, disalin dari rencana."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__objective_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__name
+msgid "Objective"
+msgstr "Sasaran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__objective_achievement_percent
+msgid "Objective Achievement (%)"
+msgstr "Capaian Sasaran (%)"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_objective_ok
+msgid "Objective Section Complete"
+msgstr "Bagian Sasaran Lengkap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__objective_id
+msgid "Objective of the evaluated work program that this line reports on."
+msgstr "Sasaran program kerja yang dievaluasi yang dilaporkan oleh baris ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__objective_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__objective_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Objectives"
+msgstr "Sasaran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__occurrence_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__occurrence_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__occurrence_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__occurrence_id
+msgid "Occurrence"
+msgstr "Pelaksanaan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_occurrence_ok
+msgid "Occurrence Section Complete"
+msgstr "Bagian Pelaksanaan Lengkap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_occurrence__occurrence_id
+msgid "Occurrence of the evaluated work program that this line reports on."
+msgstr "Pelaksanaan program kerja yang dievaluasi yang dilaporkan oleh baris ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_need__occurrence_id
+msgid ""
+"Occurrence of the same work program on which this need is used. Leave empty "
+"if it applies to the whole program."
+msgstr "Pelaksanaan dari program kerja yang sama tempat kebutuhan ini digunakan. Biarkan kosong bila berlaku untuk seluruh program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__occurrence_id
+msgid "Occurrence of the work program this rundown line belongs to."
+msgstr "Pelaksanaan program kerja tempat baris rundown ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__occurrence_id
+msgid "Occurrence of the work program this task belongs to."
+msgstr "Pelaksanaan program kerja tempat tugas ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__occurrence_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__occurrence_ids
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_occurrence_menu
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Occurrences"
+msgstr "Pelaksanaan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__time_end
+msgid "Optional end time of day of the occurrence."
+msgstr "Waktu selesai pelaksanaan pada hari tersebut (opsional)."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__time_start
+msgid "Optional start time of day of the occurrence."
+msgstr "Waktu mulai pelaksanaan pada hari tersebut (opsional)."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__sequence
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__sequence
+msgid "Order of the task in the checklist."
+msgstr "Urutan tugas dalam daftar periksa."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__other
+msgid "Other"
+msgstr "Lainnya"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_objective__kind__outcome
+msgid "Outcome"
+msgstr "Hasil"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__kind
+msgid ""
+"Outcome is the change the program is meant to bring about; output is the "
+"direct product it delivers."
+msgstr "Hasil (outcome) adalah perubahan yang ingin dicapai program; keluaran (output) adalah produk langsung yang dihasilkannya."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_objective__kind__output
+msgid "Output"
+msgstr "Keluaran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__evaluation_note
+msgid "Overall conclusion about how the work program went."
+msgstr "Kesimpulan keseluruhan tentang jalannya program kerja."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__parent
+msgid "Parent"
+msgstr "Induk"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__participant_achievement_percent
+msgid "Participant Achievement (%)"
+msgstr "Capaian Peserta (%)"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__participant_criteria
+msgid "Participant Criteria"
+msgstr "Kriteria Peserta"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__target_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Participant Targets"
+msgstr "Target Peserta"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__participant_type
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__participant_type
+msgid "Participant Type"
+msgstr "Jenis Peserta"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_participant__target_id
+msgid ""
+"Participant target of the evaluated work program that this line reports on."
+msgstr "Target peserta program kerja yang dievaluasi yang dilaporkan oleh baris ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__participant_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_form
+msgid "Participants"
+msgstr "Peserta"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__partner_id
+msgid "Partner"
+msgstr "Mitra"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__resource_ids
+msgid "People taking part in the program who are not in the committee."
+msgstr "Orang yang mengikuti program yang bukan anggota panitia."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__preparation_progress
+msgid "Percentage of the preparation tasks that are done."
+msgstr "Persentase tugas persiapan yang telah selesai."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__pic_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__pic_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__pic_id
+msgid "Person in Charge"
+msgstr "Penanggung Jawab"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_resource__partner_id
+msgid "Person or organization providing the resource."
+msgstr "Orang atau organisasi yang menyediakan sumber daya."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__state__planned
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Planned"
+msgstr "Direncanakan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__state
+msgid ""
+"Planned = still to be carried out, Done = carried out, Cancelled = will not "
+"take place."
+msgstr "Direncanakan = masih akan dilaksanakan, Selesai = sudah dilaksanakan, Dibatalkan = tidak akan berlangsung."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_occurrence__date_start
+msgid "Planned Date"
+msgstr "Tanggal Direncanakan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__planned_quantity
+msgid "Planned Quantity"
+msgstr "Jumlah Direncanakan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__occurrence_ids
+msgid "Planned implementation dates of the program."
+msgstr "Tanggal pelaksanaan program yang direncanakan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__quantity
+msgid "Planned number of participants for this line. Must be positive."
+msgstr "Jumlah peserta yang direncanakan untuk baris ini. Harus positif."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__objective_ids
+msgid "Planned objectives with their indicators, baseline and target."
+msgstr "Sasaran yang direncanakan beserta indikator, nilai awal, dan targetnya."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_need__quantity
+msgid "Planned quantity of the need."
+msgstr "Jumlah kebutuhan yang direncanakan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__planning_complete
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Planning Complete"
+msgstr "Perencanaan Lengkap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__planning_cycle
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Planning Cycle"
+msgstr "Siklus Perencanaan"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Planning Incomplete"
+msgstr "Perencanaan Belum Lengkap"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_form
+msgid "Planning Requirements"
+msgstr "Persyaratan Perencanaan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__policy_template_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__policy_template_id
+msgid "Policy Template"
+msgstr "Templat Kebijakan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__create_analytic_account_ok
+msgid ""
+"Policy that determines whether the Create Analytic Account button is "
+"visible."
+msgstr "Kebijakan yang menentukan apakah tombol Buat Akun Analitik terlihat."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__generate_occurrence_ok
+msgid ""
+"Policy that determines whether the Generate Occurrence button is visible."
+msgstr "Kebijakan yang menentukan apakah tombol Buat Pelaksanaan terlihat."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__load_lines_ok
+msgid "Policy that determines whether the Load Lines button is visible."
+msgstr "Kebijakan yang menentukan apakah tombol Muat Baris terlihat."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__preparation_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_form
+msgid "Preparation"
+msgstr "Persiapan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__preparation_progress
+msgid "Preparation Progress (%)"
+msgstr "Progres Persiapan (%)"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__preparation_state
+msgid "Preparation Status"
+msgstr "Status Persiapan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__preparation_template_ids
+msgid "Preparation Templates"
+msgstr "Templat Persiapan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__template_id
+msgid ""
+"Preparation task of the work program type this line was loaded from. Empty "
+"for a line added by hand."
+msgstr "Tugas persiapan jenis program kerja tempat baris ini dimuat. Kosong untuk baris yang ditambahkan secara manual."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_objective__measurement_type__qualitative
+msgid "Qualitative"
+msgstr "Kualitatif"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_need__quantity
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_target__quantity
+msgid "Quantity"
+msgstr "Jumlah"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_occurrence__preparation_state__ready
+msgid "Ready"
+msgstr "Siap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__recommendation
+msgid "Recommendation"
+msgstr "Rekomendasi"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__frequency_set_id
+msgid ""
+"Recurrence rules used to generate the occurrence dates of the program "
+"between its start and end date."
+msgstr "Aturan pengulangan yang digunakan untuk membuat tanggal pelaksanaan program antara tanggal mulai dan tanggal selesainya."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program__planning_cycle__regular
+msgid "Regular"
+msgstr "Reguler"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Regular Cycle"
+msgstr "Siklus Reguler"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__planning_cycle
+msgid ""
+"Regular when the program is planned on or before the planning deadline of "
+"its academic year (or the year has no deadline); Additional otherwise. It is"
+" proposed automatically and can be changed while the program is in draft."
+msgstr "Reguler bila program direncanakan pada atau sebelum batas waktu perencanaan tahun ajarannya (atau tahun ajaran tidak memiliki batas waktu); selain itu Tambahan. Diusulkan secara otomatis dan dapat diubah selama program berstatus draf."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__reject_ok
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__reject_ok
+msgid ""
+"Reject policy\n"
+"\n"
+"* If active user can see and execute 'Reject' button"
+msgstr ""
+"Kebijakan penolakan\n"
+"\n"
+"* Jika pengguna aktif dapat melihat dan menjalankan tombol 'Tolak'"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__rejected
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__rejected
+msgid "Rejected"
+msgstr "Ditolak"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_occurrence__note
+msgid "Remarks about how this occurrence went."
+msgstr "Catatan tentang jalannya pelaksanaan ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_committee
+msgid "Require Committee"
+msgstr "Wajib Ada Panitia"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_final_evaluation
+msgid "Require Final Evaluation"
+msgstr "Wajib Ada Evaluasi Akhir"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_material
+msgid "Require Material"
+msgstr "Wajib Ada Bahan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_need
+msgid "Require Need"
+msgstr "Wajib Ada Kebutuhan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_objective
+msgid "Require Objective"
+msgstr "Wajib Ada Sasaran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_occurrence
+msgid "Require Occurrence"
+msgstr "Wajib Ada Pelaksanaan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_resource
+msgid "Require Resource"
+msgstr "Wajib Ada Narasumber"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_rundown
+msgid "Require Rundown"
+msgstr "Wajib Ada Rundown"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__require_target
+msgid "Require Target"
+msgstr "Wajib Ada Target"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_type_view_form
+msgid "Required Sections"
+msgstr "Bagian yang Wajib"
+
+#. module: ssi_school_work_program
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Reset to Planned"
+msgstr "Atur Ulang ke Direncanakan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__resource_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_form
+msgid "Resource Persons"
+msgstr "Narasumber"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_resource_ok
+msgid "Resource Section Complete"
+msgstr "Bagian Narasumber Lengkap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__user_id
+msgid "Responsible"
+msgstr "Penanggung Jawab"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__activity_user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__activity_user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__activity_user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__activity_user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__activity_user_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__activity_user_id
+msgid "Responsible User"
+msgstr "Pengguna Penanggung Jawab"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__restart_approval_ok
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__restart_approval_ok
+msgid ""
+"Restart approval policy\n"
+"\n"
+"* If active user can see and execute 'Restart Approval' button"
+msgstr ""
+"Kebijakan mulai ulang persetujuan\n"
+"\n"
+"* Jika pengguna aktif dapat melihat dan menjalankan tombol 'Mulai Ulang Persetujuan'"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__restart_ok
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__restart_ok
+msgid ""
+"Restart policy\n"
+"\n"
+"* If active user can see and execute 'Restart' button"
+msgstr ""
+"Kebijakan mulai ulang\n"
+"\n"
+"* Jika pengguna aktif dapat melihat dan menjalankan tombol 'Mulai Ulang'"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__reviewer_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__reviewer_id
+msgid "Reviewer"
+msgstr "Pemeriksa"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_committee__role_id
+msgid "Role"
+msgstr "Peran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_resource__role_description
+msgid "Role Description"
+msgstr "Deskripsi Peran"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_committee__role_id
+msgid "Role of the employee in the committee."
+msgstr "Peran karyawan dalam panitia."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__rundown_ids
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_form
+msgid "Rundown"
+msgstr "Rundown"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_rundown_ok
+msgid "Rundown Section Complete"
+msgstr "Bagian Rundown Lengkap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__rundown_ids
+msgid "Schedule of activities that make up this occurrence."
+msgstr "Jadwal kegiatan yang membentuk pelaksanaan ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__school_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__school_id
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "School"
+msgstr "Sekolah"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_school_academic_year
+msgid "School Academic Year"
+msgstr "Tahun Ajaran Sekolah"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__school_id
+msgid "School that carries out the evaluated work program."
+msgstr "Sekolah yang melaksanakan program kerja yang dievaluasi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__school_id
+msgid "School that carries out this work program."
+msgstr "Sekolah yang melaksanakan program kerja ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__sequence
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__sequence
+msgid "Sequence"
+msgstr "Urutan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__name
+msgid "Short label of the occurrence, for example the session name."
+msgstr "Label singkat pelaksanaan, misalnya nama sesi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__title
+msgid "Short name of the activity planned by this work program."
+msgstr "Nama singkat kegiatan yang direncanakan oleh program kerja ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_need__name
+msgid "Short name of the equipment, venue or supply that is needed."
+msgstr "Nama singkat peralatan, tempat, atau perlengkapan yang dibutuhkan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_material__name
+msgid "Short name of the material."
+msgstr "Nama singkat bahan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__staff
+msgid "Staff"
+msgstr "Staf"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__preparation_template_ids
+msgid ""
+"Standard preparation tasks that can be loaded into the occurrences of the "
+"work programs of this type."
+msgstr "Tugas persiapan standar yang dapat dimuat ke dalam pelaksanaan program kerja jenis ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__open_ok
+msgid ""
+"Start policy\n"
+"\n"
+"* If active user can see and execute 'Start' button"
+msgstr ""
+"Kebijakan mulai\n"
+"\n"
+"* Jika pengguna aktif dapat melihat dan menjalankan tombol 'Mulai'"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__time_start
+msgid "Start time of day of the rundown line."
+msgstr "Waktu mulai pada hari tersebut untuk baris rundown."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__state
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__state
+msgid "State"
+msgstr "Status"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__name
+msgid "Statement of what the program intends to achieve."
+msgstr "Pernyataan tentang apa yang ingin dicapai program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__state
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Status"
+msgstr "Status"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__activity_state
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__activity_state
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__activity_state
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__activity_state
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__activity_state
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status berdasarkan aktivitas\n"
+"Terlambat: Tanggal jatuh tempo sudah lewat\n"
+"Hari ini: Tanggal aktivitas adalah hari ini\n"
+"Direncanakan: Aktivitas mendatang."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__strategic_objective_id
+msgid "Strategic Objective"
+msgstr "Sasaran Strategis"
+
+#. module: ssi_school_work_program
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_strategic_objective_menu
+msgid "Strategic Objectives"
+msgstr "Sasaran Strategis"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__strategic_objective_id
+msgid "Strategic objective of the school this program contributes to."
+msgstr "Sasaran strategis sekolah yang didukung program ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__student
+msgid "Student"
+msgstr "Siswa"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_participant__target_id
+msgid "Target"
+msgstr "Target"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__target_description
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__target_description
+msgid "Target Description"
+msgstr "Deskripsi Target"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__section_target_ok
+msgid "Target Section Complete"
+msgstr "Bagian Target Lengkap"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation_objective__target_value
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__target_value
+msgid "Target Value"
+msgstr "Nilai Target"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__name
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__name
+msgid "Task"
+msgstr "Tugas"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields.selection,name:ssi_school_work_program.selection__work_program_target__participant_type__teacher
+msgid "Teacher"
+msgstr "Guru"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence_preparation__template_id
+msgid "Template"
+msgstr "Templat"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__background_context
+msgid "The context and circumstances surrounding the program."
+msgstr "Konteks dan keadaan yang melatarbelakangi program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__background_need
+msgid "The need or problem that makes this program necessary."
+msgstr "Kebutuhan atau masalah yang membuat program ini diperlukan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__time_end
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__time_end
+msgid "Time End"
+msgstr "Waktu Selesai"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_occurrence__time_start
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_rundown__time_start
+msgid "Time Start"
+msgstr "Waktu Mulai"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__title
+msgid "Title"
+msgstr "Judul"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__name
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__name
+msgid ""
+"Transaction/document number\n"
+"\n"
+"* Unique indentifer of transaction\n"
+"* Leave '/' to automatically generate number\n"
+"* Change '/' into any number/identifier to manually assign number.\n"
+"  Manual number assignment can be done in 'Draft' state\n"
+"  Only user with 'Can Manualy Assign Number' policy can manually assign number.\n"
+"* Transaction with number other than '/' can not be deleted."
+msgstr ""
+"Nomor transaksi/dokumen\n"
+"\n"
+"* Pengenal unik transaksi\n"
+"* Biarkan '/' untuk menghasilkan nomor secara otomatis\n"
+"* Ubah '/' menjadi nomor/pengenal apa pun untuk menetapkan nomor secara manual.\n"
+"  Penetapan nomor manual dapat dilakukan pada status 'Draf'\n"
+"  Hanya pengguna dengan kebijakan 'Dapat Menetapkan Nomor Manual' yang dapat menetapkan nomor secara manual.\n"
+"* Transaksi dengan nomor selain '/' tidak dapat dihapus."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__type_id
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type_preparation__type_id
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_view_search
+msgid "Type"
+msgstr "Jenis"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Jenis aktivitas pengecualian pada rekaman."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__type_id
+msgid ""
+"Type of the work program. It decides which planning sections are mandatory "
+"and the analytic group of the analytic account."
+msgstr "Jenis program kerja. Menentukan bagian perencanaan mana yang wajib diisi dan grup analitik dari akun analitik."
+
+#. module: ssi_school_work_program
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_type_menu
+msgid "Types"
+msgstr "Jenis"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__uom_name
+msgid "Unit"
+msgstr "Satuan"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_unread
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_unread
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_unread
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_unread
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_unread
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_unread
+msgid "Unread Messages"
+msgstr "Pesan yang Belum Dibaca"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Penghitung Pesan yang Belum Dibaca"
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_evaluation_user_group
+#: model:res.groups,name:ssi_school_work_program.work_program_user_group
+msgid "User"
+msgstr "Pengguna"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__user_id
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__user_id
+msgid ""
+"User that responsible for document\n"
+"\n"
+"* Create user can be different with responsible user\n"
+"* Automatically filled with user that initiate document creation.\n"
+"  Default responsible can be changed."
+msgstr ""
+"Pengguna yang bertanggung jawab atas dokumen\n"
+"\n"
+"* Pengguna pembuat dapat berbeda dengan pengguna penanggung jawab\n"
+"* Otomatis diisi dengan pengguna yang memulai pembuatan dokumen.\n"
+"  Penanggung jawab bawaan dapat diubah."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__reviewer_id
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__reviewer_id
+msgid ""
+"User that responsible to review document\n"
+"\n"
+"* Unless it configured to approve reviewer does not equal to approver"
+msgstr ""
+"Pengguna yang bertanggung jawab memeriksa dokumen\n"
+"\n"
+"* Kecuali dikonfigurasi untuk menyetujui, pemeriksa tidak sama dengan penyetuju"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__active_approver_user_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__active_approver_user_ids
+msgid "Users that can approve/reject document"
+msgstr "Pengguna yang dapat menyetujui/menolak dokumen"
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_evaluation_validator_group
+#: model:res.groups,name:ssi_school_work_program.work_program_validator_group
+msgid "Validator"
+msgstr "Validator"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__baseline_value
+msgid "Value of the indicator before the program starts."
+msgstr "Nilai indikator sebelum program dimulai."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__baseline_value
+msgid "Value of the indicator before the program, from the plan."
+msgstr "Nilai indikator sebelum program, sesuai rencana."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__target_value
+msgid "Value of the indicator the program aimed at, from the plan."
+msgstr "Nilai indikator yang ditargetkan program, sesuai rencana."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__target_value
+msgid "Value of the indicator the program aims to reach."
+msgstr "Nilai indikator yang ingin dicapai program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__actual_value
+msgid "Value of the numeric indicator that was actually reached."
+msgstr "Nilai indikator numerik yang benar-benar dicapai."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__location
+msgid "Venue where the occurrence takes place."
+msgstr "Tempat pelaksanaan berlangsung."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_objective__verification
+msgid "Verification"
+msgstr "Verifikasi"
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_evaluation_viewer_group
+#: model:res.groups,name:ssi_school_work_program.work_program_viewer_group
+msgid "Viewer"
+msgstr "Penampil"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program__website_message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_category__website_message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__website_message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_role__website_message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_strategic_objective__website_message_ids
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_type__website_message_ids
+msgid "Website Messages"
+msgstr "Pesan Situs Web"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program__website_message_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_category__website_message_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__website_message_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_role__website_message_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_strategic_objective__website_message_ids
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type__website_message_ids
+msgid "Website communication history"
+msgstr "Riwayat komunikasi situs web"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__occurrence_ids
+msgid "What happened on each planned implementation date."
+msgstr "Apa yang terjadi pada setiap tanggal pelaksanaan yang direncanakan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence_preparation__name
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__name
+msgid "What has to be prepared."
+msgstr "Apa yang harus dipersiapkan."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__recommendation
+msgid "What should be done differently the next time."
+msgstr "Apa yang sebaiknya dilakukan secara berbeda pada kesempatan berikutnya."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_rundown__name
+msgid "What takes place during this slot."
+msgstr "Apa yang berlangsung selama slot ini."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_resource__role_description
+msgid "What this resource person does in the program."
+msgstr "Apa yang dikerjakan narasumber ini dalam program."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__lesson_learned
+msgid "What was learned from carrying out the work program."
+msgstr "Apa yang dipelajari dari pelaksanaan program kerja."
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_work_program_evaluation__work_program_id
+#: model:ir.module.category,name:ssi_school_work_program.work_program_data_ownership_module_category
+#: model:ir.module.category,name:ssi_school_work_program.work_program_workflow_module_category
+#: model:ir.ui.menu,name:ssi_school_work_program.menu_work_program_configuration
+#: model:ir.ui.menu,name:ssi_school_work_program.menu_work_program_root
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_evaluation_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_school_work_program.work_program_occurrence_view_search
+msgid "Work Program"
+msgstr "Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_category_action
+msgid "Work Program Categories"
+msgstr "Kategori Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_category
+#: model:res.groups,name:ssi_school_work_program.work_program_category_group
+msgid "Work Program Category"
+msgstr "Kategori Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_committee
+msgid "Work Program Committee"
+msgstr "Panitia Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_role
+msgid "Work Program Committee Role"
+msgstr "Peran Panitia Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_evaluation
+#: model:ir.module.category,name:ssi_school_work_program.work_program_evaluation_data_ownership_module_category
+#: model:ir.module.category,name:ssi_school_work_program.work_program_evaluation_workflow_module_category
+msgid "Work Program Evaluation"
+msgstr "Evaluasi Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_evaluation_objective
+msgid "Work Program Evaluation Objective"
+msgstr "Sasaran Evaluasi Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_evaluation_occurrence
+msgid "Work Program Evaluation Occurrence"
+msgstr "Pelaksanaan Evaluasi Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_evaluation_participant
+msgid "Work Program Evaluation Participant"
+msgstr "Peserta Evaluasi Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_evaluation_action
+msgid "Work Program Evaluations"
+msgstr "Evaluasi Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_material
+msgid "Work Program Material"
+msgstr "Bahan Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_need
+msgid "Work Program Need"
+msgstr "Kebutuhan Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_objective
+msgid "Work Program Objective"
+msgstr "Sasaran Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_occurrence
+msgid "Work Program Occurrence"
+msgstr "Pelaksanaan Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_occurrence_preparation
+msgid "Work Program Occurrence Preparation"
+msgstr "Persiapan Pelaksanaan Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_occurrence_action
+msgid "Work Program Occurrences"
+msgstr "Pelaksanaan Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,field_description:ssi_school_work_program.field_school_academic_year__work_program_planning_deadline
+msgid "Work Program Planning Deadline"
+msgstr "Batas Waktu Perencanaan Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_resource
+msgid "Work Program Resource"
+msgstr "Sumber Daya Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:res.groups,name:ssi_school_work_program.work_program_role_group
+msgid "Work Program Role"
+msgstr "Peran Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_role_action
+msgid "Work Program Roles"
+msgstr "Peran Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_rundown
+msgid "Work Program Rundown"
+msgstr "Rundown Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_strategic_objective
+#: model:res.groups,name:ssi_school_work_program.work_program_strategic_objective_group
+msgid "Work Program Strategic Objective"
+msgstr "Sasaran Strategis Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_strategic_objective_action
+msgid "Work Program Strategic Objectives"
+msgstr "Sasaran Strategis Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_target
+msgid "Work Program Target"
+msgstr "Target Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_type
+#: model:res.groups,name:ssi_school_work_program.work_program_type_group
+msgid "Work Program Type"
+msgstr "Jenis Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model,name:ssi_school_work_program.model_work_program_type_preparation
+msgid "Work Program Type Preparation"
+msgstr "Persiapan Jenis Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_type_action
+msgid "Work Program Types"
+msgstr "Jenis Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.actions.act_window,name:ssi_school_work_program.work_program_action
+#: model:ir.ui.menu,name:ssi_school_work_program.work_program_menu
+msgid "Work Programs"
+msgstr "Program Kerja"
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_objective__evaluation_id
+msgid "Work program evaluation this objective line belongs to."
+msgstr "Evaluasi program kerja tempat baris sasaran ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_occurrence__evaluation_id
+msgid "Work program evaluation this occurrence line belongs to."
+msgstr "Evaluasi program kerja tempat baris pelaksanaan ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation_participant__evaluation_id
+msgid "Work program evaluation this participant line belongs to."
+msgstr "Evaluasi program kerja tempat baris peserta ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_evaluation__work_program_id
+msgid ""
+"Work program that is evaluated. Only a program that is on progress or done "
+"can be evaluated."
+msgstr "Program kerja yang dievaluasi. Hanya program yang sedang berjalan atau selesai yang dapat dievaluasi."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_committee__work_program_id
+msgid "Work program this committee member belongs to."
+msgstr "Program kerja tempat anggota panitia ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_material__work_program_id
+msgid "Work program this material belongs to."
+msgstr "Program kerja tempat bahan ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_need__work_program_id
+msgid "Work program this need belongs to."
+msgstr "Program kerja tempat kebutuhan ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_objective__work_program_id
+msgid "Work program this objective belongs to."
+msgstr "Program kerja tempat sasaran ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_occurrence__work_program_id
+msgid "Work program this occurrence belongs to."
+msgstr "Program kerja tempat pelaksanaan ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_target__work_program_id
+msgid "Work program this participant target belongs to."
+msgstr "Program kerja tempat target peserta ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_resource__work_program_id
+msgid "Work program this resource person belongs to."
+msgstr "Program kerja tempat narasumber ini berada."
+
+#. module: ssi_school_work_program
+#: model:ir.model.fields,help:ssi_school_work_program.field_work_program_type_preparation__type_id
+msgid "Work program type this preparation task belongs to."
+msgstr "Jenis program kerja tempat tugas persiapan ini berada."
